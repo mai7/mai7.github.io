@@ -5,17 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Blog">
 <meta property="og:url" content="https://q0519.gitee.io/blog/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/blog/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/blog/atom.xml" title="Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/blog/" id="logo">Hexo</a>
+        <a href="/blog/" id="logo">Blog</a>
       </h1>
       
     </div>
@@ -53,7 +53,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://q0519.gitee.io/blog"></form>
@@ -67,7 +67,7 @@
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2020/11/29/hello-world/" class="article-date">
-  <time datetime="2020-11-29T09:47:48.898Z" itemprop="datePublished">2020-11-29</time>
+  <time datetime="2020-11-29T11:14:16.305Z" itemprop="datePublished">2020-11-29</time>
 </a>
     
   </div>
@@ -86,13 +86,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="使用码云开始搭建一个博客"><a href="#使用码云开始搭建一个博客" class="headerlink" title="使用码云开始搭建一个博客"></a>使用码云开始搭建一个博客</h2><h3 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装hexo</span></span></span><br><span class="line">npm install hexo -g</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 创建博客，目录名任意，此处为blog</span></span></span><br><span class="line">hexo create blog</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 进入blog</span></span></span><br><span class="line">cd blog</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装hexo 部署插件</span></span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="使用码云开始搭建一个博客"><a href="#使用码云开始搭建一个博客" class="headerlink" title="使用码云开始搭建一个博客"></a>使用码云开始搭建一个博客</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装hexo</span></span></span><br><span class="line">npm install hexo -g</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 创建博客，目录名任意，此处为blog</span></span></span><br><span class="line">hexo create blog</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 进入blog</span></span></span><br><span class="line">cd blog</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装hexo 部署插件</span></span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><h4 id="配置文件-config-yml"><a href="#配置文件-config-yml" class="headerlink" title="配置文件 _config.yml"></a>配置文件 _config.yml</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL节调整如下</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://example.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://q0519.gitee.io/blog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/blog/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># deploy节调整如下</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@gitee.com:q0519/blog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://q0519.gitee.io/blog/2020/11/29/hello-world/" data-id="cki2zfi2j000038v3b2xb1qle" class="article-share-link">Share</a>
+      <a data-url="https://q0519.gitee.io/blog/2020/11/29/hello-world/" data-id="cki31l10s000084v3bmk69qno" class="article-share-link">Share</a>
       
       
     </footer>
@@ -118,9 +122,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">November 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/11/">十一月 2020</a></li></ul>
     </div>
   </div>
 
@@ -128,7 +132,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -148,7 +152,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2020 Vincent Q<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
