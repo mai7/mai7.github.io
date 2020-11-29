@@ -1,4 +1,0 @@
-@startuml
-scale 3
-Amber -> Hsing : test
-@enduml
