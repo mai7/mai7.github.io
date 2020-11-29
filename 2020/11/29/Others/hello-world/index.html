@@ -15,7 +15,7 @@
 <meta property="og:description" content="使用码云开始搭建一个博客基本步骤1234567## 安装hexo，需要配置nodejs环境npm install hexo -g## 创建博客，目录名任意，此处为bloghexo create blog## 进入blogcd blog    修改配置文件配置文件 _config.yml1234# URL节调整如下## If your site is put in a subdirectory, s">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-29T12:24:20.195Z">
-<meta property="article:modified_time" content="2020-11-29T15:11:13.092Z">
+<meta property="article:modified_time" content="2020-11-29T15:14:31.703Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
   
@@ -101,7 +101,14 @@
 <h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><p>使用如下命令创建一个新的markdown文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;Hello World！&quot;</span><br></pre></td></tr></table></figure>
 
-<p>之后可以在 _source 文件夹中找到相应的文件。</p>
+<p>之后可以在 _source 文件夹中找到相应的文件。如果使用自动建立Category插件，可能需要手工设置folder及建立文件。</p>
+<p>常用命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #清理发布文件及缓存</span><br><span class="line">hexo g	   #生成发布文件</span><br><span class="line">hexo d	   #发布到远程（依赖自动发布插件）</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="一些有用的插件"><a href="#一些有用的插件" class="headerlink" title="一些有用的插件"></a>一些有用的插件</h2><p>目前我使用了如下一些插件</p>
 <h3 id="自动发布Blog插件"><a href="#自动发布Blog插件" class="headerlink" title="自动发布Blog插件"></a>自动发布Blog插件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装hexo 部署插件</span></span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
@@ -123,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://q0519.gitee.io/blog/2020/11/29/Others/hello-world/" data-id="cki39hnxd0001ysv33pwx8on4" class="article-share-link">Share</a>
+      <a data-url="https://q0519.gitee.io/blog/2020/11/29/Others/hello-world/" data-id="cki39my6s0000mgv32p8kbi9u" class="article-share-link">Share</a>
       
       
     </footer>
