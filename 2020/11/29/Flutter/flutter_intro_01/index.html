@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Flutter 介绍 | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Flutter 配置最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。 FlutterAndroidIOSWebDesktopDart  Flutter “Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Styl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 介绍">
+<meta property="og:url" content="https://q0519.gitee.io/2020/11/29/Flutter/flutter_intro_01/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Flutter 配置最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。 FlutterAndroidIOSWebDesktopDart  Flutter “Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Styl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-29T14:54:02.636Z">
+<meta property="article:modified_time" content="2020-11-30T09:45:51.643Z">
+<meta property="article:author" content="Vincent Q">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://q0519.gitee.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Flutter/flutter_intro_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/29/Flutter/flutter_intro_01/" class="article-date">
+  <time datetime="2020-11-29T14:54:02.636Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flutter/">Flutter</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Flutter 介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="494px" preserveAspectRatio="none" style="width:602px;height:494px;" version="1.1" viewBox="0 0 602 494" width="602px" zoomAndPan="magnify"><defs><filter height="300%" id="f1le66no3r8i98" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#ADD8E6" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="122" x="214" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="82" x="234" y="269.4482">Flutter</text><rect fill="#FFA500" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="138" x="436" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="98" x="456" y="92.0879">Android</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,79.1201 416,79.1201 L436,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FFFFFF" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="86" x="436" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="46" x="456" y="210.3281">IOS</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,197.3604 416,197.3604 L436,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="98" x="436" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="58" x="456" y="328.5684">Web</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,315.6006 416,315.6006 L436,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="144" x="436" y="394.7207"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="104" x="456" y="446.8086">Desktop</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,433.8408 416,433.8408 L436,433.8408 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="94" x="20" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="54" x="40" y="269.4482">Dart</text><path d="M214,256.4805 L194,256.4805 C164,256.4805 164,256.4805 134,256.4805 L114,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0104fa95f348937798d0f93513ea9ad8]
+@startmindmap
+scale 2
+*[#lightblue] Flutter
+**[#orange] Android
+**[#white] IOS
+** Web
+** Desktop
+- - Dart
+@endmindmap
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><ol>
+<li>“Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Style，Animation，Lists，Text，Button…这些都可以用Widget 表示，Widget嵌套是Flutter的应用构建方式。举例来说，并没有一个统一的叫App的作为应用入口，所有的Widget理论上都可以作为应用的入口。Flutter当然也包含其他非Widget的对象。</li>
+<li>组合优于继承。实践中，很少通过继承方式扩展一个Widget。一般都通过组合Widget的方式构建特定的Widget对象。这有点类似React的方式。</li>
+</ol>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="376px" preserveAspectRatio="none" style="width:1686px;height:376px;" version="1.1" viewBox="0 0 1686 376" width="1686px" zoomAndPan="magnify"><defs><filter height="300%" id="fgk4l36cjdzji" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="218" x="20" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="178" x="40" y="210.3281">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="836" x="338" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="796" x="358" y="92.0879">stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑</text><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,79.1201 318,79.1201 L338,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="324" x="338" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="284" x="358" y="269.4482">stateful 淇濆瓨鐘舵��</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="224" x="762" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="184" x="782" y="210.3281">StatefulWidget</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,197.3604 742,197.3604 L762,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="902" x="762" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="862" x="782" y="328.5684">State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,315.6006 742,315.6006 L762,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,256.4805 318,256.4805 L338,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[3d5e290db8f4bbacdd5391a00c2101ae]
+@startmindmap
+scale 2
+* Flutter Widget
+** stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑
+** stateful 淇濆瓨鐘舵��
+*** StatefulWidget
+*** State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)
+@endmindmap
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="242px" preserveAspectRatio="none" style="width:432px;height:242px;background:#000000;" version="1.1" viewBox="0 0 432 242" width="432px" zoomAndPan="magnify"><defs/><g><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="415" x="5" y="19">Dot Executable: C:\Program Files (x86)\Graphviz2.38\bin\dot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="5" y="38.1201">File does not exist</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="258" x="5" y="57.2402">Cannot find Graphviz. You should try</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="76.3604"/><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="5" y="95.4805">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="5" y="114.6006">testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="5" y="133.7207">@enduml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="152.8408"/><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="15" x="9" y="171.9609">or</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="191.0811"/><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="201" x="5" y="210.2012">java -jar plantuml.jar -testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="9" y="229.3213"/><!--MD5=[4001afb7d92ac322b9b548a1be0cb492]
+@startuml
+(*) -> "Constructor"
+-right-> "Widget.createState()"
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="484px" preserveAspectRatio="none" style="width:864px;height:484px;background:#000000;" version="1.1" viewBox="0 0 864 484" width="864px" zoomAndPan="magnify"><defs/><g><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="830" x="10" y="38">Dot Executable: C:\Program Files (x86)\Graphviz2.38\bin\dot</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="260" x="10" y="76.2402">File does not exist</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="516" x="10" y="114.4805">Cannot find Graphviz. You should try</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="18" y="152.7207"/><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="142" x="10" y="190.9609">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="100" x="10" y="229.2012">testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="132" x="10" y="267.4414">@enduml</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="18" y="305.6816"/><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="30" x="18" y="343.9219">or</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="18" y="382.1621"/><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="402" x="10" y="420.4023">java -jar plantuml.jar -testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="18" y="458.6426"/><!--MD5=[4a2bac91915186d47394cc4511db2179]
+@startuml
+scale 2
+skinparam classFontColor automatic
+
+rectangle Constructor 
+rectangle mounted #gray/white
+rectangle initState
+rectangle "dirty state" as dirty_state #gray
+rectangle build
+rectangle "clean state" as clean_state #gray
+rectangle dispose
+
+rectangle didChangeDependencies
+
+rectangle setState
+rectangle didUpdateState
+
+Constructor -r-> mounted
+mounted -r-> initState
+initState -r-> dirty_state
+initState -d-> didChangeDependencies
+didChangeDependencies -u-> dirty_state
+dirty_state -r-> build
+build -r-> clean_state
+clean_state -r-> dispose
+clean_state -d-> setState
+setState -u-> dirty_state
+
+clean_state -d-> didUpdateState
+didUpdateState -u-> dirty_state
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://q0519.gitee.io/2020/11/29/Flutter/flutter_intro_01/" data-id="cki4dfmxq0000wkv3318qhanh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/30/PlantUML/plant_tricks_01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PlantUML 使用技巧 - 1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/29/Others/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Gitee + Hexo搭建一个顺手的技术Blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Flutter/">Flutter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/30/Dart/dart_intro_01/">Dart 编程语言说明 - 基本概念</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/30/PlantUML/plant_tricks_01/">PlantUML 使用技巧 - 1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/Flutter/flutter_intro_01/">Flutter 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/Others/hello-world/">使用Gitee + Hexo搭建一个顺手的技术Blog</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Vincent Q<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

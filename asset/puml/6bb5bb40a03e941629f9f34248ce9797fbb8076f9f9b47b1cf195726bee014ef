@@ -1,0 +1,11 @@
+@startuml
+    rectangle a #red
+    rectangle b
+    rectangle c
+    rectangle d
+
+    a -[#pink,dashed,thickness=3]u-> b
+    a -[#black,dotted]d----> c
+    a -l-> d
+    a -r-> e
+@enduml
