@@ -15,7 +15,7 @@
 <meta property="og:description" content="Flutter 配置最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。 FlutterAndroidIOSWebDesktopDart  Flutter “Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Styl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-29T14:54:02.636Z">
-<meta property="article:modified_time" content="2020-11-30T10:07:34.660Z">
+<meta property="article:modified_time" content="2020-11-30T11:27:49.109Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
   
@@ -230,12 +230,97 @@ Country: CN
 
 
 
+<h2 id="Application-Style"><a href="#Application-Style" class="headerlink" title="Application Style"></a>Application Style</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="133px" preserveAspectRatio="none" style="width:414px;height:133px;" version="1.1" viewBox="0 0 414 133" width="414px" zoomAndPan="magnify"><defs><filter height="300%" id="fetwldjqhooje" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fetwldjqhooje)" height="36.3887" style="stroke: #A80036; stroke-width: 1.5;" width="83" x="155" y="10"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="165" y="33.752">Flutter Style</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="196.5" x2="196.5" y1="46.3887" y2="66.3887"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="91.5" x2="91.5" y1="66.3887" y2="86.3887"/><rect fill="#ADD8E6" filter="url(#fetwldjqhooje)" height="36.3887" style="stroke: #A80036; stroke-width: 1.5;" width="163" x="10" y="86.3887"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="20" y="110.1406">Material Design ( Google )</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="298" x2="298" y1="66.3887" y2="86.3887"/><rect fill="#FFA500" filter="url(#fetwldjqhooje)" height="36.3887" style="stroke: #A80036; stroke-width: 1.5;" width="210" x="193" y="86.3887"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="190" x="203" y="110.1406">Cupertion (IOS Style, less widgets)</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="91.5" x2="298" y1="66.3887" y2="66.3887"/><!--MD5=[eed18a9a65c722083a89b205173df282]
+@startwbs
+<style>
+wbsDiagram {
 
+  .white {
+    BackgroundColor white
+  }
+  .lightblue {
+      BackgroundColor lightblue
+  }
+  .orange {
+      BackgroundColor orange
+  }
+  
+}
+</style>
+* Flutter Style <<white>>
+** Material Design ( Google ) <<lightblue>>
+** Cupertion (IOS Style, less widgets) <<orange>>
+@endwbs
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+
+
+
+
+<h2 id="Widget类型"><a href="#Widget类型" class="headerlink" title="Widget类型"></a>Widget类型</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="779px" preserveAspectRatio="none" style="width:473px;height:779px;" version="1.1" viewBox="0 0 473 779" width="473px" zoomAndPan="magnify"><defs><filter height="300%" id="f1dwhfsqrtofu8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="116" x="10" y="374.7207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="96" x="20" y="400.7646">Flutter Widgets</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="176" y="108.6802"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="186" y="134.7241">Layout</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="47" x="289" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="299" y="46.0439">Row</text><path d="M239,128.2402 L249,128.2402 C264,128.2402 264,39.5601 279,39.5601 L289,39.5601 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="289" y="79.1201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="299" y="105.1641">Column</text><path d="M239,128.2402 L249,128.2402 C264,128.2402 264,98.6802 279,98.6802 L289,98.6802 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="289" y="138.2402"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="299" y="164.2842">Scaffold</text><path d="M239,128.2402 L249,128.2402 C264,128.2402 264,157.8003 279,157.8003 L289,157.8003 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="55" x="289" y="197.3604"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="35" x="299" y="223.4043">Stack</text><path d="M239,128.2402 L249,128.2402 C264,128.2402 264,216.9204 279,216.9204 L289,216.9204 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M126,394.2808 L136,394.2808 C151,394.2808 151,128.2402 166,128.2402 L176,128.2402 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="176" y="256.4805"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="186" y="282.5244">Animations</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="101" x="315" y="256.4805"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="81" x="325" y="282.5244">FadeInPhote</text><path d="M265,276.0405 L275,276.0405 C290,276.0405 290,276.0405 305,276.0405 L315,276.0405 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M126,394.2808 L136,394.2808 C151,394.2808 151,276.0405 166,276.0405 L176,276.0405 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="85" x="176" y="374.7207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="65" x="186" y="400.7646">Structures</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="311" y="315.6006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="321" y="341.6445">Button</text><path d="M261,394.2808 L271,394.2808 C286,394.2808 286,335.1606 301,335.1606 L311,335.1606 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="56" x="311" y="374.7207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="321" y="400.7646">Toast</text><path d="M261,394.2808 L271,394.2808 C286,394.2808 286,394.2808 301,394.2808 L311,394.2808 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="100" x="311" y="433.8408"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="321" y="459.8848">MenuDrawer</text><path d="M261,394.2808 L271,394.2808 C286,394.2808 286,453.4009 301,453.4009 L311,453.4009 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M126,394.2808 L136,394.2808 C151,394.2808 151,394.2808 166,394.2808 L176,394.2808 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="176" y="552.0811"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="31" x="186" y="578.125">Style</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="277" y="492.9609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="58" x="287" y="519.0049">TextStyle</text><path d="M227,571.6411 L237,571.6411 C252,571.6411 252,512.521 267,512.521 L277,512.521 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="54" x="277" y="552.0811"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="34" x="287" y="578.125">Color</text><path d="M227,571.6411 L237,571.6411 C252,571.6411 252,571.6411 267,571.6411 L277,571.6411 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="277" y="611.2012"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="52" x="287" y="637.2451">Padding</text><path d="M227,571.6411 L237,571.6411 C252,571.6411 252,630.7612 267,630.7612 L277,630.7612 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M126,394.2808 L136,394.2808 C151,394.2808 151,571.6411 166,571.6411 L176,571.6411 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="164" x="176" y="699.8813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="144" x="186" y="725.9253">Position and Alignment</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="390" y="670.3213"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="400" y="696.3652">Center</text><path d="M340,719.4414 L350,719.4414 C365,719.4414 365,689.8813 380,689.8813 L390,689.8813 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="390" y="729.4414"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="52" x="400" y="755.4854">Padding</text><path d="M340,719.4414 L350,719.4414 C365,719.4414 365,749.0015 380,749.0015 L390,749.0015 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M126,394.2808 L136,394.2808 C151,394.2808 151,719.4414 166,719.4414 L176,719.4414 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[28aeb406b3891813faf01a57e95f53df]
+@startmindmap
+
++ Flutter Widgets
+
+++ Layout
++++ Row
++++ Column
++++ Scaffold
++++ Stack
+
+++ Animations
++++ FadeInPhote
+
+++ Structures
++++ Button
++++ Toast
++++ MenuDrawer
+
+++ Style
++++ TextStyle
++++ Color
++++ Padding
+
+++ Position and Alignment
++++ Center
++++ Padding
+
+@endmindmap
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<p>每一个Widget均提供<em>build</em> 方法，并且该方法均需返回一个Widget对象。</p>
+<p>StateFulWidget的build方法由State对象提供，通过*createState()*方法建立。StateFulWidget的伴随对象State是可以改变的，但StateFulWidget自身与StateLess对象一样，是不可变的（Immutable)。</p>
+<h2 id="Widget的build方法以及BuildContext对象"><a href="#Widget的build方法以及BuildContext对象" class="headerlink" title="Widget的build方法以及BuildContext对象"></a>Widget的build方法以及BuildContext对象</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Widget build(BuildContext context) </span><br></pre></td></tr></table></figure>
+
+<p>BuildContext由Flutter框架构建，在其调用build方法时传入。</p>
+<h2 id="State对象的setState方法"><a href="#State对象的setState方法" class="headerlink" title="State对象的setState方法"></a>State对象的setState方法</h2><p>setState接受一个VoidCallback函数对象作为参数，在调用时将会依照配置重新调用所有依赖对象的buid方法完成重绘。注意，相关数据准备应该在重绘开始前完成，这意味着不可以执行一个异步(Async) 方法且不等待其完成，并且期待其结束后再次重绘UI。</p>
+<h2 id="State对象的initState方法"><a href="#State对象的initState方法" class="headerlink" title="State对象的initState方法"></a>State对象的initState方法</h2><p>当Widget对象被Flutter装载时调用，在Flutter试图执行绘制前执行，用来初始化数据。</p>
+<p>一般需要先调用super.initState()方法。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://q0519.gitee.io/2020/11/29/Flutter/flutter_intro_01/" data-id="cki4e4ioq0003bov3910zf6dg" class="article-share-link">Share</a>
+      <a data-url="https://q0519.gitee.io/2020/11/29/Flutter/flutter_intro_01/" data-id="cki4ttfen00038sv392d6hc4j" class="article-share-link">Share</a>
       
       
     </footer>

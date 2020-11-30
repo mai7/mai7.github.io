@@ -1,0 +1,20 @@
+@startwbs
+<style>
+wbsDiagram {
+
+  .white {
+    BackgroundColor white
+  }
+  .lightblue {
+      BackgroundColor lightblue
+  }
+  .orange {
+      BackgroundColor orange
+  }
+  
+}
+</style>
+* Flutter Style <<white>>
+** Material Design ( Google ) <<lightblue>>
+** Cupertion (IOS Style, less widgets) <<orange>>
+@endwbs
