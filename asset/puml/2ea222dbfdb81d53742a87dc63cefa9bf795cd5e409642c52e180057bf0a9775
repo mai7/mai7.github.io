@@ -1,5 +1,5 @@
 @startuml
-scale 2
+scale 0.6
 skinparam classFontColor automatic
 
 rectangle Constructor 
