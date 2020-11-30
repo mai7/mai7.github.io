@@ -1,8 +1,0 @@
-@startmindmap
-scale 2
-* Flutter Widget
-** stateless 不保存状态,用于展示UI，静态文本等
-** stateful 保存状态
-*** StatefulWidget
-*** State (setState() 通知Flutter，相关区域需要重新绘制)
-@endmindmap
