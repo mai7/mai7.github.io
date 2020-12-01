@@ -151,6 +151,71 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/GNU%20Tools/autotools/" class="post-title-link" itemprop="url">Autotools 阅读实践笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-01 18:41:35 / Modified: 19:13:46" itemprop="dateCreated datePublished" datetime="2020-12-01T18:41:35+08:00">2020-12-01</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是我在windows环境下，使用Msys2 64 / Mingw64 进行C语言编程的一些笔记。</p>
+<p>熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。</p>
+<h3 id="II-改变默认安装路径"><a href="#II-改变默认安装路径" class="headerlink" title="II. 改变默认安装路径"></a>II. 改变默认安装路径</h3><p>一般安装步骤如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make install</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一般安装路径都是 /usr/<span class="built_in">local</span>/bin, 但可以通过设置prefix为其他路径来调整。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译后的文件安装到$HOME/bin目录</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$HOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译好的文件安装到当前目录的子目录下</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$PWD</span>/mytest</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一般来说，prefix指向的路径应该是全路径而非相对路径，因为编译时会跳转到不同目录，依赖相对路径将导致不稳定的文件生成。</p>
+<h3 id="II-安装Clang"><a href="#II-安装Clang" class="headerlink" title="II.安装Clang"></a>II.安装Clang</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mingw64/mingw-w64-x86_64-clang</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang -Wall hello.c -o hello</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/Others/glossary_in_cs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -693,7 +758,7 @@ Country: CN
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-30 19:27:49" itemprop="dateModified" datetime="2020-11-30T19:27:49+08:00">2020-11-30</time>
+                <time title="Modified: 2020-12-01 19:15:49" itemprop="dateModified" datetime="2020-12-01T19:15:49+08:00">2020-12-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -716,7 +781,8 @@ Country: CN
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本系列是我在熟悉Flutter编程语言时记录的一些笔记，希望通过这些记录，掌握Flutter在移动端的一般开发方法，目标是做出一些自己满意的产品。</p>
+<h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:301px;height:247px;" version="1.1" viewBox="0 0 301 247" width="301px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wbedaoqvqwn7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="107" y="108.6802"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="117" y="134.7241">Flutter</text><rect fill="#FFA500" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="69" x="218" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="49" x="228" y="46.0439">Android</text><path d="M168,128.2402 L178,128.2402 C193,128.2402 193,39.5601 208,39.5601 L218,39.5601 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#ADD8E6" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="43" x="218" y="79.1201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="23" x="228" y="105.1641">IOS</text><path d="M168,128.2402 L178,128.2402 C193,128.2402 193,98.6802 208,98.6802 L218,98.6802 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#90EE90" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="49" x="218" y="138.2402"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="29" x="228" y="164.2842">Web</text><path d="M168,128.2402 L178,128.2402 C193,128.2402 193,157.8003 208,157.8003 L218,157.8003 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#C0C0C0" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="72" x="218" y="197.3604"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="52" x="228" y="223.4043">Desktop</text><path d="M168,128.2402 L178,128.2402 C193,128.2402 193,216.9204 208,216.9204 L218,216.9204 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#f1wbedaoqvqwn7)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="47" x="10" y="108.6802"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="20" y="134.7241">Dart</text><path d="M107,128.2402 L97,128.2402 C82,128.2402 82,128.2402 67,128.2402 L57,128.2402 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bd07f198a40a7bfd98d21b4fd38605f4]
 @startmindmap
 scale 1
@@ -1145,7 +1211,7 @@ Country: CN
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
