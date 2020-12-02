@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="简介以下是我在windows环境下，使用Msys2 64 &#x2F; Mingw64 进行C语言编程的一些笔记。 熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。 II. 改变默认安装路径一般安装步骤如下 123$ .&#x2F;configure$ .&#x2F;make$ .&#x2F;make install  12345678# 一般安">
+  <meta name="description" content="Docker 学习笔记  使用动机Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。 目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。 基本使用命令搜寻镜像docker search –no-trun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Autotools 阅读实践笔记">
-<meta property="og:url" content="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/index.html">
+<meta property="og:title" content="Blog">
+<meta property="og:url" content="https://q0519.gitee.io/2020/12/02/Docker/docker_101/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="简介以下是我在windows环境下，使用Msys2 64 &#x2F; Mingw64 进行C语言编程的一些笔记。 熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。 II. 改变默认安装路径一般安装步骤如下 123$ .&#x2F;configure$ .&#x2F;make$ .&#x2F;make install  12345678# 一般安">
+<meta property="og:description" content="Docker 学习笔记  使用动机Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。 目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。 基本使用命令搜寻镜像docker search –no-trun">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-01T10:41:35.528Z">
-<meta property="article:modified_time" content="2020-12-01T11:18:23.550Z">
+<meta property="article:published_time" content="2020-12-02T09:50:58.019Z">
+<meta property="article:modified_time" content="2020-12-02T10:30:39.638Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
+<link rel="canonical" href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Autotools 阅读实践笔记 | Blog</title>
+  <title> | Blog</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Autotools 阅读实践笔记
+          
         </h1>
 
         <div class="post-meta">
@@ -180,16 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-12-01 18:41:35 / Modified: 19:18:23" itemprop="dateCreated datePublished" datetime="2020-12-01T18:41:35+08:00">2020-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GNU-Tools/" itemprop="url" rel="index"><span itemprop="name">GNU Tools</span></a>
-                </span>
+              <time title="Created: 2020-12-02 17:50:58 / Modified: 18:30:39" itemprop="dateCreated datePublished" datetime="2020-12-02T17:50:58+08:00">2020-12-02</time>
             </span>
 
           
@@ -203,14 +194,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是我在windows环境下，使用Msys2 64 / Mingw64 进行C语言编程的一些笔记。</p>
-<p>熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。</p>
-<h3 id="II-改变默认安装路径"><a href="#II-改变默认安装路径" class="headerlink" title="II. 改变默认安装路径"></a>II. 改变默认安装路径</h3><p>一般安装步骤如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make install</span></span><br></pre></td></tr></table></figure>
+        <hr>
+<pre><code>Docker 学习笔记</code></pre>
+<hr>
+<h3 id="使用动机"><a href="#使用动机" class="headerlink" title="使用动机"></a>使用动机</h3><p>Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。</p>
+<p>目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。</p>
+<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><h4 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h4><p>docker search <strong>–no-trunc</strong> xxx</p>
+<p>no-trunc 的选项可以不截断结果中的文字。比如Description过长，默认会被截断。</p>
+<h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>docker pull <em>image-name</em></p>
+<h4 id="列举本地镜像"><a href="#列举本地镜像" class="headerlink" title="列举本地镜像"></a>列举本地镜像</h4><p>docker image ls</p>
+<h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --itd --name *name_of_a_new_container*  -p6379:6379 *image_name* </span><br><span class="line"><span class="meta">#</span><span class="bash">-d表示后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p本地映射端口:远程端口</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一般安装路径都是 /usr/<span class="built_in">local</span>/bin, 但可以通过设置prefix为其他路径来调整。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译后的文件安装到$HOME/bin目录</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$HOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译好的文件安装到当前目录的子目录下</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$PWD</span>/mytest</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>一般来说，prefix指向的路径应该是全路径而非相对路径，因为编译时会跳转到不同目录，依赖相对路径将导致不稳定的文件生成。</p>
-<h3 id="II-安装Clang"><a href="#II-安装Clang" class="headerlink" title="II.安装Clang"></a>II.安装Clang</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mingw64/mingw-w64-x86_64-clang</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang -Wall hello.c -o hello</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>-p端口映射相应说明可以<a target="_blank" rel="noopener" href="https://blog.csdn.net/chengxuyuanyonghu/article/details/76630617">参考这个网站</a></p>
+<p>如果遇到运行时报名字冲突，证明已经创建过相应名字的容器了。此时需要通过start启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -a image_name #-a指attach到stdin/stderr，可以在命令行中看到连接后的容器输出</span><br></pre></td></tr></table></figure>
+
+<p>停止镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop image_name</span><br></pre></td></tr></table></figure>
+
+<p>docker rm <em>image_name</em> 删除掉容器，再重建。</p>
+<h4 id="查询当前运行的镜像"><a href="#查询当前运行的镜像" class="headerlink" title="查询当前运行的镜像"></a>查询当前运行的镜像</h4><p>docker ps  显示运行的镜像</p>
+<p>显示所有已经创建的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
     </div>
 
     
@@ -244,13 +255,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/01/Others/glossary_in_cs/" rel="prev" title="软件工程中一些常见的缩写">
-      <i class="fa fa-chevron-left"></i> 软件工程中一些常见的缩写
+    <a href="/2020/12/01/GNU%20Tools/autotools/" rel="prev" title="Autotools 阅读实践笔记">
+      <i class="fa fa-chevron-left"></i> Autotools 阅读实践笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/02/Docker/docker_101/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -309,7 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-%E6%94%B9%E5%8F%98%E9%BB%98%E8%AE%A4%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84"><span class="nav-number">2.</span> <span class="nav-text">II. 改变默认安装路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-%E5%AE%89%E8%A3%85Clang"><span class="nav-number">3.</span> <span class="nav-text">II.安装Clang</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">使用动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">基本使用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%90%9C%E5%AF%BB%E9%95%9C%E5%83%8F"><span class="nav-number">2.1.</span> <span class="nav-text">搜寻镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">2.2.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E4%B8%BE%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.</span> <span class="nav-text">列举本地镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%95%9C%E5%83%8F"><span class="nav-number">2.4.</span> <span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E8%BF%90%E8%A1%8C%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">2.5.</span> <span class="nav-text">查询当前运行的镜像</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

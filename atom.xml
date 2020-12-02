@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-01T11:18:23.550Z</updated>
+  <updated>2020-12-02T10:30:39.638Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/"/>
+    <id>https://q0519.gitee.io/2020/12/02/Docker/docker_101/</id>
+    <published>2020-12-02T09:50:58.019Z</published>
+    <updated>2020-12-02T10:30:39.638Z</updated>
+    
+    <content type="html"><![CDATA[<hr><pre><code>Docker 学习笔记</code></pre><hr><h3 id="使用动机"><a href="#使用动机" class="headerlink" title="使用动机"></a>使用动机</h3><p>Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。</p><p>目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。</p><h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><h4 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h4><p>docker search <strong>–no-trunc</strong> xxx</p><p>no-trunc 的选项可以不截断结果中的文字。比如Description过长，默认会被截断。</p><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>docker pull <em>image-name</em></p><h4 id="列举本地镜像"><a href="#列举本地镜像" class="headerlink" title="列举本地镜像"></a>列举本地镜像</h4><p>docker image ls</p><h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --itd --name *name_of_a_new_container*  -p6379:6379 *image_name* </span><br><span class="line"><span class="meta">#</span><span class="bash">-d表示后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p本地映射端口:远程端口</span></span><br></pre></td></tr></table></figure><p>-p端口映射相应说明可以<a href="https://blog.csdn.net/chengxuyuanyonghu/article/details/76630617">参考这个网站</a></p><p>如果遇到运行时报名字冲突，证明已经创建过相应名字的容器了。此时需要通过start启动容器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -a image_name #-a指attach到stdin/stderr，可以在命令行中看到连接后的容器输出</span><br></pre></td></tr></table></figure><p>停止镜像</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop image_name</span><br></pre></td></tr></table></figure><p>docker rm <em>image_name</em> 删除掉容器，再重建。</p><h4 id="查询当前运行的镜像"><a href="#查询当前运行的镜像" class="headerlink" title="查询当前运行的镜像"></a>查询当前运行的镜像</h4><p>docker ps  显示运行的镜像</p><p>显示所有已经创建的镜像</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;Docker 学习笔记&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;使用动机&quot;&gt;&lt;a href=&quot;#使用动机&quot; class=&quot;headerlink&quot; title=&quot;使用动机&quot;&gt;&lt;/a&gt;使用动机&lt;/h3&gt;&lt;p&gt;Docker 容器是一种轻量级的</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Autotools 阅读实践笔记</title>
