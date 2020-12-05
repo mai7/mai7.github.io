@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-03T07:41:51.607Z</updated>
+  <updated>2020-12-05T14:45:12.269Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GIT Rebase 学习</title>
+    <link href="https://q0519.gitee.io/2020/12/05/Others/git_tutorial/"/>
+    <id>https://q0519.gitee.io/2020/12/05/Others/git_tutorial/</id>
+    <published>2020-12-05T14:27:21.954Z</published>
+    <updated>2020-12-05T14:45:12.269Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>一般git rebase在过去项目中很少用到，最近阅读了如下bolg, <a href="https://blog.scottlogic.com/2020/01/09/git-rebasing.html">Git Rebase</a> ，很赞同作者说的“提交历史质量与代码质量同等重要” ，因此在囫囵吞枣式地阅读了一下后，有了如下笔记。</p><h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><h3 id="用于合并本地若干次提交"><a href="#用于合并本地若干次提交" class="headerlink" title="用于合并本地若干次提交"></a>用于合并本地若干次提交</h3><p>将本地近三次提交合并，可以通过rebase -i 进入交互式编辑</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure><p>之后，在文本编辑界面中，将看到最近几次提交的记录，类似</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pick 09i3foe comments</span><br><span class="line">pick jeo32jo comments</span><br><span class="line">pick je323jo comments</span><br></pre></td></tr></table></figure><p>此时，可以通过改变pick命令来完成多次提交的合并。相关指令说明：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Commands:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> p, pick &lt;commit&gt; = use commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> r, reword &lt;commit&gt; = use commit, but edit the commit message</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> e, edit &lt;commit&gt; = use commit, but stop <span class="keyword">for</span> amending</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> s, squash &lt;commit&gt; = use commit, but meld into previous commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> f, fixup &lt;commit&gt; = like <span class="string">&quot;squash&quot;</span>, but discard this commit<span class="string">&#x27;s log message</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> x, <span class="built_in">exec</span> &lt;<span class="built_in">command</span>&gt; = run <span class="built_in">command</span> (the rest of the line) using shell</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> b, <span class="built_in">break</span> = stop here (<span class="built_in">continue</span> Rebase later with <span class="string">&#x27;git rebase --continue&#x27;</span>)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> d, drop &lt;commit&gt; = remove commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> l, label &lt;label&gt; = label current HEAD with a name</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> t, reset &lt;label&gt; = reset HEAD to a label</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [<span class="comment"># &lt;oneline&gt;]</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       create a merge commit using the original merge commit<span class="string">&#x27;s</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       message (or the oneline, <span class="keyword">if</span> no original merge commit was</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       specified). Use -c &lt;commit&gt; to reword the commit message.</span></span><br></pre></td></tr></table></figure><p>显然，可以通过将第一个保留为pick，将其他的改为squash或者fixup来完成多条提交合并。</p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h3&gt;&lt;p&gt;一般git rebase在过去项目中很少用到，最近阅读了如下bolg, &lt;a href=&quot;https://blog.scottlogic.c</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Guarded Suspension 保护性暂挂模式</title>
+    <link href="https://q0519.gitee.io/2020/12/04/Design%20Pattern/Concurrent%20Pattern/guarded_suspension/"/>
+    <id>https://q0519.gitee.io/2020/12/04/Design%20Pattern/Concurrent%20Pattern/guarded_suspension/</id>
+    <published>2020-12-04T09:59:42.354Z</published>
+    <updated>2020-12-04T10:02:02.004Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>如何有效提bug</title>
