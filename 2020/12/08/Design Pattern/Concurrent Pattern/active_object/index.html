@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="说明主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。 类图ClientProxyasyncService( Object ) : FutureSchedulerdispatch()enqueue( methodReq : MethodRequest)ActivationQueueenqueue( methodReq : Metho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Activate Object 主动对象模式">
+<meta property="og:url" content="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="说明主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。 类图ClientProxyasyncService( Object ) : FutureSchedulerdispatch()enqueue( methodReq : MethodRequest)ActivationQueueenqueue( methodReq : Metho">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-08T09:07:08.973Z">
+<meta property="article:modified_time" content="2020-12-08T09:22:30.808Z">
+<meta property="article:author" content="Vincent Q">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Activate Object 主动对象模式 | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Activate Object 主动对象模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 17:07:08 / Modified: 17:22:30" itemprop="dateCreated datePublished" datetime="2020-12-08T17:07:08+08:00">2020-12-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="629px" preserveAspectRatio="none" style="width:497px;height:629px;" version="1.1" viewBox="0 0 497 629" width="497px" zoomAndPan="magnify"><defs><filter height="300%" id="f1o08o093emmb2" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="48" id="Client" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="392" y="8"/><ellipse cx="407" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M405.5781,29.3594 Q403.7188,29.3594 402.625,27.9688 Q401.5313,26.5781 401.5313,23.5938 Q401.5313,21.0625 402.6953,19.4063 Q403.8594,17.75 405.8438,17.75 Q407.3125,17.75 407.7813,17.875 Q408.25,18.0781 408.25,18.0781 Q408.25,18.0781 408.25,18.0078 Q408.25,17.9375 408.8594,17.0156 L409.9063,20.6719 L408.5781,21.0781 Q408.1094,19.5313 407.4453,18.8672 Q406.7813,18.2031 405.7188,18.2031 Q405.3281,18.2031 404.5625,19.7344 Q403.7969,21.2656 403.7969,23.5156 Q403.7969,25.9844 404.4609,27.375 Q405.125,28.7656 405.6563,28.7656 Q406.7188,28.7656 407.4766,28 Q408.2344,27.2344 408.5781,25.5781 L409.9063,26.1719 Q409.5781,27.5781 408.6797,28.4688 Q407.7813,29.3594 405.5781,29.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="32" x="421" y="29.5576">Client</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="393" x2="455" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="393" x2="455" y1="48" y2="48"/><!--MD5=[f7109e258b7e3e4bb390e34b115b99ce]
+class Proxy--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="Proxy" style="stroke: #A80036; stroke-width: 1.5;" width="178" x="229" y="117"/><ellipse cx="299.25" cy="133" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M297.8281,138.3594 Q295.9688,138.3594 294.875,136.9688 Q293.7813,135.5781 293.7813,132.5938 Q293.7813,130.0625 294.9453,128.4063 Q296.1094,126.75 298.0938,126.75 Q299.5625,126.75 300.0313,126.875 Q300.5,127.0781 300.5,127.0781 Q300.5,127.0781 300.5,127.0078 Q300.5,126.9375 301.1094,126.0156 L302.1563,129.6719 L300.8281,130.0781 Q300.3594,128.5313 299.6953,127.8672 Q299.0313,127.2031 297.9688,127.2031 Q297.5781,127.2031 296.8125,128.7344 Q296.0469,130.2656 296.0469,132.5156 Q296.0469,134.9844 296.7109,136.375 Q297.375,137.7656 297.9063,137.7656 Q298.9688,137.7656 299.7266,137 Q300.4844,136.2344 300.8281,134.5781 L302.1563,135.1719 Q301.8281,136.5781 300.9297,137.4688 Q300.0313,138.3594 297.8281,138.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="29" x="319.75" y="138.5576">Proxy</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="230" x2="406" y1="149" y2="149"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="230" x2="406" y1="157" y2="157"/><ellipse cx="240" cy="168" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="152" x="249" y="173.606">asyncService( Object ) : Future</text><!--MD5=[8523c9eb2e1b5151dfc9c2a797373c5f]
+class Scheduler--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="78.0459" id="Scheduler" style="stroke: #A80036; stroke-width: 1.5;" width="217" x="7.5" y="259"/><ellipse cx="83.75" cy="275" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M82.3281,280.3594 Q80.4688,280.3594 79.375,278.9688 Q78.2813,277.5781 78.2813,274.5938 Q78.2813,272.0625 79.4453,270.4063 Q80.6094,268.75 82.5938,268.75 Q84.0625,268.75 84.5313,268.875 Q85,269.0781 85,269.0781 Q85,269.0781 85,269.0078 Q85,268.9375 85.6094,268.0156 L86.6563,271.6719 L85.3281,272.0781 Q84.8594,270.5313 84.1953,269.8672 Q83.5313,269.2031 82.4688,269.2031 Q82.0781,269.2031 81.3125,270.7344 Q80.5469,272.2656 80.5469,274.5156 Q80.5469,276.9844 81.2109,278.375 Q81.875,279.7656 82.4063,279.7656 Q83.4688,279.7656 84.2266,279 Q84.9844,278.2344 85.3281,276.5781 L86.6563,277.1719 Q86.3281,278.5781 85.4297,279.4688 Q84.5313,280.3594 82.3281,280.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="56" x="104.25" y="280.5576">Scheduler</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8.5" x2="223.5" y1="291" y2="291"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="8.5" x2="223.5" y1="299" y2="299"/><ellipse cx="18.5" cy="310" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="27.5" y="315.606">dispatch()</text><ellipse cx="18.5" cy="325.0229" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="191" x="27.5" y="330.6289">enqueue( methodReq : MethodRequest)</text><!--MD5=[7ac0d861308d3e6f548cc9575b4620cb]
+class ActivationQueue--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="78.0459" id="ActivationQueue" style="stroke: #A80036; stroke-width: 1.5;" width="220" x="6" y="398"/><ellipse cx="67.75" cy="414" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M66.3281,419.3594 Q64.4688,419.3594 63.375,417.9688 Q62.2813,416.5781 62.2813,413.5938 Q62.2813,411.0625 63.4453,409.4063 Q64.6094,407.75 66.5938,407.75 Q68.0625,407.75 68.5313,407.875 Q69,408.0781 69,408.0781 Q69,408.0781 69,408.0078 Q69,407.9375 69.6094,407.0156 L70.6563,410.6719 L69.3281,411.0781 Q68.8594,409.5313 68.1953,408.8672 Q67.5313,408.2031 66.4688,408.2031 Q66.0781,408.2031 65.3125,409.7344 Q64.5469,411.2656 64.5469,413.5156 Q64.5469,415.9844 65.2109,417.375 Q65.875,418.7656 66.4063,418.7656 Q67.4688,418.7656 68.2266,418 Q68.9844,417.2344 69.3281,415.5781 L70.6563,416.1719 Q70.3281,417.5781 69.4297,418.4688 Q68.5313,419.3594 66.3281,419.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="88.25" y="419.5576">ActivationQueue</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="225" y1="430" y2="430"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="225" y1="438" y2="438"/><ellipse cx="17" cy="449" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194" x="26" y="454.606">enqueue( methodReq : MethodRequest )</text><ellipse cx="17" cy="464.0229" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="26" y="469.6289">dequeue () : MethodRequest</text><!--MD5=[6f55398781c5f964533f8511f7366b70]
+class MethodRequest--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="MethodRequest" style="stroke: #A80036; stroke-width: 1.5;" width="119" x="259.5" y="266.5"/><ellipse cx="274.5" cy="282.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M273.0781,287.8594 Q271.2188,287.8594 270.125,286.4688 Q269.0313,285.0781 269.0313,282.0938 Q269.0313,279.5625 270.1953,277.9063 Q271.3594,276.25 273.3438,276.25 Q274.8125,276.25 275.2813,276.375 Q275.75,276.5781 275.75,276.5781 Q275.75,276.5781 275.75,276.5078 Q275.75,276.4375 276.3594,275.5156 L277.4063,279.1719 L276.0781,279.5781 Q275.6094,278.0313 274.9453,277.3672 Q274.2813,276.7031 273.2188,276.7031 Q272.8281,276.7031 272.0625,278.2344 Q271.2969,279.7656 271.2969,282.0156 Q271.2969,284.4844 271.9609,285.875 Q272.625,287.2656 273.1563,287.2656 Q274.2188,287.2656 274.9766,286.5 Q275.7344,285.7344 276.0781,284.0781 L277.4063,284.6719 Q277.0781,286.0781 276.1797,286.9688 Q275.2813,287.8594 273.0781,287.8594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="87" x="288.5" y="288.0576">MethodRequest</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="377.5" y1="298.5" y2="298.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="377.5" y1="306.5" y2="306.5"/><ellipse cx="270.5" cy="317.5" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="279.5" y="323.106">call()</text><!--MD5=[a1b8371b5b3d6eab25cd19c8ab04f757]
+class Servant--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="Servant" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="68" y="555"/><ellipse cx="93.35" cy="571" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M91.9281,576.3594 Q90.0688,576.3594 88.975,574.9688 Q87.8813,573.5781 87.8813,570.5938 Q87.8813,568.0625 89.0453,566.4063 Q90.2094,564.75 92.1938,564.75 Q93.6625,564.75 94.1313,564.875 Q94.6,565.0781 94.6,565.0781 Q94.6,565.0781 94.6,565.0078 Q94.6,564.9375 95.2094,564.0156 L96.2563,567.6719 L94.9281,568.0781 Q94.4594,566.5313 93.7953,565.8672 Q93.1313,565.2031 92.0688,565.2031 Q91.6781,565.2031 90.9125,566.7344 Q90.1469,568.2656 90.1469,570.5156 Q90.1469,572.9844 90.8109,574.375 Q91.475,575.7656 92.0063,575.7656 Q93.0688,575.7656 93.8266,575 Q94.5844,574.2344 94.9281,572.5781 L96.2563,573.1719 Q95.9281,574.5781 95.0297,575.4688 Q94.1313,576.3594 91.9281,576.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="41" x="109.65" y="576.5576">Servant</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="69" x2="163" y1="587" y2="587"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="69" x2="163" y1="595" y2="595"/><ellipse cx="79" cy="606" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="70" x="88" y="611.606">doSomething()</text><!--MD5=[9473c99003db6b535952ab3e34a44ff8]
+class Future--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="48" id="Future" style="stroke: #A80036; stroke-width: 1.5;" width="67" x="419.5" y="274"/><ellipse cx="434.5" cy="290" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M433.0781,295.3594 Q431.2188,295.3594 430.125,293.9688 Q429.0313,292.5781 429.0313,289.5938 Q429.0313,287.0625 430.1953,285.4063 Q431.3594,283.75 433.3438,283.75 Q434.8125,283.75 435.2813,283.875 Q435.75,284.0781 435.75,284.0781 Q435.75,284.0781 435.75,284.0078 Q435.75,283.9375 436.3594,283.0156 L437.4063,286.6719 L436.0781,287.0781 Q435.6094,285.5313 434.9453,284.8672 Q434.2813,284.2031 433.2188,284.2031 Q432.8281,284.2031 432.0625,285.7344 Q431.2969,287.2656 431.2969,289.5156 Q431.2969,291.9844 431.9609,293.375 Q432.625,294.7656 433.1563,294.7656 Q434.2188,294.7656 434.9766,294 Q435.7344,293.2344 436.0781,291.5781 L437.4063,292.1719 Q437.0781,293.5781 436.1797,294.4688 Q435.2813,295.3594 433.0781,295.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="448.5" y="295.5576">Future</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="420.5" x2="485.5" y1="306" y2="306"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="420.5" x2="485.5" y1="314" y2="314"/><!--MD5=[6c8bde876792f198e3004b5674ea61b5]
+link Client to Proxy--><path d="M402.549,56.171 C387.477,72.452 367.051,94.515 350.052,112.877 " fill="none" id="Client-&gt;Proxy" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="346.258,116.976,355.3079,113.0902,349.6552,113.3074,349.4381,107.6547,346.258,116.976" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8eb0a365200d5a3cbac713a6dc9efe98]
+link Client to Future--><path d="M426.574,56.428 C431.894,104.863 444.088,215.874 449.861,268.422 " fill="none" id="Client-&gt;Future" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="450.432,273.624,453.4258,264.2412,449.8863,268.6539,445.4736,265.1144,450.432,273.624" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[922722391205c23119148be12abecf78]
+link Proxy to Future--><path d="M345.972,180.062 C370.164,206.494 404.815,244.354 428.073,269.765 " fill="none" id="Proxy-&gt;Future" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="431.704,273.732,428.5768,264.3928,428.3276,270.0442,422.6763,269.795,431.704,273.732" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="36" x="391" y="225.8979">create</text><!--MD5=[bbbd6c54c6929ecb5e279c12f072525f]
+link Proxy to MethodRequest--><path d="M317.393,180.277 C317.231,189.804 317.08,200.336 317,210 C316.93,218.444 316.876,220.556 317,229 C317.154,239.453 317.44,250.807 317.749,261.19 " fill="none" id="Proxy-&gt;MethodRequest" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="317.902,266.2,321.625,257.0819,317.7492,261.2023,313.6288,257.3265,317.902,266.2" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="36" x="318" y="225.8979">create</text><!--MD5=[71c2a629c9b23f564c0da2367af1119f]
+link Proxy to Scheduler--><path d="M276.145,180.062 C246.174,201.947 205.474,231.666 172.605,255.667 " fill="none" id="Proxy-&gt;Scheduler" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="168.227,258.864,177.8541,256.786,172.2647,255.915,173.1357,250.3256,168.227,258.864" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8ffed7f29b046ae57345b2e0df64c519]
+link Scheduler to ActivationQueue--><path d="M116,337.162 C116,354.239 116,374.468 116,392.163 " fill="none" id="Scheduler-&gt;ActivationQueue" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="116,397.567,120,388.567,116,392.567,112,388.567,116,397.567" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[351c70a05f6f16a5b9d23fe86c34cfb9]
+link ActivationQueue to Servant--><path d="M116,476.369 C116,498.97 116,527.3798 116,549.547 " fill="none" id="ActivationQueue-&gt;Servant" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="116,554.7517,120,545.7517,116,549.7517,112,545.7517,116,554.7517" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="117" y="521.8979">call</text><!--MD5=[46774a94a03d02469036bc502f6ff830]
+@startuml
+
+class Client
+
+class Proxy {
+	+asyncService( Object ) : Future
+}
+
+class Scheduler {
+	+dispatch()
+	+enqueue( methodReq : MethodRequest)
+}
+
+class ActivationQueue {
+	+enqueue( methodReq : MethodRequest )
+	+dequeue () : MethodRequest
+}
+
+class MethodRequest {
+	+call()
+}
+
+class Servant {
+	+doSomething()
+}
+
+Client ..> Proxy 
+Client ..> Future
+Proxy ..> Future :create
+Proxy ..> MethodRequest :create
+Proxy - -> Scheduler
+Scheduler - -> ActivationQueue
+ActivationQueue ..> Servant :call
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/product_consumer/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/" rel="next" title="Thread Pool 模式">
+      Thread Pool 模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">类图</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Q</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Q</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

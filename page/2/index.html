@@ -151,6 +151,656 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/03/Others/how_to_confirm_bug_effectively/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/03/Others/how_to_confirm_bug_effectively/" class="post-title-link" itemprop="url">如何有效提bug</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-03 15:21:11 / Modified: 15:41:51" itemprop="dateCreated datePublished" datetime="2020-12-03T15:21:11+08:00">2020-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是读&lt;&lt;代码之殇&gt;&gt;的关于Bug提交的笔记，作为常识，应该是牢记于心的。Bug提交是一种确保软件质量的沟通手段，因此，信息的准确传达尤为重要。</p>
+<h2 id="Bug报告的定义"><a href="#Bug报告的定义" class="headerlink" title="Bug报告的定义"></a>Bug报告的定义</h2><p>所有Bug报告，应该有如下要求</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标题</td>
+<td>要简略</td>
+</tr>
+<tr>
+<td>指派</td>
+<td>由谁来处理问题</td>
+</tr>
+<tr>
+<td>重现步骤</td>
+<td>问题再次出现的相关步骤。可采用图表、视频等。</td>
+</tr>
+<tr>
+<td>优先级别</td>
+<td>问题的紧迫程度与重要性，级别不应过多，准则应该简单，易区分，易记忆。一般可以定义 <code>0-4</code> 级，优先级依次降低。</td>
+</tr>
+<tr>
+<td>严重程度</td>
+<td>问题所产生的后果</td>
+</tr>
+<tr>
+<td>解决方案</td>
+<td>怎么解决问题</td>
+</tr>
+</tbody></table>
+<h2 id="Bug-优先级"><a href="#Bug-优先级" class="headerlink" title="Bug 优先级"></a>Bug 优先级</h2><p>比如，可以定义如下优先级</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>描述</th>
+<th>修复时间点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pri 0</td>
+<td>一个需引起关注的致命错误，不存在变通方法，是一个不可逾越的bug</td>
+<td>只有解决了问题，找到变通方法，才能安心。</td>
+</tr>
+<tr>
+<td>Pri 1</td>
+<td>一个需要引起严重关注的致命错误</td>
+<td>必须在当前冲刺阶段解决</td>
+</tr>
+<tr>
+<td>Pri 2</td>
+<td>一个严重的错误</td>
+<td>必须在产品发布前解决</td>
+</tr>
+<tr>
+<td>Pri 3</td>
+<td>一般性错误或者建议</td>
+<td>最好在产品发布前解决</td>
+</tr>
+</tbody></table>
+<h2 id="Bug-严重程度"><a href="#Bug-严重程度" class="headerlink" title="Bug 严重程度"></a>Bug 严重程度</h2><p>严重程度一般指影响范围。注意，严重程度和优先级是相互独立的。</p>
+<p>比如，可以定义如下</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>引起系统崩溃或者用户数据丢失</td>
+</tr>
+<tr>
+<td>2</td>
+<td>引起故障，阻断了后续操作</td>
+</tr>
+<tr>
+<td>3</td>
+<td>引起操作不便或界面显示不完整</td>
+</tr>
+</tbody></table>
+<h2 id="Bug-解决方案"><a href="#Bug-解决方案" class="headerlink" title="Bug 解决方案"></a>Bug 解决方案</h2><p>对于解决Bug的说明。除了具体方案细节，一般也会用如下关键字进行归类，比如 已修复，无法重现，不修复，延期之类。</p>
+<p>当一个Bug被解决，将会自行指派给发现它的人，如果解决方案不令人满意，则有可能再次被激活。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/03/Mysql/mysql_8_new_collation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/03/Mysql/mysql_8_new_collation/" class="post-title-link" itemprop="url">Mysql 8 中的新的Collation (字符校对)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-03 14:51:30 / Modified: 15:16:57" itemprop="dateCreated datePublished" datetime="2020-12-03T14:51:30+08:00">2020-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在使用Docker玩mysql 8.0时，发现默认的character collation变成了不认识的utf8mb4_0900_ai_ci，对相应问题做了一点搜索，记录如下。</p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>以<strong>utf8mb4_0900_ai_ci</strong>为例，它是一个若干有意义的字段合并的collation名称。分解如下：</p>
+<ul>
+<li><code>uft8mb4</code> 指使用UTF-8字符集，每个字符最多使用4 byte来存储。</li>
+<li><code>0900</code> 指Unicode字符校对算法版本。Unicode字符校对算法(Unicode Collation Algorithm) 是用来按照Unicode标准比较两个字符串的算法。</li>
+<li><code>ai</code> 指重音符号（Accent）不敏感，比如 e, è, é, ê and ë 在排序时均认为是同一字符。与其相对的是<code>as</code></li>
+<li><code>ci</code> 指大小写（Case)不敏感。排序时a和A不做区分。与其相对的是 <code>as</code></li>
+</ul>
+<p>其他还有language identifer以及_bin标识，可以参考如下网站</p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/charset-collation-names.html">Collation Naming Conventions</a></p>
+<p><a target="_blank" rel="noopener" href="https://mysqlserverteam.com/new-collations-in-mysql-8-0-0/">New Colllations in Mysql 8</a></p>
+<p>展示所有Collation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW COLLATION</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="如何确定当前表的Collation？"><a href="#如何确定当前表的Collation？" class="headerlink" title="如何确定当前表的Collation？"></a>如何确定当前表的Collation？</h3><p>可以查询information_schema表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">   table_schema,</span><br><span class="line">   table_name,</span><br><span class="line">   table_collation   </span><br><span class="line">FROM information_schema.tables</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Flutter/flutter-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/02/Flutter/flutter-intro/" class="post-title-link" itemprop="url">Flutter 介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-02 19:05:30" itemprop="dateCreated datePublished" datetime="2020-12-02T19:05:30+08:00">2020-12-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="494px" preserveAspectRatio="none" style="width:602px;height:494px;" version="1.1" viewBox="0 0 602 494" width="602px" zoomAndPan="magnify"><defs><filter height="300%" id="f1le66no3r8i98" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#ADD8E6" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="122" x="214" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="82" x="234" y="269.4482">Flutter</text><rect fill="#FFA500" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="138" x="436" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="98" x="456" y="92.0879">Android</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,79.1201 416,79.1201 L436,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FFFFFF" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="86" x="436" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="46" x="456" y="210.3281">IOS</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,197.3604 416,197.3604 L436,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="98" x="436" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="58" x="456" y="328.5684">Web</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,315.6006 416,315.6006 L436,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="144" x="436" y="394.7207"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="104" x="456" y="446.8086">Desktop</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,433.8408 416,433.8408 L436,433.8408 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="94" x="20" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="54" x="40" y="269.4482">Dart</text><path d="M214,256.4805 L194,256.4805 C164,256.4805 164,256.4805 134,256.4805 L114,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0104fa95f348937798d0f93513ea9ad8]
+@startmindmap
+scale 2
+*[#lightblue] Flutter
+**[#orange] Android
+**[#white] IOS
+** Web
+** Desktop
+- - Dart
+@endmindmap
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><ol>
+<li>“Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Style，Animation，Lists，Text，Button…这些都可以用Widget 表示，Widget嵌套是Flutter的应用构建方式。举例来说，并没有一个统一的叫App的作为应用入口，所有的Widget理论上都可以作为应用的入口。Flutter当然也包含其他非Widget的对象。</li>
+<li>组合优于继承。实践中，很少通过继承方式扩展一个Widget。一般都通过组合Widget的方式构建特定的Widget对象。这有点类似React的方式。</li>
+</ol>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="376px" preserveAspectRatio="none" style="width:1686px;height:376px;" version="1.1" viewBox="0 0 1686 376" width="1686px" zoomAndPan="magnify"><defs><filter height="300%" id="fgk4l36cjdzji" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="218" x="20" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="178" x="40" y="210.3281">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="836" x="338" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="796" x="358" y="92.0879">stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑</text><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,79.1201 318,79.1201 L338,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="324" x="338" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="284" x="358" y="269.4482">stateful 淇濆瓨鐘舵��</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="224" x="762" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="184" x="782" y="210.3281">StatefulWidget</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,197.3604 742,197.3604 L762,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="902" x="762" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="862" x="782" y="328.5684">State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,315.6006 742,315.6006 L762,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,256.4805 318,256.4805 L338,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[3d5e290db8f4bbacdd5391a00c2101ae]
+@startmindmap
+scale 2
+* Flutter Widget
+** stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑
+** stateful 淇濆瓨鐘舵��
+*** StatefulWidget
+*** State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)
+@endmindmap
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:292px;height:55px;" version="1.1" viewBox="0 0 292 55" width="292px" zoomAndPan="magnify"><defs><filter height="300%" id="fq1z4jt37h14w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="16" cy="26" fill="#000000" filter="url(#fq1z4jt37h14w)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="36.3887" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="46" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="56" y="31.752">Constructor</text><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="36.3887" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="150.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="111" x="160.5" y="31.752">Widget.createState()</text><!--MD5=[381ab33bbd5470d3b1be6ae8d7a46217]
+link start to Constructor--><path d="M26.125,26 C30.9766,26 35.8282,26 40.6798,26 " fill="none" id="start-&gt;Constructor" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="45.9443,26,36.9443,22,40.9443,26,36.9443,30,45.9443,26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6674eb3a2d62253f68e92fb0b63a4e22]
+link Constructor to Widget.createState()--><path d="M130.25,26 C135.274,26 140.299,26 145.323,26 " fill="none" id="Constructor-&gt;Widget.createState()" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="150.348,26,141.348,22,145.348,26,141.348,30,150.348,26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4001afb7d92ac322b9b548a1be0cb492]
+@startuml
+(*) -> "Constructor"
+-right-> "Widget.createState()"
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="314px" preserveAspectRatio="none" style="width:1516px;height:314px;" version="1.1" viewBox="0 0 1516 314" width="1516px" zoomAndPan="magnify"><defs><filter height="300%" id="fx2xbyd0wsv2j" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter><linearGradient id="gx2xbyd0wsv2j0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#808080"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
+entity Constructor--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="188" x="12" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="148" x="32" y="68.0879">Constructor</text><!--MD5=[99fd7391e5dd70fd5b5f804fc10d8688]
+entity mounted--><rect fill="url(#gx2xbyd0wsv2j0)" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="150" x="271" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="110" x="291" y="68.0879">mounted</text><!--MD5=[d5188574bc62afd6d53a507efb2aef9e]
+entity initState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="142" x="491" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="102" x="511" y="68.0879">initState</text><!--MD5=[a43635f50927eeb5f0235179d32a7eb9]
+entity dirty_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="164" x="704" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="124" x="724" y="68.0879">dirty state</text><!--MD5=[11fa01443fe50a6a26e5f9d4ef816fb0]
+entity build--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="100" x="938" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="60" x="958" y="68.0879">build</text><!--MD5=[cc0be402c6b2f424ca27f83de5745c9b]
+entity clean_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="178" x="1109" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="138" x="1129" y="68.0879">clean state</text><!--MD5=[4d5ba4c05f68dda5f45c29356b73c3a1]
+entity dispose--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="138" x="1357" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="98" x="1377" y="68.0879">dispose</text><!--MD5=[157059bb4d2eb32e0d2f25a59202362f]
+entity didChangeDependencies--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="360" x="382" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="320" x="402" y="266.0879">didChangeDependencies</text><!--MD5=[15b2de61c16501c8f1271adafb2dfff2]
+entity setState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="144" x="1124" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="104" x="1144" y="266.0879">setState</text><!--MD5=[5e56992db2efbb626fb5f153fa937d6a]
+entity didUpdateState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="234" x="815" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="194" x="835" y="266.0879">didUpdateState</text><!--MD5=[e585e9cb8873e4014d365c865d3386db]
+link Constructor to mounted--><path d="M200.6876,55 C220.506,55 240.324,55 260.142,55 " fill="none" id="Constructor-&gt;mounted" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="270.506,55,252.506,47,260.506,55,252.506,63,270.506,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[f950f694e6d8b8120548cd6f66b280a2]
+link mounted to initState--><path d="M421.094,55 C440.936,55 460.778,55 480.62,55 " fill="none" id="mounted-&gt;initState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="490.996,55,472.996,47,480.996,55,472.996,63,490.996,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[d18ebba6c96924fd5ede79c52385023d]
+link initState to dirty_state--><path d="M633.75,55 C653.67,55 673.59,55 693.51,55 " fill="none" id="initState-&gt;dirty_state" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="703.928,55,685.928,47,693.928,55,685.928,63,703.928,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[7139aff6e2195f3182cb3c782c5d5a72]
+link initState to didChangeDependencies--><path d="M562,94.4052 C562,125.5376 562,170.042 562,203.6548 " fill="none" id="initState-&gt;didChangeDependencies" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="562,213.7096,570,195.7096,562,203.7096,554,195.7096,562,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[d66950752d79791e74ec7e580ed3d1d0]
+reverse link dirty_state to didChangeDependencies--><path d="M735.162,101.0292 C695.91,135.0238 642.204,181.5378 605.056,213.7096 " fill="none" id="dirty_state&lt;-didChangeDependencies" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="742.81,94.4052,723.9657,100.1405,735.2504,100.9513,734.4396,112.236,742.81,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[a0ac4b26cd6c1cbe6d8788c9d6c1abbe]
+link dirty_state to build--><path d="M868.062,55 C887.744,55 907.426,55 927.108,55 " fill="none" id="dirty_state-&gt;build" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="937.402,55,919.402,47,927.402,55,919.402,63,937.402,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0851ea37a16542d04a1783cbfa900294]
+link build to clean_state--><path d="M1038.04,55 C1058.082,55 1078.124,55 1098.166,55 " fill="none" id="build-&gt;clean_state" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1108.646,55,1090.646,47,1098.646,55,1090.646,63,1108.646,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[89dffda2443baa7b1c0df28d39255a57]
+link clean_state to dispose--><path d="M1287.062,55 C1306.782,55 1326.5,55 1346.22,55 " fill="none" id="clean_state-&gt;dispose" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1356.532,55,1338.532,47,1346.532,55,1338.532,63,1356.532,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[2a4d9e63796b00889577e35d0be97ec4]
+link clean_state to setState--><path d="M1197.614,94.4052 C1197.294,125.5376 1196.834,170.042 1196.488,203.6548 " fill="none" id="clean_state-&gt;setState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1196.384,213.7096,1204.5697,195.7933,1196.4874,203.7101,1188.5706,195.6278,1196.384,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0558b8a16bb33b8d8e1a0aef01db4f84]
+reverse link dirty_state to setState--><path d="M874.876,99.0538 C949.226,134.2338 1053.984,183.802 1123.38,216.6378 " fill="none" id="dirty_state&lt;-setState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="865.052,94.4052,877.9007,109.3354,874.0911,98.6823,884.7442,94.8727,865.052,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[afe4cd7666f1e0fbf8907ba1e29c0883]
+link clean_state to didUpdateState--><path d="M1146.712,94.4052 C1102.37,126.7452 1038.242,173.5152 991.622,207.516 " fill="none" id="clean_state-&gt;didUpdateState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="983.13,213.7096,1002.3875,209.5683,991.21,207.8178,992.9605,196.6403,983.13,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[6f88237c58600627f141d76b2c215f65]
+reverse link dirty_state to didUpdateState--><path d="M820.422,102.7392 C845.882,136.5702 880.128,182.074 903.936,213.7096 " fill="none" id="dirty_state&lt;-didUpdateState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="814.15,94.4052,818.5805,113.5982,820.1627,102.3957,831.3652,103.9779,814.15,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[4a2bac91915186d47394cc4511db2179]
+@startuml
+scale 2
+skinparam classFontColor automatic
+
+rectangle Constructor 
+rectangle mounted #gray/white
+rectangle initState
+rectangle "dirty state" as dirty_state #gray
+rectangle build
+rectangle "clean state" as clean_state #gray
+rectangle dispose
+
+rectangle didChangeDependencies
+
+rectangle setState
+rectangle didUpdateState
+
+Constructor -r-> mounted
+mounted -r-> initState
+initState -r-> dirty_state
+initState -d-> didChangeDependencies
+didChangeDependencies -u-> dirty_state
+dirty_state -r-> build
+build -r-> clean_state
+clean_state -r-> dispose
+clean_state -d-> setState
+setState -u-> dirty_state
+
+clean_state -d-> didUpdateState
+didUpdateState -u-> dirty_state
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/02/Docker/docker_101/" class="post-title-link" itemprop="url">Docker 学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-02 17:50:58" itemprop="dateCreated datePublished" datetime="2020-12-02T17:50:58+08:00">2020-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-03 15:45:34" itemprop="dateModified" datetime="2020-12-03T15:45:34+08:00">2020-12-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<pre><code>Docker 学习笔记</code></pre>
+<hr>
+<h3 id="使用动机"><a href="#使用动机" class="headerlink" title="使用动机"></a>使用动机</h3><p>Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。</p>
+<p>目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。</p>
+<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><h4 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h4><p>docker search <strong>–no-trunc</strong> xxx</p>
+<p>no-trunc 的选项可以不截断结果中的文字。比如Description过长，默认会被截断。</p>
+<h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>docker pull <em>image-name</em></p>
+<h4 id="列举本地镜像"><a href="#列举本地镜像" class="headerlink" title="列举本地镜像"></a>列举本地镜像</h4><p>docker image ls</p>
+<h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --itd --name *name_of_a_new_container*  -p6379:6379 *image_name* </span><br><span class="line"><span class="meta">#</span><span class="bash">-d表示后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p本地映射端口:远程端口</span></span><br></pre></td></tr></table></figure>
+
+<p>-p端口映射相应说明可以<a target="_blank" rel="noopener" href="https://blog.csdn.net/chengxuyuanyonghu/article/details/76630617">参考这个网站</a></p>
+<p>如果遇到运行时报名字冲突，证明已经创建过相应名字的容器了。此时需要通过start启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -a image_name #-a指attach到stdin/stderr，可以在命令行中看到连接后的容器输出</span><br></pre></td></tr></table></figure>
+
+<p>停止docker镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop image_name</span><br></pre></td></tr></table></figure>
+
+<p>docker rm <em>image_name</em> 删除掉容器，再重建。</p>
+<h4 id="查询当前运行的镜像"><a href="#查询当前运行的镜像" class="headerlink" title="查询当前运行的镜像"></a>查询当前运行的镜像</h4><p>docker ps  显示运行的镜像</p>
+<p>显示所有已经创建的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h4 id="运行一个redis容器"><a href="#运行一个redis容器" class="headerlink" title="运行一个redis容器"></a>运行一个redis容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">docker pull redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker run -d --name redis-test -p 6379:6379 redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker <span class="built_in">exec</span> -it redis-test /bin/bash</span></span><br><span class="line"><span class="meta">$</span><span class="bash">root@878972df&gt;redis-cli</span></span><br><span class="line"><span class="meta">#</span><span class="bash">:D</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过如下命令看本机端口是不是被打开（状态为LISTENING,windows环境)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -na | find &quot;6379&quot;</span><br></pre></td></tr></table></figure>
+
+<p>可以尝试通过redis客户端或者telnet操作下redis</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 6379 #quit命令退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行一个Mysql-容器"><a href="#运行一个Mysql-容器" class="headerlink" title="运行一个Mysql 容器"></a>运行一个Mysql 容器</h4><p>mysql容器运行方法与redis大同小异，如果启动失败，比如通过 docker ps -a看到异常终止，则可通过如下命令查看日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs container_name</span><br></pre></td></tr></table></figure>
+
+<p>比如，我运行mysql失败，产生了如下日志：</p>
+<blockquote>
+<p>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Switching to dedicated user ‘mysql’<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [ERROR] [Entrypoint]: Database is uninitialized and password option is not specified<br>        You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD</p>
+</blockquote>
+<p>显然，需要提供更多参数以便运行mysql，如日志所述，可以运行如下命令设置一个root密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=mysql_server -e MYSQL_ROOT_PASSWORD=12345 -p3306:3306 -p33060:33060 -d mysql</span><br></pre></td></tr></table></figure>
+
+<p>之后，即可通过如下命令登录容器。</p>
+<p>3306是经典的mysql端口，其他可用端口可以参考如下链接<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/mysql-port-reference/en/mysql-ports-reference-tables.html">Mysql Ports Reference</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker -it mysql_server /bin/bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="meta">root@wejfio22&gt;</span><span class="bash"> mysql -uroot -p <span class="comment">#打开一个mysql shell</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="今日遗留问题"><a href="#今日遗留问题" class="headerlink" title="今日遗留问题"></a>今日遗留问题</h3><ul>
+<li><input disabled="" type="checkbox"> 如何改变容器中的配置，比如更改redis的默认运行port？</li>
+<li><input disabled="" type="checkbox"> 数据在容器停止时似乎没有丢失，如果是容器意外退出呢？</li>
+<li><input disabled="" type="checkbox"> 已经创建的容器，如果需要改变本地映射端口，应该怎么做？</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/GNU%20Tools/autotools/" class="post-title-link" itemprop="url">Autotools 阅读实践笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-01 18:41:35 / Modified: 19:18:23" itemprop="dateCreated datePublished" datetime="2020-12-01T18:41:35+08:00">2020-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GNU-Tools/" itemprop="url" rel="index"><span itemprop="name">GNU Tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是我在windows环境下，使用Msys2 64 / Mingw64 进行C语言编程的一些笔记。</p>
+<p>熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。</p>
+<h3 id="II-改变默认安装路径"><a href="#II-改变默认安装路径" class="headerlink" title="II. 改变默认安装路径"></a>II. 改变默认安装路径</h3><p>一般安装步骤如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make install</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一般安装路径都是 /usr/<span class="built_in">local</span>/bin, 但可以通过设置prefix为其他路径来调整。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译后的文件安装到$HOME/bin目录</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$HOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译好的文件安装到当前目录的子目录下</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$PWD</span>/mytest</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一般来说，prefix指向的路径应该是全路径而非相对路径，因为编译时会跳转到不同目录，依赖相对路径将导致不稳定的文件生成。</p>
+<h3 id="II-安装Clang"><a href="#II-安装Clang" class="headerlink" title="II.安装Clang"></a>II.安装Clang</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mingw64/mingw-w64-x86_64-clang</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang -Wall hello.c -o hello</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/Others/glossary_in_cs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1155,7 +1805,7 @@ Country: CN
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
