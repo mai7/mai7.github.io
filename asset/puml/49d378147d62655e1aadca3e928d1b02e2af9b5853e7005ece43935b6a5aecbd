@@ -1,0 +1,10 @@
+@startuml
+
+Client -> Promisor++ :1 : computer()
+Promisor -> Promise :2 : <<create>>
+return
+
+Client -> Promise :4 : getResult()
+return
+
+@enduml

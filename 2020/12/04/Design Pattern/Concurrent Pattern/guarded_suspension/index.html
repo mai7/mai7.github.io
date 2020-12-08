@@ -20,13 +20,15 @@
     var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="### Guarded Suspension 保护性暂挂当持有锁时，如果条件不满足，暂时挂起执行线程，等待条件满足时再次唤醒，判断条件后，执行操作。 伪代码12345678910Lock lock &#x3D; new Lock();Conditon condition &#x3D; lock.newCondition()...lock.lock();while ( conditon not satisfied )">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Guarded Suspension 保护性暂挂模式">
 <meta property="og:url" content="https://q0519.gitee.io/2020/12/04/Design%20Pattern/Concurrent%20Pattern/guarded_suspension/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="### Guarded Suspension 保护性暂挂当持有锁时，如果条件不满足，暂时挂起执行线程，等待条件满足时再次唤醒，判断条件后，执行操作。 伪代码12345678910Lock lock &#x3D; new Lock();Conditon condition &#x3D; lock.newCondition()...lock.lock();while ( conditon not satisfied )">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-04T09:59:42.354Z">
-<meta property="article:modified_time" content="2020-12-05T14:46:05.596Z">
+<meta property="article:modified_time" content="2020-12-08T07:11:02.786Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
 
@@ -184,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-05 22:46:05" itemprop="dateModified" datetime="2020-12-05T22:46:05+08:00">2020-12-05</time>
+                <time title="Modified: 2020-12-08 15:11:02" itemprop="dateModified" datetime="2020-12-08T15:11:02+08:00">2020-12-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -211,7 +213,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="Guarded-Suspension-保护性暂挂"><a href="#Guarded-Suspension-保护性暂挂" class="headerlink" title="### Guarded Suspension 保护性暂挂"></a>### Guarded Suspension 保护性暂挂</h3><p>当持有锁时，如果条件不满足，暂时挂起执行线程，等待条件满足时再次唤醒，判断条件后，执行操作。</p>
+<h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Lock lock = <span class="keyword">new</span> Lock();</span><br><span class="line">Conditon condition = lock.newCondition()</span><br><span class="line">...</span><br><span class="line">lock.lock();</span><br><span class="line"><span class="keyword">while</span> ( conditon not satisfied ) &#123;</span><br><span class="line">    conditon.await()</span><br><span class="line">&#125;</span><br><span class="line">doOperation();</span><br><span class="line">lock.unLock()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Sequence-Diagram"><a href="#Sequence-Diagram" class="headerlink" title="Sequence Diagram"></a>Sequence Diagram</h3><p>内部逻辑，图参考自&lt;&lt;Java多线程编程实战指南（设计模式篇）&gt;&gt; 黄文海 著</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="501px" preserveAspectRatio="none" style="width:751px;height:501px;" version="1.1" viewBox="0 0 751 501" width="751px" zoomAndPan="magnify"><defs><filter height="300%" id="f1314rdgt6cgk0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="374.3213" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="170" y="74.8745"/><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="310.8125" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="455" y="138.3833"/><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="31.7544" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="598" y="260.4238"/><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="115.0405" style="stroke: #000000; stroke-width: 2.0;" width="322.5" x="417.5" y="216.8921"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="35" x2="35" y1="41.1201" y2="458.1958"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="174.5" x2="174.5" y1="41.1201" y2="458.1958"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="298.5" x2="298.5" y1="41.1201" y2="458.1958"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="459.5" x2="459.5" y1="41.1201" y2="458.1958"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="603" x2="603" y1="41.1201" y2="458.1958"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="691" x2="691" y1="41.1201" y2="458.1958"/><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="50" x="8" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="15" y="26.0439">Client</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="50" x="8" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="15" y="480.2397">Client</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="117.5" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="124.5" y="26.0439">GuardedObject</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="117.5" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="124.5" y="480.2397">GuardedObject</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="242.5" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="249.5" y="26.0439">GuardedAction</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="242.5" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="249.5" y="480.2397">GuardedAction</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="427.5" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="434.5" y="26.0439">Blocker</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="61" x="427.5" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="434.5" y="480.2397">Blocker</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="564" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="571" y="26.0439">Predicate</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="564" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="571" y="480.2397">Predicate</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="652" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="659" y="26.0439">Condition</text><rect fill="#FEFECE" filter="url(#f1314rdgt6cgk0)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="652" y="457.1958"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="659" y="480.2397">Condition</text><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="374.3213" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="170" y="74.8745"/><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="310.8125" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="455" y="138.3833"/><rect fill="#FFFFFF" filter="url(#f1314rdgt6cgk0)" height="31.7544" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="598" y="260.4238"/><polygon fill="#A80036" points="158,70.8745,168,74.8745,158,78.8745,162,74.8745" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="35" x2="164" y1="74.8745" y2="74.8745"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="116" x="42" y="70.0181">1 : guardedMethod()</text><polygon fill="#A80036" points="287,102.6289,297,106.6289,287,110.6289,291,106.6289" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="180" x2="293" y1="106.6289" y2="106.6289"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="87" x="187" y="101.7725">2 : &lt;&lt;create&gt;&gt;</text><polygon fill="#A80036" points="443,134.3833,453,138.3833,443,142.3833,447,138.3833" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="180" x2="449" y1="138.3833" y2="138.3833"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="187" y="133.5269">3 : callWithGuard()</text><polygon fill="#A80036" points="191,166.1377,181,170.1377,191,174.1377,187,170.1377" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="185" x2="454" y1="170.1377" y2="170.1377"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="197" y="165.2813">getGuard()</text><polygon fill="#A80036" points="443,197.8921,453,201.8921,443,205.8921,447,201.8921" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="180" x2="449" y1="201.8921" y2="201.8921"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="68" x="187" y="197.0356">5: predicate</text><path d="M417.5,216.8921 L490.5,216.8921 L490.5,225.8921 L480.5,235.8921 L417.5,235.8921 L417.5,216.8921 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 1.0;"/><rect fill="none" height="115.0405" style="stroke: #000000; stroke-width: 2.0;" width="322.5" x="417.5" y="216.8921"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="28" x="432.5" y="232.79">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="122" x="505.5" y="231.498">[SuspendIfNecessary]</text><polygon fill="#A80036" points="586,256.4238,596,260.4238,586,264.4238,590,260.4238" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="465" x2="592" y1="260.4238" y2="260.4238"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="74" x="472" y="255.5674">6 : evaluate()</text><polygon fill="#A80036" points="476,288.1782,466,292.1782,476,296.1782,472,292.1782" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="470" x2="602" y1="292.1782" y2="292.1782"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="482" y="287.3218">7 : isPredicateTrue</text><polygon fill="#A80036" points="679,319.9326,689,323.9326,679,327.9326,683,323.9326" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="465" x2="685" y1="323.9326" y2="323.9326"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="472" y="319.0762">8 : await()</text><polygon fill="#A80036" points="310,358.687,300,362.687,310,366.687,306,362.687" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="304" x2="454" y1="362.687" y2="362.687"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="43" x="316" y="357.8306">9 :call()</text><polygon fill="#A80036" points="443,390.4414,453,394.4414,443,398.4414,447,394.4414" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="299" x2="449" y1="394.4414" y2="394.4414"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="132" x="306" y="389.585">10 : actionReturnValue</text><polygon fill="#A80036" points="191,422.1958,181,426.1958,191,430.1958,187,426.1958" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="185" x2="454" y1="426.1958" y2="426.1958"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="132" x="197" y="421.3394">11 : actionReturnValue</text><polygon fill="#A80036" points="46,436.1958,36,440.1958,46,444.1958,42,440.1958" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="40" x2="169" y1="440.1958" y2="440.1958"/><!--MD5=[f321526faf5edb38fc52acc2167297cd]
+@startuml
+Client -> GuardedObject++ : 1 : guardedMethod()
+GuardedObject -> GuardedAction :2 : <<create>>
+
+GuardedObject -> Blocker++ : 3 : callWithGuard()
+Blocker -> GuardedObject : getGuard()
+GuardedObject - -> Blocker :5: predicate
+
+loop SuspendIfNecessary
+    Blocker -> Predicate++ :6 : evaluate()
+    Predicate - -> Blocker- - :7 : isPredicateTrue
+    Blocker -> Condition :8 : await()
+
+end
+
+Blocker -> GuardedAction :9 :call()
+GuardedAction - -> Blocker :10 : actionReturnValue
+Blocker - -> GuardedObject : 11 : actionReturnValue
+GuardedObject - -> Client
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
     </div>
 
     
@@ -310,6 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guarded-Suspension-%E4%BF%9D%E6%8A%A4%E6%80%A7%E6%9A%82%E6%8C%82"><span class="nav-number">1.</span> <span class="nav-text">### Guarded Suspension 保护性暂挂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">伪代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequence-Diagram"><span class="nav-number">3.</span> <span class="nav-text">Sequence Diagram</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -323,7 +363,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
