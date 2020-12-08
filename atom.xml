@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-08T10:18:09.728Z</updated>
+  <updated>2020-12-08T10:28:15.707Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -21,17 +21,22 @@
     <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/"/>
     <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/</id>
     <published>2020-12-08T10:12:44.662Z</published>
-    <updated>2020-12-08T10:18:09.728Z</updated>
+    <updated>2020-12-08T10:28:15.707Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，数据整理是个内存操作，可以快速完成；但数据存储可能依赖外部服务，因此将其放入异步队列，并发执行。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，数据整理是个内存操作，可以快速完成；但数据存储可能依赖外部服务，因此将其放</summary>
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。&lt;/p&gt;
+</summary>
       
     
     
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
     
     
   </entry>
@@ -41,7 +46,7 @@
     <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/pipeline/"/>
     <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/pipeline/</id>
     <published>2020-12-08T10:07:56.050Z</published>
-    <updated>2020-12-08T10:12:27.770Z</updated>
+    <updated>2020-12-08T10:18:45.323Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>对有耦合关系的任务进行排布，并行处理多个任务链。</p>]]></content>
     
@@ -54,6 +59,10 @@
     
     
     
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
     
   </entry>
   
@@ -62,7 +71,7 @@
     <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/master_slave/"/>
     <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/master_slave/</id>
     <published>2020-12-08T10:05:42.487Z</published>
-    <updated>2020-12-08T10:07:26.808Z</updated>
+    <updated>2020-12-08T10:18:45.321Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将较大的任务分解为小任务，并通过线程池执行；能够自动处理任务分解与合并。</p>]]></content>
     
@@ -74,6 +83,10 @@
       
     
     
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
     
     
   </entry>
