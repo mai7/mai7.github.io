@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-08T10:28:15.707Z</updated>
+  <updated>2020-12-08T10:29:15.678Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/"/>
     <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/</id>
     <published>2020-12-08T10:12:44.662Z</published>
-    <updated>2020-12-08T10:28:15.707Z</updated>
+    <updated>2020-12-08T10:29:15.678Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。</p><p>注意： 和Lead-followers模式的区别</p>]]></content>
     
     
       
       
     <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。&lt;/p&gt;
-</summary>
+&lt;p&gt;注意： 和Lead-f</summary>
       
     
     
