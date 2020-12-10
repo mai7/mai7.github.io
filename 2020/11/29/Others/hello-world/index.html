@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用码云开始搭建一个博客基本步骤1234567## 安装hexo，需要配置nodejs环境npm install hexo -g## 创建博客，目录名任意，此处为bloghexo create blog## 进入blogcd blog    修改配置文件配置文件 _config.yml1234# URL节调整如下## If your site is put in a subdirectory, s">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-29T12:24:20.195Z">
-<meta property="article:modified_time" content="2020-12-10T07:19:49.392Z">
+<meta property="article:modified_time" content="2020-12-10T07:26:31.895Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
 
@@ -186,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-10 15:19:49" itemprop="dateModified" datetime="2020-12-10T15:19:49+08:00">2020-12-10</time>
+                <time title="Modified: 2020-12-10 15:26:31" itemprop="dateModified" datetime="2020-12-10T15:26:31+08:00">2020-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,6 +271,11 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image alt</span>](<span class="link">test/test.jpg</span>)</span><br></pre></td></tr></table></figure>
 
 <p>进行图片引用，asset-link将会自动调整路径。</p>
+<h3 id="使用Next-theme"><a href="#使用Next-theme" class="headerlink" title="使用Next theme"></a>使用Next theme</h3><p>本站使用NexT Theme来风格化hexo，具体安装可以参考 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT</a></p>
+<p>国内多数站点介绍，需要修改theme/next/_config.yml文件，但不建议这么做。相关override的方法是增加如下文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source/_data/next.yml</span><br></pre></td></tr></table></figure>
+
+<p>则在默认情况下，next.yml中的配置项会覆盖掉NexT默认的，比较方便。</p>
 
     </div>
 
@@ -367,7 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%A0%81%E4%BA%91%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.</span> <span class="nav-text">使用码云开始搭建一个博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">基本步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config-yml"><span class="nav-number">2.0.1.</span> <span class="nav-text">配置文件 _config.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">一些有用的插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83Blog%E6%8F%92%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">自动发布Blog插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%BB%BA%E7%AB%8BCategory%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">自动建立Category的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BRSS%E8%AE%A2%E9%98%85%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.3.</span> <span class="nav-text">建立RSS订阅的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93Plantuml"><span class="nav-number">4.4.</span> <span class="nav-text">渲染Plantuml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87"><span class="nav-number">4.5.</span> <span class="nav-text">文章中嵌入本地图片</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%A0%81%E4%BA%91%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.</span> <span class="nav-text">使用码云开始搭建一个博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">基本步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-config-yml"><span class="nav-number">2.0.1.</span> <span class="nav-text">配置文件 _config.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.</span> <span class="nav-text">创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">一些有用的插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83Blog%E6%8F%92%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">自动发布Blog插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%BB%BA%E7%AB%8BCategory%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">自动建立Category的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BRSS%E8%AE%A2%E9%98%85%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">4.3.</span> <span class="nav-text">建立RSS订阅的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93Plantuml"><span class="nav-number">4.4.</span> <span class="nav-text">渲染Plantuml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87"><span class="nav-number">4.5.</span> <span class="nav-text">文章中嵌入本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Next-theme"><span class="nav-number">4.6.</span> <span class="nav-text">使用Next theme</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
