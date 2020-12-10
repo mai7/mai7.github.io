@@ -1406,7 +1406,7 @@ Country: CN
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-30 17:48:09" itemprop="dateModified" datetime="2020-11-30T17:48:09+08:00">2020-11-30</time>
+                <time title="Modified: 2020-12-10 15:19:49" itemprop="dateModified" datetime="2020-12-10T15:19:49+08:00">2020-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1480,6 +1480,17 @@ Country: CN
 
 
 <p><a target="_blank" rel="noopener" href="https://github.com/miao1007/hexo-filter-plantuml">源码地址</a></p>
+<h3 id="文章中嵌入本地图片"><a href="#文章中嵌入本地图片" class="headerlink" title="文章中嵌入本地图片"></a>文章中嵌入本地图片</h3><p>如下只考虑与文章同文件路径的asset引用方法。</p>
+<p>需要安装如下插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i --save hexo-asset-link</span></span><br></pre></td></tr></table></figure>
+
+<p>该插件将自动转换markdown中的相对路径到发布的路径。比如，本地有一个markdown文件，名为 test.md，路径如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_post/</span><br><span class="line">	test/</span><br><span class="line">	test.md</span><br></pre></td></tr></table></figure>
+
+<p>则可以将test/文件夹作为asset文件夹，放置图片之类，之后通过markdown的图片引用语法</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image alt</span>](<span class="link">test/test.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进行图片引用，asset-link将会自动调整路径。</p>
 
       
     </div>
@@ -1571,7 +1582,7 @@ Country: CN
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

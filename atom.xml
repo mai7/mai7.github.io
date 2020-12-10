@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-09T08:28:56.955Z</updated>
+  <updated>2020-12-10T07:11:26.583Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://q0519.gitee.io/2020/12/09/Others/my_tools/"/>
     <id>https://q0519.gitee.io/2020/12/09/Others/my_tools/</id>
     <published>2020-12-09T08:16:53.043Z</published>
-    <updated>2020-12-09T08:28:56.955Z</updated>
+    <updated>2020-12-10T07:11:26.583Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如下是我目前在使用的一些工具。</p><h3 id="DB-Design"><a href="#DB-Design" class="headerlink" title="DB Design"></a>DB Design</h3><p><a href="https://dbdiagram.io/">Dbdiagram.io</a></p><p><img src="C:\Projs\blog\blog\source_posts\Others\my_tools\dbdiagram_screenshot.JPG"></p><p>H5应用，通过DBML绘制可视化，并且可以生成数据库的对应脚本。</p><p>Plantuml</p><p>全能的绘制软件，可以通过Entity描述生成数据库关系图。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如下是我目前在使用的一些工具。</p><h3 id="DB-Design"><a href="#DB-Design" class="headerlink" title="DB Design"></a>DB Design</h3><p><a href="https://dbdiagram.io/">Dbdiagram.io</a></p><p><img src="/2020/12/09/Others/my_tools/dbdiagram_screenshot.JPG" alt="dbdiagram"></p><p>H5应用，通过DBML绘制可视化，并且可以生成数据库的对应脚本。</p><p>Plantuml</p><p>全能的绘制软件，可以通过Entity描述生成数据库关系图。</p>]]></content>
     
     
       
@@ -34,6 +34,8 @@
     
     
     
+    <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
+    
     
   </entry>
   
@@ -42,7 +44,7 @@
     <link href="https://q0519.gitee.io/2020/12/09/Parser/parsing_expression_grammar/"/>
     <id>https://q0519.gitee.io/2020/12/09/Parser/parsing_expression_grammar/</id>
     <published>2020-12-09T08:04:22.087Z</published>
-    <updated>2020-12-09T08:14:11.936Z</updated>
+    <updated>2020-12-10T06:27:47.185Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是我在分析DBML(Database Markup Language)时，发现它参考的一个名为peg.js的库所使用的一种文本分析方法。后期将会花时间理解一下其原理。DBML标记语言是<a href="%5Bhttps://dbdiagram.io/">DBDiagram</a> 团队所创建的数据库设计应用底层依赖的建模语言。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/holistics/dbml/">DBML</a></p><p><a href="https://pegjs.org/">Pegjs</a></p><p><a href="https://pest.rs/book/grammars/peg.html#parsing-expression-grammar">Parsing expression grammar</a></p><p><a href="https://craftinginterpreters.com/parsing-expressions.html">Parsing Expressions</a></p>]]></content>
     
@@ -54,6 +56,8 @@
     
     
     
+    <category term="Parser" scheme="https://q0519.gitee.io/categories/Parser/"/>
+    
     
   </entry>
   
@@ -62,7 +66,7 @@
     <link href="https://q0519.gitee.io/2020/12/09/Others/design_software/"/>
     <id>https://q0519.gitee.io/2020/12/09/Others/design_software/</id>
     <published>2020-12-09T07:40:53.647Z</published>
-    <updated>2020-12-09T09:10:34.942Z</updated>
+    <updated>2020-12-10T06:27:47.185Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如下是《代码之殇》阅读中关于软件设计的阅读笔记整理。</p><h3 id="软件设计的维度"><a href="#软件设计的维度" class="headerlink" title="软件设计的维度"></a>软件设计的维度</h3><table><thead><tr><th></th><th>外部</th><th>内部</th></tr></thead><tbody><tr><td>静态</td><td>项目管理规范书<br>应用程序编程接口定义</td><td>开发规范书<br>测试驱动开发</td></tr><tr><td>动态</td><td>用例<br>应用范例和角色扮演</td><td>顺序图<br>状态图、流程图、威胁和故障建模</td></tr></tbody></table><h3 id="高层设计步骤"><a href="#高层设计步骤" class="headerlink" title="高层设计步骤"></a>高层设计步骤</h3><ul><li>应用范例和角色扮演 <ul><li>在一个较高层次上描述客户是如何和我们的软件交互的</li></ul></li><li>项目管理规范书<ul><li>描述一些外部的困扰，包括需求、对话框、菜单、屏幕、数据集合和其他功能</li></ul></li><li>开发规范书 （设计文档或架构文档）<ul><li>类的层次和关系</li><li>组件栈和关系</li><li>其他需要在较高层次描述实现结构的东西</li></ul></li><li>状态图、流程图、威胁和故障建模<ul><li>描述并控制系统中组件和对象之间的复杂交互</li></ul></li></ul><p>每个步骤都应有一个有限而明确的范围。</p><p>不是所有步骤在设计时都是必须的。</p><p>外部象限具有很宽的受众，内部象限则针对技术人员。</p><p>善用UML</p><p>威胁和故障建模通过重用“组件关系图”，会比较容易。</p>]]></content>
     
@@ -75,6 +79,8 @@
     
     
     
+    <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
+    
     
   </entry>
   
@@ -83,7 +89,7 @@
     <link href="https://q0519.gitee.io/2020/12/08/PlantUML/mindmap/"/>
     <id>https://q0519.gitee.io/2020/12/08/PlantUML/mindmap/</id>
     <published>2020-12-08T14:32:21.897Z</published>
-    <updated>2020-12-08T14:37:33.814Z</updated>
+    <updated>2020-12-10T06:27:47.185Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是阅读绘制Mindmap官方文档后的一些笔记。</p><p><font color=red>Mindmap</font>目前还处于beta阶段，语法可能随时更改。</p><h3 id="如何绘制一个Mindmap"><a href="#如何绘制一个Mindmap" class="headerlink" title="如何绘制一个Mindmap"></a>如何绘制一个Mindmap</h3><p>绘制方法和orgmap</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@startmindmap</span><br><span class="line"></span><br><span class="line">@endmindmap</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -96,6 +102,8 @@
     
     
     
+    <category term="PlantUML" scheme="https://q0519.gitee.io/categories/PlantUML/"/>
+    
     
   </entry>
   
@@ -104,7 +112,7 @@
     <link href="https://q0519.gitee.io/2020/12/08/Flutter/flutter_constraints/"/>
     <id>https://q0519.gitee.io/2020/12/08/Flutter/flutter_constraints/</id>
     <published>2020-12-08T14:28:10.178Z</published>
-    <updated>2020-12-08T14:58:22.612Z</updated>
+    <updated>2020-12-10T06:27:47.185Z</updated>
     
     <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是阅读<a href="https://flutter.dev/docs/development/ui/layout/constraints">Flutter Constraints</a> 的一些笔记。</p><h3 id="图例"><a href="#图例" class="headerlink" title="图例"></a>图例</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="410px" preserveAspectRatio="none" style="width:743px;height:410px;" version="1.1" viewBox="0 0 743 410" width="743px" zoomAndPan="magnify"><defs><filter height="300%" id="fgqhneqorvb7m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="137" x="10" y="189.9703"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="20" y="216.0143">Flutter Constraints</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="82" x="197" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="207" y="46.0439">Container</text><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,39.5601 187,39.5601 L197,39.5601 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="127" x="197" y="79.1201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="107" x="207" y="105.1641">UncontrainedBox</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="309" x="374" y="79.1201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="289" x="384" y="105.1641">Display warning If Large than its available size</text><path d="M324,98.6802 L334,98.6802 C349,98.6802 349,98.6802 364,98.6802 L374,98.6802 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,98.6802 187,98.6802 L197,98.6802 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="98" x="197" y="138.2402"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="78" x="207" y="164.2842">OverflowBox</text><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,157.8003 187,157.8003 L197,157.8003 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="113" x="197" y="197.3604"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="207" y="223.4043">ContrainedBox</text><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,216.9204 187,216.9204 L197,216.9204 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="79" x="197" y="256.4805"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="59" x="207" y="282.5244">FittedBox</text><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,276.0405 187,276.0405 L197,276.0405 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="95" x="197" y="315.6006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="207" y="341.6445">[Flex boxes]</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="257" x="342" y="300.8206"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="237" x="352" y="326.8645">Row -- Display Size Overflow Warning</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="83" x="649" y="271.2605"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="63" x="659" y="297.3044">Expanded</text><path d="M599,320.3806 L609,320.3806 C624,320.3806 624,290.8206 639,290.8206 L649,290.8206 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="649" y="330.3806"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="659" y="356.4246">Flexible</text><path d="M599,320.3806 L609,320.3806 C624,320.3806 624,349.9407 639,349.9407 L649,349.9407 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M292,335.1606 L302,335.1606 C317,335.1606 317,320.3806 332,320.3806 L342,320.3806 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="39.1201" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="342" y="359.9407"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="352" y="385.9846">Column</text><path d="M292,335.1606 L302,335.1606 C317,335.1606 317,379.5007 332,379.5007 L342,379.5007 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M147,209.5304 L157,209.5304 C172,209.5304 172,335.1606 187,335.1606 L197,335.1606 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a0e87d5311befb8c96159493e1629d7e]@startmindmap* Flutter Constraints** Container** UncontrainedBox*** Display warning If Large than its available size** OverflowBox** ContrainedBox** FittedBox** [Flex boxes]*** Row - - Display Size Overflow Warning**** Expanded**** Flexible*** Column@endmindmapPlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)(GPL source distribution)Java Runtime: Java(TM) SE Runtime EnvironmentJVM: Java HotSpot(TM) Client VMJava Version: 1.8.0_271-b09Operating System: Windows 10Default Encoding: GBKLanguage: zhCountry: CN--></g></svg>]]></content>
     
@@ -115,6 +123,8 @@
       
     
     
+    
+    <category term="Flutter" scheme="https://q0519.gitee.io/categories/Flutter/"/>
     
     
   </entry>
