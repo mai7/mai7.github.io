@@ -1,0 +1,16 @@
+@startmindmap
+
+* Flutter Constraints
+** Container
+** UncontrainedBox
+*** Display warning If Large than its available size
+** OverflowBox
+** ContrainedBox
+** FittedBox
+** [Flex boxes]
+*** Row -- Display Size Overflow Warning
+**** Expanded
+**** Flexible
+*** Column
+
+@endmindmap

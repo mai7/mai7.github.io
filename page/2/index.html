@@ -151,6 +151,521 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/" class="post-title-link" itemprop="url">Thread Pool 模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 17:23:28 / Modified: 18:05:31" itemprop="dateCreated datePublished" datetime="2020-12-08T17:23:28+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>线程池通过对任务及执行线程的管理，复用资源。</p>
+<p>主要包括：1. 任务队列； 2. 工作线程调度</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><p>线程泄露</p>
+<p>a) 由于线程执行错误导致线程池中线程意外终止，耗尽线程池。ThreadPool中已经对此情况进行了处理。( 延申： 怎么处理的)</p>
+<p>b) 由于一些阻塞的任务，比如读取外部数据等，没有恰当的超时机制，导致线程池中工作线程均在等待，无法执行任务。</p>
+<p>c) 死锁，活锁等</p>
+</li>
+<li><p>饱和策略</p>
+</li>
+<li><p>队列不受限导致溢出</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/" class="post-title-link" itemprop="url">Activate Object 主动对象模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 17:07:08 / Modified: 18:05:31" itemprop="dateCreated datePublished" datetime="2020-12-08T17:07:08+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="629px" preserveAspectRatio="none" style="width:497px;height:629px;" version="1.1" viewBox="0 0 497 629" width="497px" zoomAndPan="magnify"><defs><filter height="300%" id="f1o08o093emmb2" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="48" id="Client" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="392" y="8"/><ellipse cx="407" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M405.5781,29.3594 Q403.7188,29.3594 402.625,27.9688 Q401.5313,26.5781 401.5313,23.5938 Q401.5313,21.0625 402.6953,19.4063 Q403.8594,17.75 405.8438,17.75 Q407.3125,17.75 407.7813,17.875 Q408.25,18.0781 408.25,18.0781 Q408.25,18.0781 408.25,18.0078 Q408.25,17.9375 408.8594,17.0156 L409.9063,20.6719 L408.5781,21.0781 Q408.1094,19.5313 407.4453,18.8672 Q406.7813,18.2031 405.7188,18.2031 Q405.3281,18.2031 404.5625,19.7344 Q403.7969,21.2656 403.7969,23.5156 Q403.7969,25.9844 404.4609,27.375 Q405.125,28.7656 405.6563,28.7656 Q406.7188,28.7656 407.4766,28 Q408.2344,27.2344 408.5781,25.5781 L409.9063,26.1719 Q409.5781,27.5781 408.6797,28.4688 Q407.7813,29.3594 405.5781,29.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="32" x="421" y="29.5576">Client</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="393" x2="455" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="393" x2="455" y1="48" y2="48"/><!--MD5=[f7109e258b7e3e4bb390e34b115b99ce]
+class Proxy--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="Proxy" style="stroke: #A80036; stroke-width: 1.5;" width="178" x="229" y="117"/><ellipse cx="299.25" cy="133" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M297.8281,138.3594 Q295.9688,138.3594 294.875,136.9688 Q293.7813,135.5781 293.7813,132.5938 Q293.7813,130.0625 294.9453,128.4063 Q296.1094,126.75 298.0938,126.75 Q299.5625,126.75 300.0313,126.875 Q300.5,127.0781 300.5,127.0781 Q300.5,127.0781 300.5,127.0078 Q300.5,126.9375 301.1094,126.0156 L302.1563,129.6719 L300.8281,130.0781 Q300.3594,128.5313 299.6953,127.8672 Q299.0313,127.2031 297.9688,127.2031 Q297.5781,127.2031 296.8125,128.7344 Q296.0469,130.2656 296.0469,132.5156 Q296.0469,134.9844 296.7109,136.375 Q297.375,137.7656 297.9063,137.7656 Q298.9688,137.7656 299.7266,137 Q300.4844,136.2344 300.8281,134.5781 L302.1563,135.1719 Q301.8281,136.5781 300.9297,137.4688 Q300.0313,138.3594 297.8281,138.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="29" x="319.75" y="138.5576">Proxy</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="230" x2="406" y1="149" y2="149"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="230" x2="406" y1="157" y2="157"/><ellipse cx="240" cy="168" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="152" x="249" y="173.606">asyncService( Object ) : Future</text><!--MD5=[8523c9eb2e1b5151dfc9c2a797373c5f]
+class Scheduler--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="78.0459" id="Scheduler" style="stroke: #A80036; stroke-width: 1.5;" width="217" x="7.5" y="259"/><ellipse cx="83.75" cy="275" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M82.3281,280.3594 Q80.4688,280.3594 79.375,278.9688 Q78.2813,277.5781 78.2813,274.5938 Q78.2813,272.0625 79.4453,270.4063 Q80.6094,268.75 82.5938,268.75 Q84.0625,268.75 84.5313,268.875 Q85,269.0781 85,269.0781 Q85,269.0781 85,269.0078 Q85,268.9375 85.6094,268.0156 L86.6563,271.6719 L85.3281,272.0781 Q84.8594,270.5313 84.1953,269.8672 Q83.5313,269.2031 82.4688,269.2031 Q82.0781,269.2031 81.3125,270.7344 Q80.5469,272.2656 80.5469,274.5156 Q80.5469,276.9844 81.2109,278.375 Q81.875,279.7656 82.4063,279.7656 Q83.4688,279.7656 84.2266,279 Q84.9844,278.2344 85.3281,276.5781 L86.6563,277.1719 Q86.3281,278.5781 85.4297,279.4688 Q84.5313,280.3594 82.3281,280.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="56" x="104.25" y="280.5576">Scheduler</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8.5" x2="223.5" y1="291" y2="291"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="8.5" x2="223.5" y1="299" y2="299"/><ellipse cx="18.5" cy="310" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="27.5" y="315.606">dispatch()</text><ellipse cx="18.5" cy="325.0229" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="191" x="27.5" y="330.6289">enqueue( methodReq : MethodRequest)</text><!--MD5=[7ac0d861308d3e6f548cc9575b4620cb]
+class ActivationQueue--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="78.0459" id="ActivationQueue" style="stroke: #A80036; stroke-width: 1.5;" width="220" x="6" y="398"/><ellipse cx="67.75" cy="414" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M66.3281,419.3594 Q64.4688,419.3594 63.375,417.9688 Q62.2813,416.5781 62.2813,413.5938 Q62.2813,411.0625 63.4453,409.4063 Q64.6094,407.75 66.5938,407.75 Q68.0625,407.75 68.5313,407.875 Q69,408.0781 69,408.0781 Q69,408.0781 69,408.0078 Q69,407.9375 69.6094,407.0156 L70.6563,410.6719 L69.3281,411.0781 Q68.8594,409.5313 68.1953,408.8672 Q67.5313,408.2031 66.4688,408.2031 Q66.0781,408.2031 65.3125,409.7344 Q64.5469,411.2656 64.5469,413.5156 Q64.5469,415.9844 65.2109,417.375 Q65.875,418.7656 66.4063,418.7656 Q67.4688,418.7656 68.2266,418 Q68.9844,417.2344 69.3281,415.5781 L70.6563,416.1719 Q70.3281,417.5781 69.4297,418.4688 Q68.5313,419.3594 66.3281,419.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="88.25" y="419.5576">ActivationQueue</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="225" y1="430" y2="430"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="225" y1="438" y2="438"/><ellipse cx="17" cy="449" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="194" x="26" y="454.606">enqueue( methodReq : MethodRequest )</text><ellipse cx="17" cy="464.0229" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="137" x="26" y="469.6289">dequeue () : MethodRequest</text><!--MD5=[6f55398781c5f964533f8511f7366b70]
+class MethodRequest--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="MethodRequest" style="stroke: #A80036; stroke-width: 1.5;" width="119" x="259.5" y="266.5"/><ellipse cx="274.5" cy="282.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M273.0781,287.8594 Q271.2188,287.8594 270.125,286.4688 Q269.0313,285.0781 269.0313,282.0938 Q269.0313,279.5625 270.1953,277.9063 Q271.3594,276.25 273.3438,276.25 Q274.8125,276.25 275.2813,276.375 Q275.75,276.5781 275.75,276.5781 Q275.75,276.5781 275.75,276.5078 Q275.75,276.4375 276.3594,275.5156 L277.4063,279.1719 L276.0781,279.5781 Q275.6094,278.0313 274.9453,277.3672 Q274.2813,276.7031 273.2188,276.7031 Q272.8281,276.7031 272.0625,278.2344 Q271.2969,279.7656 271.2969,282.0156 Q271.2969,284.4844 271.9609,285.875 Q272.625,287.2656 273.1563,287.2656 Q274.2188,287.2656 274.9766,286.5 Q275.7344,285.7344 276.0781,284.0781 L277.4063,284.6719 Q277.0781,286.0781 276.1797,286.9688 Q275.2813,287.8594 273.0781,287.8594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="87" x="288.5" y="288.0576">MethodRequest</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="377.5" y1="298.5" y2="298.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="260.5" x2="377.5" y1="306.5" y2="306.5"/><ellipse cx="270.5" cy="317.5" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="279.5" y="323.106">call()</text><!--MD5=[a1b8371b5b3d6eab25cd19c8ab04f757]
+class Servant--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="63.0229" id="Servant" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="68" y="555"/><ellipse cx="93.35" cy="571" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M91.9281,576.3594 Q90.0688,576.3594 88.975,574.9688 Q87.8813,573.5781 87.8813,570.5938 Q87.8813,568.0625 89.0453,566.4063 Q90.2094,564.75 92.1938,564.75 Q93.6625,564.75 94.1313,564.875 Q94.6,565.0781 94.6,565.0781 Q94.6,565.0781 94.6,565.0078 Q94.6,564.9375 95.2094,564.0156 L96.2563,567.6719 L94.9281,568.0781 Q94.4594,566.5313 93.7953,565.8672 Q93.1313,565.2031 92.0688,565.2031 Q91.6781,565.2031 90.9125,566.7344 Q90.1469,568.2656 90.1469,570.5156 Q90.1469,572.9844 90.8109,574.375 Q91.475,575.7656 92.0063,575.7656 Q93.0688,575.7656 93.8266,575 Q94.5844,574.2344 94.9281,572.5781 L96.2563,573.1719 Q95.9281,574.5781 95.0297,575.4688 Q94.1313,576.3594 91.9281,576.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="41" x="109.65" y="576.5576">Servant</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="69" x2="163" y1="587" y2="587"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="69" x2="163" y1="595" y2="595"/><ellipse cx="79" cy="606" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="70" x="88" y="611.606">doSomething()</text><!--MD5=[9473c99003db6b535952ab3e34a44ff8]
+class Future--><rect fill="#FEFECE" filter="url(#f1o08o093emmb2)" height="48" id="Future" style="stroke: #A80036; stroke-width: 1.5;" width="67" x="419.5" y="274"/><ellipse cx="434.5" cy="290" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M433.0781,295.3594 Q431.2188,295.3594 430.125,293.9688 Q429.0313,292.5781 429.0313,289.5938 Q429.0313,287.0625 430.1953,285.4063 Q431.3594,283.75 433.3438,283.75 Q434.8125,283.75 435.2813,283.875 Q435.75,284.0781 435.75,284.0781 Q435.75,284.0781 435.75,284.0078 Q435.75,283.9375 436.3594,283.0156 L437.4063,286.6719 L436.0781,287.0781 Q435.6094,285.5313 434.9453,284.8672 Q434.2813,284.2031 433.2188,284.2031 Q432.8281,284.2031 432.0625,285.7344 Q431.2969,287.2656 431.2969,289.5156 Q431.2969,291.9844 431.9609,293.375 Q432.625,294.7656 433.1563,294.7656 Q434.2188,294.7656 434.9766,294 Q435.7344,293.2344 436.0781,291.5781 L437.4063,292.1719 Q437.0781,293.5781 436.1797,294.4688 Q435.2813,295.3594 433.0781,295.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="448.5" y="295.5576">Future</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="420.5" x2="485.5" y1="306" y2="306"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="420.5" x2="485.5" y1="314" y2="314"/><!--MD5=[6c8bde876792f198e3004b5674ea61b5]
+link Client to Proxy--><path d="M402.549,56.171 C387.477,72.452 367.051,94.515 350.052,112.877 " fill="none" id="Client-&gt;Proxy" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="346.258,116.976,355.3079,113.0902,349.6552,113.3074,349.4381,107.6547,346.258,116.976" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8eb0a365200d5a3cbac713a6dc9efe98]
+link Client to Future--><path d="M426.574,56.428 C431.894,104.863 444.088,215.874 449.861,268.422 " fill="none" id="Client-&gt;Future" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="450.432,273.624,453.4258,264.2412,449.8863,268.6539,445.4736,265.1144,450.432,273.624" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[922722391205c23119148be12abecf78]
+link Proxy to Future--><path d="M345.972,180.062 C370.164,206.494 404.815,244.354 428.073,269.765 " fill="none" id="Proxy-&gt;Future" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="431.704,273.732,428.5768,264.3928,428.3276,270.0442,422.6763,269.795,431.704,273.732" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="36" x="391" y="225.8979">create</text><!--MD5=[bbbd6c54c6929ecb5e279c12f072525f]
+link Proxy to MethodRequest--><path d="M317.393,180.277 C317.231,189.804 317.08,200.336 317,210 C316.93,218.444 316.876,220.556 317,229 C317.154,239.453 317.44,250.807 317.749,261.19 " fill="none" id="Proxy-&gt;MethodRequest" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="317.902,266.2,321.625,257.0819,317.7492,261.2023,313.6288,257.3265,317.902,266.2" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="36" x="318" y="225.8979">create</text><!--MD5=[71c2a629c9b23f564c0da2367af1119f]
+link Proxy to Scheduler--><path d="M276.145,180.062 C246.174,201.947 205.474,231.666 172.605,255.667 " fill="none" id="Proxy-&gt;Scheduler" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="168.227,258.864,177.8541,256.786,172.2647,255.915,173.1357,250.3256,168.227,258.864" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8ffed7f29b046ae57345b2e0df64c519]
+link Scheduler to ActivationQueue--><path d="M116,337.162 C116,354.239 116,374.468 116,392.163 " fill="none" id="Scheduler-&gt;ActivationQueue" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="116,397.567,120,388.567,116,392.567,112,388.567,116,397.567" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[351c70a05f6f16a5b9d23fe86c34cfb9]
+link ActivationQueue to Servant--><path d="M116,476.369 C116,498.97 116,527.3798 116,549.547 " fill="none" id="ActivationQueue-&gt;Servant" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="116,554.7517,120,545.7517,116,549.7517,112,545.7517,116,554.7517" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="20" x="117" y="521.8979">call</text><!--MD5=[46774a94a03d02469036bc502f6ff830]
+@startuml
+
+class Client
+
+class Proxy {
+	+asyncService( Object ) : Future
+}
+
+class Scheduler {
+	+dispatch()
+	+enqueue( methodReq : MethodRequest)
+}
+
+class ActivationQueue {
+	+enqueue( methodReq : MethodRequest )
+	+dequeue () : MethodRequest
+}
+
+class MethodRequest {
+	+call()
+}
+
+class Servant {
+	+doSomething()
+}
+
+Client ..> Proxy 
+Client ..> Future
+Proxy ..> Future :create
+Proxy ..> MethodRequest :create
+Proxy - -> Scheduler
+Scheduler - -> ActivationQueue
+ActivationQueue ..> Servant :call
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/product_consumer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/product_consumer/" class="post-title-link" itemprop="url">Product-consumer 模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 16:07:54 / Modified: 18:32:35" itemprop="dateCreated datePublished" datetime="2020-12-08T16:07:54+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/promise/" class="post-title-link" itemprop="url">Promise 承诺模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 15:32:12 / Modified: 15:50:09" itemprop="dateCreated datePublished" datetime="2020-12-08T15:32:12+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>通过返回包含阻塞方法的凭据对象，使得调用方法无需等待即可继续执行，待需要结果时，通过调用凭据对象的阻塞方法获取结果。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="466px" preserveAspectRatio="none" style="width:235px;height:466px;" version="1.1" viewBox="0 0 235 466" width="235px" zoomAndPan="magnify"><defs><filter height="300%" id="f18zfauvwnwluq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect fill="#FEFECE" filter="url(#f18zfauvwnwluq)" height="48" id="Client" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="102.5" y="8"/><ellipse cx="117.5" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M116.0781,29.3594 Q114.2188,29.3594 113.125,27.9688 Q112.0313,26.5781 112.0313,23.5938 Q112.0313,21.0625 113.1953,19.4063 Q114.3594,17.75 116.3438,17.75 Q117.8125,17.75 118.2813,17.875 Q118.75,18.0781 118.75,18.0781 Q118.75,18.0781 118.75,18.0078 Q118.75,17.9375 119.3594,17.0156 L120.4063,20.6719 L119.0781,21.0781 Q118.6094,19.5313 117.9453,18.8672 Q117.2813,18.2031 116.2188,18.2031 Q115.8281,18.2031 115.0625,19.7344 Q114.2969,21.2656 114.2969,23.5156 Q114.2969,25.9844 114.9609,27.375 Q115.625,28.7656 116.1563,28.7656 Q117.2188,28.7656 117.9766,28 Q118.7344,27.2344 119.0781,25.5781 L120.4063,26.1719 Q120.0781,27.5781 119.1797,28.4688 Q118.2813,29.3594 116.0781,29.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="32" x="131.5" y="29.5576">Client</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="103.5" x2="165.5" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="103.5" x2="165.5" y1="48" y2="48"/><!--MD5=[443d23e8e2b3ceb395e1e555e3eab31e]
+class Promisor--><rect fill="#FEFECE" filter="url(#f18zfauvwnwluq)" height="63.0229" id="Promisor" style="stroke: #A80036; stroke-width: 1.5;" width="116" x="21.5" y="116"/><ellipse cx="51.35" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M49.9281,137.3594 Q48.0688,137.3594 46.975,135.9688 Q45.8813,134.5781 45.8813,131.5938 Q45.8813,129.0625 47.0453,127.4063 Q48.2094,125.75 50.1938,125.75 Q51.6625,125.75 52.1313,125.875 Q52.6,126.0781 52.6,126.0781 Q52.6,126.0781 52.6,126.0078 Q52.6,125.9375 53.2094,125.0156 L54.2563,128.6719 L52.9281,129.0781 Q52.4594,127.5313 51.7953,126.8672 Q51.1313,126.2031 50.0688,126.2031 Q49.6781,126.2031 48.9125,127.7344 Q48.1469,129.2656 48.1469,131.5156 Q48.1469,133.9844 48.8109,135.375 Q49.475,136.7656 50.0063,136.7656 Q51.0688,136.7656 51.8266,136 Q52.5844,135.2344 52.9281,133.5781 L54.2563,134.1719 Q53.9281,135.5781 53.0297,136.4688 Q52.1313,137.3594 49.9281,137.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="68.65" y="137.5576">Promisor</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="22.5" x2="136.5" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="22.5" x2="136.5" y1="156" y2="156"/><ellipse cx="32.5" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90" x="41.5" y="172.606">Promise compute()</text><!--MD5=[f1a375cc0ebc9f2bec7aa9b05864ef19]
+class TaskExecutor--><rect fill="#FEFECE" filter="url(#f18zfauvwnwluq)" height="63.0229" id="TaskExecutor" style="stroke: #A80036; stroke-width: 1.5;" width="106" x="26.5" y="239"/><ellipse cx="41.5" cy="255" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M40.0781,260.3594 Q38.2188,260.3594 37.125,258.9688 Q36.0313,257.5781 36.0313,254.5938 Q36.0313,252.0625 37.1953,250.4063 Q38.3594,248.75 40.3438,248.75 Q41.8125,248.75 42.2813,248.875 Q42.75,249.0781 42.75,249.0781 Q42.75,249.0781 42.75,249.0078 Q42.75,248.9375 43.3594,248.0156 L44.4063,251.6719 L43.0781,252.0781 Q42.6094,250.5313 41.9453,249.8672 Q41.2813,249.2031 40.2188,249.2031 Q39.8281,249.2031 39.0625,250.7344 Q38.2969,252.2656 38.2969,254.5156 Q38.2969,256.9844 38.9609,258.375 Q39.625,259.7656 40.1563,259.7656 Q41.2188,259.7656 41.9766,259 Q42.7344,258.2344 43.0781,256.5781 L44.4063,257.1719 Q44.0781,258.5781 43.1797,259.4688 Q42.2813,260.3594 40.0781,260.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="74" x="55.5" y="260.5576">TaskExecutor</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="27.5" x2="131.5" y1="271" y2="271"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="27.5" x2="131.5" y1="279" y2="279"/><ellipse cx="37.5" cy="290" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="46.5" y="295.606">run()</text><!--MD5=[2741598bdf59a7d7e0d5c97658fd3022]
+class Result--><rect fill="#FEFECE" filter="url(#f18zfauvwnwluq)" height="48" id="Result" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="156.5" y="384.5"/><ellipse cx="171.5" cy="400.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M170.0781,405.8594 Q168.2188,405.8594 167.125,404.4688 Q166.0313,403.0781 166.0313,400.0938 Q166.0313,397.5625 167.1953,395.9063 Q168.3594,394.25 170.3438,394.25 Q171.8125,394.25 172.2813,394.375 Q172.75,394.5781 172.75,394.5781 Q172.75,394.5781 172.75,394.5078 Q172.75,394.4375 173.3594,393.5156 L174.4063,397.1719 L173.0781,397.5781 Q172.6094,396.0313 171.9453,395.3672 Q171.2813,394.7031 170.2188,394.7031 Q169.8281,394.7031 169.0625,396.2344 Q168.2969,397.7656 168.2969,400.0156 Q168.2969,402.4844 168.9609,403.875 Q169.625,405.2656 170.1563,405.2656 Q171.2188,405.2656 171.9766,404.5 Q172.7344,403.7344 173.0781,402.0781 L174.4063,402.6719 Q174.0781,404.0781 173.1797,404.9688 Q172.2813,405.8594 170.0781,405.8594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="36" x="185.5" y="406.0576">Result</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="157.5" x2="223.5" y1="416.5" y2="416.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="157.5" x2="223.5" y1="424.5" y2="424.5"/><!--MD5=[b59cb0292cbab4b73c77d0ad579c4efd]
+class Promise--><rect fill="#FEFECE" filter="url(#f18zfauvwnwluq)" height="93.0688" id="Promise" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="6" y="362"/><ellipse cx="37.2" cy="378" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M35.7781,383.3594 Q33.9188,383.3594 32.825,381.9688 Q31.7313,380.5781 31.7313,377.5938 Q31.7313,375.0625 32.8953,373.4063 Q34.0594,371.75 36.0438,371.75 Q37.5125,371.75 37.9813,371.875 Q38.45,372.0781 38.45,372.0781 Q38.45,372.0781 38.45,372.0078 Q38.45,371.9375 39.0594,371.0156 L40.1063,374.6719 L38.7781,375.0781 Q38.3094,373.5313 37.6453,372.8672 Q36.9813,372.2031 35.9188,372.2031 Q35.5281,372.2031 34.7625,373.7344 Q33.9969,375.2656 33.9969,377.5156 Q33.9969,379.9844 34.6609,381.375 Q35.325,382.7656 35.8563,382.7656 Q36.9188,382.7656 37.6766,382 Q38.4344,381.2344 38.7781,379.5781 L40.1063,380.1719 Q39.7781,381.5781 38.8797,382.4688 Q37.9813,383.3594 35.7781,383.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="47" x="54.8" y="383.5576">Promise</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="120" y1="394" y2="394"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="120" y1="402" y2="402"/><ellipse cx="17" cy="413" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="86" x="26" y="418.606">Result getResult()</text><ellipse cx="17" cy="428.0229" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="89" x="26" y="433.6289">setResult( Result )</text><ellipse cx="17" cy="443.0459" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="26" y="448.6519">isDone()</text><!--MD5=[942327270a8f2ccb3a614b72a69fd8cc]
+link Client to Promisor--><path d="M123.237,56.242 C115.596,72.011 105.3486,93.158 96.6937,111.018 " fill="none" id="Client-&gt;Promisor" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="94.2983,115.962,101.8222,109.6066,96.4784,111.4623,94.6227,106.1185,94.2983,115.962" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5ea63eac58c27fa85012a05effbb153c]
+link Client to Result--><path d="M140.814,56.105 C145.158,72.674 150.792,95.583 154.5,116 C171.899,211.798 183.371,326.858 188.078,379.1516 " fill="none" id="Client-&gt;Result" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="188.539,384.314,191.7226,374.9939,188.0943,379.3338,183.7543,375.7055,188.539,384.314" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[59a89bbfb2c42d0f04faa58ba718f231]
+link Promisor to TaskExecutor--><path d="M79.5,179.033 C79.5,195.656 79.5,216.318 79.5,233.696 " fill="none" id="Promisor-&gt;TaskExecutor" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="79.5,238.976,83.5,229.976,79.5,233.976,75.5,229.976,79.5,238.976" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a940c7f23864681c79c1fb76262dc48b]
+link TaskExecutor to Promise--><path d="M75.9093,302.021 C74.0144,318.128 71.6395,338.314 69.4761,356.7036 " fill="none" id="TaskExecutor-&gt;Promise" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="68.872,361.8379,73.8963,353.367,69.4563,356.8722,65.9511,352.4321,68.872,361.8379" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f5c86a66c2bd4a1200de654cea7643c5]
+link TaskExecutor to Result--><path d="M104.4106,302.021 C123.546,325.466 149.736,357.5551 168.189,380.1645 " fill="none" id="TaskExecutor-&gt;Result" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="171.542,384.2717,168.9509,374.7698,168.3808,380.3978,162.7527,379.8277,171.542,384.2717" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8c5bf4d90b56fd6db2c20e1d6a59da81]
+@startuml
+class Client
+
+class Promisor {
+	+Promise compute()
+}
+class TaskExecutor {
+	+run()
+}
+class Result
+
+class Promise {
+	+Result getResult()
+	+setResult( Result )
+	+isDone()
+}
+
+Client ..> Promisor
+
+Client ..> Result
+
+Promisor ..> TaskExecutor
+
+TaskExecutor ..> Promise 
+
+TaskExecutor ..> Result
+
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+
+<h3 id="Sequence-Diagram"><a href="#Sequence-Diagram" class="headerlink" title="Sequence Diagram"></a>Sequence Diagram</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="227px" preserveAspectRatio="none" style="width:297px;height:227px;" version="1.1" viewBox="0 0 297 227" width="297px" zoomAndPan="magnify"><defs><filter height="300%" id="foce3n4f5xh8u" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#foce3n4f5xh8u)" height="45.7544" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="135" y="74.8745"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="35" x2="35" y1="41.1201" y2="184.3833"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="140" x2="140" y1="41.1201" y2="184.3833"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="255.5" x2="255.5" y1="41.1201" y2="184.3833"/><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="50" x="8" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="15" y="26.0439">Client</text><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="50" x="8" y="183.3833"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="15" y="206.4272">Client</text><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="70" x="103" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="110" y="26.0439">Promisor</text><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="70" x="103" y="183.3833"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="110" y="206.4272">Promisor</text><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="65" x="221.5" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="228.5" y="26.0439">Promise</text><rect fill="#FEFECE" filter="url(#foce3n4f5xh8u)" height="33.1201" style="stroke: #A80036; stroke-width: 1.5;" width="65" x="221.5" y="183.3833"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="228.5" y="206.4272">Promise</text><rect fill="#FFFFFF" filter="url(#foce3n4f5xh8u)" height="45.7544" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="135" y="74.8745"/><polygon fill="#A80036" points="123,70.8745,133,74.8745,123,78.8745,127,74.8745" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="35" x2="129" y1="74.8745" y2="74.8745"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="81" x="42" y="70.0181">1 : computer()</text><polygon fill="#A80036" points="244,102.6289,254,106.6289,244,110.6289,248,106.6289" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="145" x2="250" y1="106.6289" y2="106.6289"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="87" x="152" y="101.7725">2 : &lt;&lt;create&gt;&gt;</text><polygon fill="#A80036" points="46,116.6289,36,120.6289,46,124.6289,42,120.6289" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="40" x2="139" y1="120.6289" y2="120.6289"/><polygon fill="#A80036" points="244,148.3833,254,152.3833,244,156.3833,248,152.3833" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="35" x2="250" y1="152.3833" y2="152.3833"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="82" x="42" y="147.5269">4 : getResult()</text><polygon fill="#A80036" points="46,162.3833,36,166.3833,46,170.3833,42,166.3833" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="40" x2="255" y1="166.3833" y2="166.3833"/><!--MD5=[480549f5916095fe4275544836d47c4d]
+@startuml
+
+Client -> Promisor++ :1 : computer()
+Promisor -> Promise :2 : <<create>>
+return
+
+Client -> Promise :4 : getResult()
+return
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) Client VM
+Java Version: 1.8.0_271-b09
+Operating System: Windows 10
+Default Encoding: GBK
+Language: zh
+Country: CN
+--></g></svg>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/two-phase_termination/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/two-phase_termination/" class="post-title-link" itemprop="url">Two-phase Termination 两阶段终止模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 15:19:17 / Modified: 15:50:09" itemprop="dateCreated datePublished" datetime="2020-12-08T15:19:17+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>将线程停止拆分成准备阶段及执行阶段两个步骤。</p>
+<ol>
+<li><p>准备阶段</p>
+<p>通知相应线程需要停止，在线程池的场景，一般包括设置停止标志，调用可中断线程的interrupt方法，关闭等待IO操作的Socket等</p>
+</li>
+<li><p>停止</p>
+<p>检查准备阶段设置的停止信号，决定线程停止时机，进行适当清理等。</p>
+</li>
+</ol>
+<p>Java ThreadPoolExecutor就使用了此类模式来停止其维护的线程。</p>
+<p>​    </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/immutable_object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -420,7 +935,7 @@ Country: CN
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-08 15:11:02" itemprop="dateModified" datetime="2020-12-08T15:11:02+08:00">2020-12-08</time>
+                <time title="Modified: 2020-12-08 18:33:02" itemprop="dateModified" datetime="2020-12-08T18:33:02+08:00">2020-12-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -447,7 +962,7 @@ Country: CN
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Guarded-Suspension-保护性暂挂"><a href="#Guarded-Suspension-保护性暂挂" class="headerlink" title="### Guarded Suspension 保护性暂挂"></a>### Guarded Suspension 保护性暂挂</h3><p>当持有锁时，如果条件不满足，暂时挂起执行线程，等待条件满足时再次唤醒，判断条件后，执行操作。</p>
+          <h3 id="Guarded-Suspension-保护性暂挂"><a href="#Guarded-Suspension-保护性暂挂" class="headerlink" title="Guarded Suspension 保护性暂挂"></a>Guarded Suspension 保护性暂挂</h3><p>当持有锁时，如果条件不满足，暂时挂起执行线程，等待条件满足时再次唤醒，判断条件后，执行操作。</p>
 <h3 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Lock lock = <span class="keyword">new</span> Lock();</span><br><span class="line">Conditon condition = lock.newCondition()</span><br><span class="line">...</span><br><span class="line">lock.lock();</span><br><span class="line"><span class="keyword">while</span> ( conditon not satisfied ) &#123;</span><br><span class="line">    conditon.await()</span><br><span class="line">&#125;</span><br><span class="line">doOperation();</span><br><span class="line">lock.unLock()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -740,648 +1255,6 @@ Country: CN
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Flutter/flutter-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/02/Flutter/flutter-intro/" class="post-title-link" itemprop="url">Flutter 介绍</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-02 19:05:30" itemprop="dateCreated datePublished" datetime="2020-12-02T19:05:30+08:00">2020-12-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="494px" preserveAspectRatio="none" style="width:602px;height:494px;" version="1.1" viewBox="0 0 602 494" width="602px" zoomAndPan="magnify"><defs><filter height="300%" id="f1le66no3r8i98" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#ADD8E6" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="122" x="214" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="82" x="234" y="269.4482">Flutter</text><rect fill="#FFA500" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="138" x="436" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="98" x="456" y="92.0879">Android</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,79.1201 416,79.1201 L436,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FFFFFF" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="86" x="436" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="46" x="456" y="210.3281">IOS</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,197.3604 416,197.3604 L436,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="98" x="436" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="58" x="456" y="328.5684">Web</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,315.6006 416,315.6006 L436,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="144" x="436" y="394.7207"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="104" x="456" y="446.8086">Desktop</text><path d="M336,256.4805 L356,256.4805 C386,256.4805 386,433.8408 416,433.8408 L436,433.8408 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="94" x="20" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="54" x="40" y="269.4482">Dart</text><path d="M214,256.4805 L194,256.4805 C164,256.4805 164,256.4805 134,256.4805 L114,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0104fa95f348937798d0f93513ea9ad8]
-@startmindmap
-scale 2
-*[#lightblue] Flutter
-**[#orange] Android
-**[#white] IOS
-** Web
-** Desktop
-- - Dart
-@endmindmap
-
-PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
-(GPL source distribution)
-Java Runtime: Java(TM) SE Runtime Environment
-JVM: Java HotSpot(TM) Client VM
-Java Version: 1.8.0_271-b09
-Operating System: Windows 10
-Default Encoding: GBK
-Language: zh
-Country: CN
---></g></svg>
-
-<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><ol>
-<li>“Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Style，Animation，Lists，Text，Button…这些都可以用Widget 表示，Widget嵌套是Flutter的应用构建方式。举例来说，并没有一个统一的叫App的作为应用入口，所有的Widget理论上都可以作为应用的入口。Flutter当然也包含其他非Widget的对象。</li>
-<li>组合优于继承。实践中，很少通过继承方式扩展一个Widget。一般都通过组合Widget的方式构建特定的Widget对象。这有点类似React的方式。</li>
-</ol>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="376px" preserveAspectRatio="none" style="width:1686px;height:376px;" version="1.1" viewBox="0 0 1686 376" width="1686px" zoomAndPan="magnify"><defs><filter height="300%" id="fgk4l36cjdzji" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="218" x="20" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="178" x="40" y="210.3281">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="836" x="338" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="796" x="358" y="92.0879">stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑</text><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,79.1201 318,79.1201 L338,79.1201 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="324" x="338" y="217.3604"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="284" x="358" y="269.4482">stateful 淇濆瓨鐘舵��</text><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="224" x="762" y="158.2402"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="184" x="782" y="210.3281">StatefulWidget</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,197.3604 742,197.3604 L762,197.3604 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fgk4l36cjdzji)" height="78.2402" rx="25" ry="25" style="stroke: #A80036; stroke-width: 3.0;" width="902" x="762" y="276.4805"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="862" x="782" y="328.5684">State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)</text><path d="M662,256.4805 L682,256.4805 C712,256.4805 712,315.6006 742,315.6006 L762,315.6006 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M238,197.3604 L258,197.3604 C288,197.3604 288,256.4805 318,256.4805 L338,256.4805 " fill="none" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[3d5e290db8f4bbacdd5391a00c2101ae]
-@startmindmap
-scale 2
-* Flutter Widget
-** stateless 涓嶄繚瀛樼姸鎬�,鐢ㄤ簬灞曠ずUI锛岄潤鎬佹枃鏈瓑
-** stateful 淇濆瓨鐘舵��
-*** StatefulWidget
-*** State (setState() 閫氱煡Flutter锛岀浉鍏冲尯鍩熼渶瑕侀噸鏂扮粯鍒�)
-@endmindmap
-
-PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
-(GPL source distribution)
-Java Runtime: Java(TM) SE Runtime Environment
-JVM: Java HotSpot(TM) Client VM
-Java Version: 1.8.0_271-b09
-Operating System: Windows 10
-Default Encoding: GBK
-Language: zh
-Country: CN
---></g></svg>
-
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:292px;height:55px;" version="1.1" viewBox="0 0 292 55" width="292px" zoomAndPan="magnify"><defs><filter height="300%" id="fq1z4jt37h14w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="16" cy="26" fill="#000000" filter="url(#fq1z4jt37h14w)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="36.3887" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="84" x="46" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="56" y="31.752">Constructor</text><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="36.3887" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="150.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="111" x="160.5" y="31.752">Widget.createState()</text><!--MD5=[381ab33bbd5470d3b1be6ae8d7a46217]
-link start to Constructor--><path d="M26.125,26 C30.9766,26 35.8282,26 40.6798,26 " fill="none" id="start-&gt;Constructor" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="45.9443,26,36.9443,22,40.9443,26,36.9443,30,45.9443,26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6674eb3a2d62253f68e92fb0b63a4e22]
-link Constructor to Widget.createState()--><path d="M130.25,26 C135.274,26 140.299,26 145.323,26 " fill="none" id="Constructor-&gt;Widget.createState()" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="150.348,26,141.348,22,145.348,26,141.348,30,150.348,26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4001afb7d92ac322b9b548a1be0cb492]
-@startuml
-(*) -> "Constructor"
--right-> "Widget.createState()"
-@enduml
-
-PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
-(GPL source distribution)
-Java Runtime: Java(TM) SE Runtime Environment
-JVM: Java HotSpot(TM) Client VM
-Java Version: 1.8.0_271-b09
-Operating System: Windows 10
-Default Encoding: GBK
-Language: zh
-Country: CN
---></g></svg>
-
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="314px" preserveAspectRatio="none" style="width:1516px;height:314px;" version="1.1" viewBox="0 0 1516 314" width="1516px" zoomAndPan="magnify"><defs><filter height="300%" id="fx2xbyd0wsv2j" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter><linearGradient id="gx2xbyd0wsv2j0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#808080"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
-entity Constructor--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="188" x="12" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="148" x="32" y="68.0879">Constructor</text><!--MD5=[99fd7391e5dd70fd5b5f804fc10d8688]
-entity mounted--><rect fill="url(#gx2xbyd0wsv2j0)" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="150" x="271" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="110" x="291" y="68.0879">mounted</text><!--MD5=[d5188574bc62afd6d53a507efb2aef9e]
-entity initState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="142" x="491" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="102" x="511" y="68.0879">initState</text><!--MD5=[a43635f50927eeb5f0235179d32a7eb9]
-entity dirty_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="164" x="704" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="124" x="724" y="68.0879">dirty state</text><!--MD5=[11fa01443fe50a6a26e5f9d4ef816fb0]
-entity build--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="100" x="938" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="60" x="958" y="68.0879">build</text><!--MD5=[cc0be402c6b2f424ca27f83de5745c9b]
-entity clean_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="178" x="1109" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="138" x="1129" y="68.0879">clean state</text><!--MD5=[4d5ba4c05f68dda5f45c29356b73c3a1]
-entity dispose--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="138" x="1357" y="16"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="98" x="1377" y="68.0879">dispose</text><!--MD5=[157059bb4d2eb32e0d2f25a59202362f]
-entity didChangeDependencies--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="360" x="382" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="320" x="402" y="266.0879">didChangeDependencies</text><!--MD5=[15b2de61c16501c8f1271adafb2dfff2]
-entity setState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="144" x="1124" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="104" x="1144" y="266.0879">setState</text><!--MD5=[5e56992db2efbb626fb5f153fa937d6a]
-entity didUpdateState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="78.2402" style="stroke: #000000; stroke-width: 3.0;" width="234" x="815" y="214"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacingAndGlyphs" textLength="194" x="835" y="266.0879">didUpdateState</text><!--MD5=[e585e9cb8873e4014d365c865d3386db]
-link Constructor to mounted--><path d="M200.6876,55 C220.506,55 240.324,55 260.142,55 " fill="none" id="Constructor-&gt;mounted" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="270.506,55,252.506,47,260.506,55,252.506,63,270.506,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[f950f694e6d8b8120548cd6f66b280a2]
-link mounted to initState--><path d="M421.094,55 C440.936,55 460.778,55 480.62,55 " fill="none" id="mounted-&gt;initState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="490.996,55,472.996,47,480.996,55,472.996,63,490.996,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[d18ebba6c96924fd5ede79c52385023d]
-link initState to dirty_state--><path d="M633.75,55 C653.67,55 673.59,55 693.51,55 " fill="none" id="initState-&gt;dirty_state" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="703.928,55,685.928,47,693.928,55,685.928,63,703.928,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[7139aff6e2195f3182cb3c782c5d5a72]
-link initState to didChangeDependencies--><path d="M562,94.4052 C562,125.5376 562,170.042 562,203.6548 " fill="none" id="initState-&gt;didChangeDependencies" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="562,213.7096,570,195.7096,562,203.7096,554,195.7096,562,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[d66950752d79791e74ec7e580ed3d1d0]
-reverse link dirty_state to didChangeDependencies--><path d="M735.162,101.0292 C695.91,135.0238 642.204,181.5378 605.056,213.7096 " fill="none" id="dirty_state&lt;-didChangeDependencies" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="742.81,94.4052,723.9657,100.1405,735.2504,100.9513,734.4396,112.236,742.81,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[a0ac4b26cd6c1cbe6d8788c9d6c1abbe]
-link dirty_state to build--><path d="M868.062,55 C887.744,55 907.426,55 927.108,55 " fill="none" id="dirty_state-&gt;build" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="937.402,55,919.402,47,927.402,55,919.402,63,937.402,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0851ea37a16542d04a1783cbfa900294]
-link build to clean_state--><path d="M1038.04,55 C1058.082,55 1078.124,55 1098.166,55 " fill="none" id="build-&gt;clean_state" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1108.646,55,1090.646,47,1098.646,55,1090.646,63,1108.646,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[89dffda2443baa7b1c0df28d39255a57]
-link clean_state to dispose--><path d="M1287.062,55 C1306.782,55 1326.5,55 1346.22,55 " fill="none" id="clean_state-&gt;dispose" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1356.532,55,1338.532,47,1346.532,55,1338.532,63,1356.532,55" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[2a4d9e63796b00889577e35d0be97ec4]
-link clean_state to setState--><path d="M1197.614,94.4052 C1197.294,125.5376 1196.834,170.042 1196.488,203.6548 " fill="none" id="clean_state-&gt;setState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="1196.384,213.7096,1204.5697,195.7933,1196.4874,203.7101,1188.5706,195.6278,1196.384,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[0558b8a16bb33b8d8e1a0aef01db4f84]
-reverse link dirty_state to setState--><path d="M874.876,99.0538 C949.226,134.2338 1053.984,183.802 1123.38,216.6378 " fill="none" id="dirty_state&lt;-setState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="865.052,94.4052,877.9007,109.3354,874.0911,98.6823,884.7442,94.8727,865.052,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[afe4cd7666f1e0fbf8907ba1e29c0883]
-link clean_state to didUpdateState--><path d="M1146.712,94.4052 C1102.37,126.7452 1038.242,173.5152 991.622,207.516 " fill="none" id="clean_state-&gt;didUpdateState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="983.13,213.7096,1002.3875,209.5683,991.21,207.8178,992.9605,196.6403,983.13,213.7096" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[6f88237c58600627f141d76b2c215f65]
-reverse link dirty_state to didUpdateState--><path d="M820.422,102.7392 C845.882,136.5702 880.128,182.074 903.936,213.7096 " fill="none" id="dirty_state&lt;-didUpdateState" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#A80036" points="814.15,94.4052,818.5805,113.5982,820.1627,102.3957,831.3652,103.9779,814.15,94.4052" style="stroke: #A80036; stroke-width: 2.0;"/><!--MD5=[4a2bac91915186d47394cc4511db2179]
-@startuml
-scale 2
-skinparam classFontColor automatic
-
-rectangle Constructor 
-rectangle mounted #gray/white
-rectangle initState
-rectangle "dirty state" as dirty_state #gray
-rectangle build
-rectangle "clean state" as clean_state #gray
-rectangle dispose
-
-rectangle didChangeDependencies
-
-rectangle setState
-rectangle didUpdateState
-
-Constructor -r-> mounted
-mounted -r-> initState
-initState -r-> dirty_state
-initState -d-> didChangeDependencies
-didChangeDependencies -u-> dirty_state
-dirty_state -r-> build
-build -r-> clean_state
-clean_state -r-> dispose
-clean_state -d-> setState
-setState -u-> dirty_state
-
-clean_state -d-> didUpdateState
-didUpdateState -u-> dirty_state
-@enduml
-
-PlantUML version 1.2020.10(Sun May 17 17:35:57 CST 2020)
-(GPL source distribution)
-Java Runtime: Java(TM) SE Runtime Environment
-JVM: Java HotSpot(TM) Client VM
-Java Version: 1.8.0_271-b09
-Operating System: Windows 10
-Default Encoding: GBK
-Language: zh
-Country: CN
---></g></svg>
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/02/Docker/docker_101/" class="post-title-link" itemprop="url">Docker 学习笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-02 17:50:58" itemprop="dateCreated datePublished" datetime="2020-12-02T17:50:58+08:00">2020-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-03 15:45:34" itemprop="dateModified" datetime="2020-12-03T15:45:34+08:00">2020-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<pre><code>Docker 学习笔记</code></pre>
-<hr>
-<h3 id="使用动机"><a href="#使用动机" class="headerlink" title="使用动机"></a>使用动机</h3><p>Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。</p>
-<p>目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。</p>
-<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><h4 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h4><p>docker search <strong>–no-trunc</strong> xxx</p>
-<p>no-trunc 的选项可以不截断结果中的文字。比如Description过长，默认会被截断。</p>
-<h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>docker pull <em>image-name</em></p>
-<h4 id="列举本地镜像"><a href="#列举本地镜像" class="headerlink" title="列举本地镜像"></a>列举本地镜像</h4><p>docker image ls</p>
-<h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --itd --name *name_of_a_new_container*  -p6379:6379 *image_name* </span><br><span class="line"><span class="meta">#</span><span class="bash">-d表示后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p本地映射端口:远程端口</span></span><br></pre></td></tr></table></figure>
-
-<p>-p端口映射相应说明可以<a target="_blank" rel="noopener" href="https://blog.csdn.net/chengxuyuanyonghu/article/details/76630617">参考这个网站</a></p>
-<p>如果遇到运行时报名字冲突，证明已经创建过相应名字的容器了。此时需要通过start启动容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -a image_name #-a指attach到stdin/stderr，可以在命令行中看到连接后的容器输出</span><br></pre></td></tr></table></figure>
-
-<p>停止docker镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop image_name</span><br></pre></td></tr></table></figure>
-
-<p>docker rm <em>image_name</em> 删除掉容器，再重建。</p>
-<h4 id="查询当前运行的镜像"><a href="#查询当前运行的镜像" class="headerlink" title="查询当前运行的镜像"></a>查询当前运行的镜像</h4><p>docker ps  显示运行的镜像</p>
-<p>显示所有已经创建的镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h4 id="运行一个redis容器"><a href="#运行一个redis容器" class="headerlink" title="运行一个redis容器"></a>运行一个redis容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">docker pull redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker run -d --name redis-test -p 6379:6379 redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker <span class="built_in">exec</span> -it redis-test /bin/bash</span></span><br><span class="line"><span class="meta">$</span><span class="bash">root@878972df&gt;redis-cli</span></span><br><span class="line"><span class="meta">#</span><span class="bash">:D</span></span><br></pre></td></tr></table></figure>
-
-<p>可以通过如下命令看本机端口是不是被打开（状态为LISTENING,windows环境)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -na | find &quot;6379&quot;</span><br></pre></td></tr></table></figure>
-
-<p>可以尝试通过redis客户端或者telnet操作下redis</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 6379 #quit命令退出</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行一个Mysql-容器"><a href="#运行一个Mysql-容器" class="headerlink" title="运行一个Mysql 容器"></a>运行一个Mysql 容器</h4><p>mysql容器运行方法与redis大同小异，如果启动失败，比如通过 docker ps -a看到异常终止，则可通过如下命令查看日志：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs container_name</span><br></pre></td></tr></table></figure>
-
-<p>比如，我运行mysql失败，产生了如下日志：</p>
-<blockquote>
-<p>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Switching to dedicated user ‘mysql’<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [ERROR] [Entrypoint]: Database is uninitialized and password option is not specified<br>        You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD</p>
-</blockquote>
-<p>显然，需要提供更多参数以便运行mysql，如日志所述，可以运行如下命令设置一个root密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=mysql_server -e MYSQL_ROOT_PASSWORD=12345 -p3306:3306 -p33060:33060 -d mysql</span><br></pre></td></tr></table></figure>
-
-<p>之后，即可通过如下命令登录容器。</p>
-<p>3306是经典的mysql端口，其他可用端口可以参考如下链接<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/mysql-port-reference/en/mysql-ports-reference-tables.html">Mysql Ports Reference</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker -it mysql_server /bin/bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="meta">root@wejfio22&gt;</span><span class="bash"> mysql -uroot -p <span class="comment">#打开一个mysql shell</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="今日遗留问题"><a href="#今日遗留问题" class="headerlink" title="今日遗留问题"></a>今日遗留问题</h3><ul>
-<li><input disabled="" type="checkbox"> 如何改变容器中的配置，比如更改redis的默认运行port？</li>
-<li><input disabled="" type="checkbox"> 数据在容器停止时似乎没有丢失，如果是容器意外退出呢？</li>
-<li><input disabled="" type="checkbox"> 已经创建的容器，如果需要改变本地映射端口，应该怎么做？</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/GNU%20Tools/autotools/" class="post-title-link" itemprop="url">Autotools 阅读实践笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-01 18:41:35 / Modified: 19:18:23" itemprop="dateCreated datePublished" datetime="2020-12-01T18:41:35+08:00">2020-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GNU-Tools/" itemprop="url" rel="index"><span itemprop="name">GNU Tools</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是我在windows环境下，使用Msys2 64 / Mingw64 进行C语言编程的一些笔记。</p>
-<p>熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。</p>
-<h3 id="II-改变默认安装路径"><a href="#II-改变默认安装路径" class="headerlink" title="II. 改变默认安装路径"></a>II. 改变默认安装路径</h3><p>一般安装步骤如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make install</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一般安装路径都是 /usr/<span class="built_in">local</span>/bin, 但可以通过设置prefix为其他路径来调整。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译后的文件安装到$HOME/bin目录</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$HOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译好的文件安装到当前目录的子目录下</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$PWD</span>/mytest</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>一般来说，prefix指向的路径应该是全路径而非相对路径，因为编译时会跳转到不同目录，依赖相对路径将导致不稳定的文件生成。</p>
-<h3 id="II-安装Clang"><a href="#II-安装Clang" class="headerlink" title="II.安装Clang"></a>II.安装Clang</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mingw64/mingw-w64-x86_64-clang</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang -Wall hello.c -o hello</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/Others/glossary_in_cs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/Others/glossary_in_cs/" class="post-title-link" itemprop="url">软件工程中一些常见的缩写</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-01 16:24:11 / Modified: 16:37:36" itemprop="dateCreated datePublished" datetime="2020-12-01T16:24:11+08:00">2020-12-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="KISS"><a href="#KISS" class="headerlink" title="KISS"></a>KISS</h4><p><strong>K</strong>eep <strong>I</strong>t <strong>S</strong>imple, <strong>S</strong>tupid.</p>
-<h4 id="CACE"><a href="#CACE" class="headerlink" title="CACE"></a>CACE</h4><p><strong>C</strong>hanging <strong>A</strong>nything <strong>C</strong>hanging <strong>E</strong>verything.</p>
-<p>牵一发动全身原则</p>
-<p>e.g. 如果删除一个方法，其他所有的方法均会受影响。</p>
-<h3 id="SOLID"><a href="#SOLID" class="headerlink" title="SOLID"></a>SOLID</h3><h4 id="SRP"><a href="#SRP" class="headerlink" title="SRP"></a>SRP</h4><p>单一职责原则</p>
-<h4 id="OCP"><a href="#OCP" class="headerlink" title="OCP"></a>OCP</h4><p>开/闭原则</p>
-<p>针对方法/类扩展，而不是修改。</p>
-<h4 id="LSP"><a href="#LSP" class="headerlink" title="LSP"></a>LSP</h4><p>里氏（Liskov) 替换原则</p>
-<h4 id="ISP"><a href="#ISP" class="headerlink" title="ISP"></a>ISP</h4><p>接口隔离原则</p>
-<h4 id="DIP"><a href="#DIP" class="headerlink" title="DIP"></a>DIP</h4><p>依赖倒置原则</p>
-<h3 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h3><p>测试驱动开发 / 设计</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% katex %&#125;</span><br><span class="line">c &#x3D; \pm\sqrt&#123;a^2 + b^2&#125;</span><br><span class="line">&#123;% endkatex %&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/11/30/Dart/dart_intro_01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/30/Dart/dart_intro_01/" class="post-title-link" itemprop="url">Dart 编程语言说明 - 01</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-30 16:54:14" itemprop="dateCreated datePublished" datetime="2020-11-30T16:54:14+08:00">2020-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-01 19:18:36" itemprop="dateModified" datetime="2020-12-01T19:18:36+08:00">2020-12-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Dart/" itemprop="url" rel="index"><span itemprop="name">Dart</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">dart <span class="built_in">help</span></span></span><br><span class="line"></span><br><span class="line">=================================================</span><br><span class="line">  analyze   Analyze the project&#x27;s Dart code.</span><br><span class="line">  compile   Compile Dart to various formats.</span><br><span class="line">  create    Create a new project.</span><br><span class="line">  format    Idiomatically format Dart source code.</span><br><span class="line">  migrate   Perform a null safety migration on a project or package.</span><br><span class="line">  pub       Work with packages.</span><br><span class="line">  run       Run a Dart program.</span><br><span class="line">  test      Run tests in this package.</span><br><span class="line">=================================================</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="创建Dart命令行工程"><a href="#创建Dart命令行工程" class="headerlink" title="创建Dart命令行工程"></a>创建Dart命令行工程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">dart create -t console-full projectName</span></span><br><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> projectName</span></span><br><span class="line"><span class="meta">$</span><span class="bash">dart run projectName</span></span><br><span class="line"><span class="meta">$</span><span class="bash">dart compile exe bin/projectName.dart</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="整数除法"><a href="#整数除法" class="headerlink" title="整数除法"></a>整数除法</h2><p> 5 ~/ 2 == 2</p>
-<h2 id="Null-aware-操作"><a href="#Null-aware-操作" class="headerlink" title="Null-aware 操作"></a>Null-aware 操作</h2><table>
-<thead>
-<tr>
-<th>Operators</th>
-<th>Examples</th>
-<th>Descriptions</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>?.</td>
-<td>User = UserEntity**?.**user</td>
-<td>如果UserEntity == null，User 设置为null，短路操作</td>
-</tr>
-<tr>
-<td>??</td>
-<td>age == User.age**??**30</td>
-<td>如果User.age为空，则返回30作为默认值</td>
-</tr>
-<tr>
-<td>??=</td>
-<td>x = 3;<br> x ??= 5;</td>
-<td>如果x 为空，则将其设置为5，否则不赋值</td>
-</tr>
-</tbody></table>
-<h2 id="命名变量参数"><a href="#命名变量参数" class="headerlink" title="命名变量参数"></a>命名变量参数</h2><p>Dart通过如下方式支持命名变量参数</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">void</span> testFunction( &#123;<span class="built_in">String</span> message, <span class="built_in">int</span> code&#125; ) &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Invokes</span></span><br><span class="line">testFunction(message: <span class="string">&quot;Hello&quot;</span>, code: <span class="number">111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认情况下，参数命名是可选的，但可以通过引入meta package强制使用Named Parameters调用函数：</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> foo ( <span class="built_in">int</span> x, [<span class="built_in">int</span> y=<span class="number">3</span>]) &#123;...&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="var-const-final-static-和-dynamic"><a href="#var-const-final-static-和-dynamic" class="headerlink" title="var, const, final, static 和 dynamic"></a>var, const, final, static 和 dynamic</h2><table>
-<thead>
-<tr>
-<th>定义</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>var</td>
-<td>keyword</td>
-<td>类型通过后期赋值确定，一旦确定类型则类型不可变更，但值可以改变。</td>
-</tr>
-<tr>
-<td>const</td>
-<td>keyword</td>
-<td>静态数据，必须在编译时即已经声明，完全不可变，且其不可变定义是传递的，比如 声明一个const数组，则const数组中的每一个值均无法改变。</td>
-</tr>
-<tr>
-<td>final</td>
-<td>keyword</td>
-<td>指向数据不可变。只有直接关联的数据是不能被改变的，不可变定义不传递，相对const较弱，近似于java的final</td>
-</tr>
-<tr>
-<td>dynamic</td>
-<td>type</td>
-<td>Dart所有对象的基类型，多数情况不需要显式的声明使用。</td>
-</tr>
-<tr>
-<td>static</td>
-<td>keyword</td>
-<td>用来修饰类的成员，指相应方法在类实例上使用而不是类对象上。近似于java的static。</td>
-</tr>
-</tbody></table>
-<p><a target="_blank" rel="noopener" href="https://news.dartlang.org/2012/06/const-static-final-oh-my.html">参考网站</a></p>
-<p>dynamic 可以用在定义类型和定义变量上，但var只能用在定义变量。比如：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> any = <span class="string">&#x27;String&#x27;</span>;</span><br><span class="line"><span class="built_in">dynamic</span> any = <span class="string">&#x27;String&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>均是合法的，但</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">dynamic</span>&gt; any;</span><br></pre></td></tr></table></figure>
-<p>不可以使用var替换。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1451,7 +1324,7 @@ Country: CN
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
