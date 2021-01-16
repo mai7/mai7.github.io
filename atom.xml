@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2020-12-10T07:11:26.583Z</updated>
+  <updated>2021-01-16T03:57:13.016Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VS Code Settings for Rust</title>
+    <link href="https://q0519.gitee.io/2021/01/16/Rust/VS-Code/"/>
+    <id>https://q0519.gitee.io/2021/01/16/Rust/VS-Code/</id>
+    <published>2021-01-16T03:29:56.566Z</published>
+    <updated>2021-01-16T03:57:13.016Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="VS-Code配置"><a href="#VS-Code配置" class="headerlink" title="VS Code配置"></a>VS Code配置</h3><h4 id="VS-Code-支持Rust-插件安装"><a href="#VS-Code-支持Rust-插件安装" class="headerlink" title="VS Code 支持Rust 插件安装"></a>VS Code 支持Rust 插件安装</h4><p>Rust， 语言支持插件</p><p>crates， 用来检查Rust项目依赖的版本情况</p><p>Better TOML, 支持Cargo配置文件编辑</p><p>C/C++ for Visual Studio Code,  Windows环境Debug, <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools</a></p><p>CodeLLDB, Linux环境Debug, <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb</a></p><h4 id="Debug-设置"><a href="#Debug-设置" class="headerlink" title="Debug 设置"></a>Debug 设置</h4><ol><li><p>VS Code <em>File -&gt; Preferences -&gt; Settings</em> ，找到Debug，配置可以在任意位置下断点</p></li><li><p>选择“Debug-&gt; Add Configuration”</p></li><li><p>如果是Windows环境，选择 <code>C++ (Windows)</code><br>如果是Mac环境，选择 <code>LLDB: Custom Launch</code></p><p>如上步骤将创建 <code>launch.json</code>。需要手动配置”program”项目的可执行程序路径。</p></li></ol><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        <span class="comment">// --- For Windows</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(Windows) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppvsdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>:  <span class="string">&quot;$&#123;workspaceFolder&#125;/target/debug/hello_console.exe&quot;</span>, <span class="comment">//配置程序路径</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// --- For Mac</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(OSX) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;lldb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;/target/debug/foo&quot;</span>,<span class="comment">//Mac配置程序路径</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后，使用F5, 开始Debug吧！</p><p>参考</p><blockquote><p><a href="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/">https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;VS-Code配置&quot;&gt;&lt;a href=&quot;#VS-Code配置&quot; class=&quot;headerlink&quot; title=&quot;VS Code配置&quot;&gt;&lt;/a&gt;VS Code配置&lt;/h3&gt;&lt;h4 id=&quot;VS-Code-支持Rust-插件安装&quot;&gt;&lt;a href=&quot;#VS-Cod</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>我的设计工具箱</title>
@@ -398,7 +418,7 @@
     <link href="https://q0519.gitee.io/2020/12/05/Others/git_tutorial/"/>
     <id>https://q0519.gitee.io/2020/12/05/Others/git_tutorial/</id>
     <published>2020-12-05T14:27:21.954Z</published>
-    <updated>2020-12-05T17:01:36.375Z</updated>
+    <updated>2021-01-16T03:30:11.662Z</updated>
     
     <content type="html"><![CDATA[<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>一般git rebase在过去项目中很少用到，最近阅读了如下blog, <a href="https://blog.scottlogic.com/2020/01/09/git-rebasing.html">Git Rebase</a> ，很赞同作者说的“提交历史质量与代码质量同等重要” ，因此在囫囵吞枣式地阅读了一下后，有了如下笔记。</p><h2 id="Rebase的适用情形"><a href="#Rebase的适用情形" class="headerlink" title="Rebase的适用情形"></a>Rebase的适用情形</h2><ul><li>Edit/rework a commit in the history </li><li>修订提交历史</li><li>Add a commit into the history of a change set (or branch)</li><li>增加一个改变集合或分支的提交到历史</li><li>Remove a commit from the history of a change set (or branch)</li><li>删除一个改变集合或分支的提交到历史</li><li>Split a commit into several commits</li><li>拆分一个提交到若干各提交</li><li>Combine a series of commits into one commit</li><li>合并一系列提交为一个单独提交</li><li>Re-order commits</li><li>重新排序提交</li></ul><h3 id="用于合并本地若干次提交"><a href="#用于合并本地若干次提交" class="headerlink" title="用于合并本地若干次提交"></a>用于合并本地若干次提交</h3><p>将本地近三次提交合并，可以通过rebase -i 进入交互式编辑</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure><p>之后，在文本编辑界面中，将看到最近几次提交的记录，类似</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pick 09i3foe comments</span><br><span class="line">pick jeo32jo comments</span><br><span class="line">pick je323jo comments</span><br></pre></td></tr></table></figure><p>此时，可以通过改变pick命令来完成多次提交的合并。相关指令说明：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Commands:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> p, pick &lt;commit&gt; = use commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> r, reword &lt;commit&gt; = use commit, but edit the commit message</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> e, edit &lt;commit&gt; = use commit, but stop <span class="keyword">for</span> amending</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> s, squash &lt;commit&gt; = use commit, but meld into previous commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> f, fixup &lt;commit&gt; = like <span class="string">&quot;squash&quot;</span>, but discard this commit<span class="string">&#x27;s log message</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> x, <span class="built_in">exec</span> &lt;<span class="built_in">command</span>&gt; = run <span class="built_in">command</span> (the rest of the line) using shell</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> b, <span class="built_in">break</span> = stop here (<span class="built_in">continue</span> Rebase later with <span class="string">&#x27;git rebase --continue&#x27;</span>)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> d, drop &lt;commit&gt; = remove commit</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> l, label &lt;label&gt; = label current HEAD with a name</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> t, reset &lt;label&gt; = reset HEAD to a label</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [<span class="comment"># &lt;oneline&gt;]</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       create a merge commit using the original merge commit<span class="string">&#x27;s</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       message (or the oneline, <span class="keyword">if</span> no original merge commit was</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> .       specified). Use -c &lt;commit&gt; to reword the commit message.</span></span><br></pre></td></tr></table></figure><p>显然，可以通过将第一个保留为pick，将其他的改为squash或者fixup来完成多条提交合并。</p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
     
@@ -457,28 +477,6 @@
     
     
     <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql 8 中的新的Collation (字符校对)</title>
-    <link href="https://q0519.gitee.io/2020/12/03/Mysql/mysql_8_new_collation/"/>
-    <id>https://q0519.gitee.io/2020/12/03/Mysql/mysql_8_new_collation/</id>
-    <published>2020-12-03T06:51:30.399Z</published>
-    <updated>2020-12-03T07:16:57.142Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在使用Docker玩mysql 8.0时，发现默认的character collation变成了不认识的utf8mb4_0900_ai_ci，对相应问题做了一点搜索，记录如下。</p><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>以<strong>utf8mb4_0900_ai_ci</strong>为例，它是一个若干有意义的字段合并的collation名称。分解如下：</p><ul><li><code>uft8mb4</code> 指使用UTF-8字符集，每个字符最多使用4 byte来存储。</li><li><code>0900</code> 指Unicode字符校对算法版本。Unicode字符校对算法(Unicode Collation Algorithm) 是用来按照Unicode标准比较两个字符串的算法。</li><li><code>ai</code> 指重音符号（Accent）不敏感，比如 e, è, é, ê and ë 在排序时均认为是同一字符。与其相对的是<code>as</code></li><li><code>ci</code> 指大小写（Case)不敏感。排序时a和A不做区分。与其相对的是 <code>as</code></li></ul><p>其他还有language identifer以及_bin标识，可以参考如下网站</p><p><a href="https://dev.mysql.com/doc/refman/8.0/en/charset-collation-names.html">Collation Naming Conventions</a></p><p><a href="https://mysqlserverteam.com/new-collations-in-mysql-8-0-0/">New Colllations in Mysql 8</a></p><p>展示所有Collation</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW COLLATION</span><br></pre></td></tr></table></figure><h3 id="如何确定当前表的Collation？"><a href="#如何确定当前表的Collation？" class="headerlink" title="如何确定当前表的Collation？"></a>如何确定当前表的Collation？</h3><p>可以查询information_schema表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">   table_schema,</span><br><span class="line">   table_name,</span><br><span class="line">   table_collation   </span><br><span class="line">FROM information_schema.tables</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;在使用Docker玩mysql 8.0时，发现默认的character collation变成了不认识的utf8mb4_0900_ai_ci</summary>
-      
-    
-    
-    
-    <category term="Mysql" scheme="https://q0519.gitee.io/categories/Mysql/"/>
     
     
   </entry>
