@@ -151,6 +151,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2021/02/16/Others/vim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/16/Others/vim/" class="post-title-link" itemprop="url">Vim Tricks</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-16 21:56:26 / Modified: 22:47:36" itemprop="dateCreated datePublished" datetime="2021-02-16T21:56:26+08:00">2021-02-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="短暂退出插入模式"><a href="#短暂退出插入模式" class="headerlink" title="短暂退出插入模式"></a>短暂退出插入模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">插入模式时，使用如下快捷键，可以短暂退出插入模式进入普通模式</span><br><span class="line">&lt;C-o&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二合字符"><a href="#二合字符" class="headerlink" title="二合字符"></a>二合字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:digraph</span><br><span class="line">:h digraph-table</span><br><span class="line">:h digraphs-default</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换模式"><a href="#替换模式" class="headerlink" title="替换模式"></a>替换模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R	替换模式</span><br><span class="line">gR	虚拟替换模式</span><br><span class="line">r	单字符替换，操作完成后退出替换模式</span><br><span class="line">gR	虚拟单字符替换</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择模式"><a href="#选择模式" class="headerlink" title="选择模式"></a>选择模式</h3><p>一般文本编辑器高亮文本后，键盘输入会直接替换被高亮的文本。</p>
+<p>vim可以通过进入选择模式模拟这种行为，也可以通过“删除后插入”模拟。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v		进入Visual模式，选择文本</span><br><span class="line">&lt;C-g&gt;	进入Select模式，输入文本直接替换</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>或者通过v 之后使用“c”模拟。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2021/01/16/Rust/VS-Code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,7 +245,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-16 11:29:56 / Modified: 11:57:13" itemprop="dateCreated datePublished" datetime="2021-01-16T11:29:56+08:00">2021-01-16</time>
+              <time title="Created: 2021-01-16 11:29:56 / Modified: 11:59:53" itemprop="dateCreated datePublished" datetime="2021-01-16T11:29:56+08:00">2021-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
+                </span>
             </span>
 
           
@@ -905,83 +983,6 @@ Country: CN
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/" class="post-title-link" itemprop="url">Serial Thread Confinement 串行线程封闭</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-08 17:59:08 / Modified: 18:05:31" itemprop="dateCreated datePublished" datetime="2020-12-08T17:59:08+08:00">2020-12-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>将多个并发任务存入队列，使用单线程消费。此模式将带来如下好处：</p>
-<ol>
-<li>异步化调用与执行；</li>
-<li>由于任务串行化，可以避免使用锁。</li>
-</ol>
-<p>此模式是一个弱化了的线程池模式。类似UI 中的 Event Loop。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1051,14 +1052,14 @@ Country: CN
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

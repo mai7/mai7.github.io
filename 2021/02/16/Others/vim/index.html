@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="简介以下是读&lt;&lt;代码之殇&gt;&gt;的关于Bug提交的笔记，作为常识，应该是牢记于心的。Bug提交是一种确保软件质量的沟通手段，因此，信息的准确传达尤为重要。 Bug报告的定义所有Bug报告，应该有如下要求    项目 说明    标题 要简略   指派 由谁来处理问题   重现步骤 问题再次出现的相关步骤。可采用图表、视频等。   优先级别 问题的紧迫程度与重要性，级别不应过多，">
+  <meta name="description" content="短暂退出插入模式12插入模式时，使用如下快捷键，可以短暂退出插入模式进入普通模式&lt;C-o&gt;  二合字符123:digraph:h digraph-table:h digraphs-default  替换模式1234R	替换模式gR	虚拟替换模式r	单字符替换，操作完成后退出替换模式gR	虚拟单字符替换  选择模式一般文本编辑器高亮文本后，键盘输入会直接替换被高亮的文本。 vim可以通过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何有效提bug">
-<meta property="og:url" content="https://q0519.gitee.io/2020/12/03/Others/how_to_confirm_bug_effectively/index.html">
+<meta property="og:title" content="Vim Tricks">
+<meta property="og:url" content="https://q0519.gitee.io/2021/02/16/Others/vim/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="简介以下是读&lt;&lt;代码之殇&gt;&gt;的关于Bug提交的笔记，作为常识，应该是牢记于心的。Bug提交是一种确保软件质量的沟通手段，因此，信息的准确传达尤为重要。 Bug报告的定义所有Bug报告，应该有如下要求    项目 说明    标题 要简略   指派 由谁来处理问题   重现步骤 问题再次出现的相关步骤。可采用图表、视频等。   优先级别 问题的紧迫程度与重要性，级别不应过多，">
+<meta property="og:description" content="短暂退出插入模式12插入模式时，使用如下快捷键，可以短暂退出插入模式进入普通模式&lt;C-o&gt;  二合字符123:digraph:h digraph-table:h digraphs-default  替换模式1234R	替换模式gR	虚拟替换模式r	单字符替换，操作完成后退出替换模式gR	虚拟单字符替换  选择模式一般文本编辑器高亮文本后，键盘输入会直接替换被高亮的文本。 vim可以通过">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-03T07:21:11.314Z">
-<meta property="article:modified_time" content="2020-12-03T07:41:51.607Z">
+<meta property="article:published_time" content="2021-02-16T13:56:26.586Z">
+<meta property="article:modified_time" content="2021-02-16T14:47:36.226Z">
 <meta property="article:author" content="Vincent Q">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://q0519.gitee.io/2020/12/03/Others/how_to_confirm_bug_effectively/">
+<link rel="canonical" href="https://q0519.gitee.io/2021/02/16/Others/vim/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>如何有效提bug | Blog</title>
+  <title>Vim Tricks | Blog</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/03/Others/how_to_confirm_bug_effectively/">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2021/02/16/Others/vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何有效提bug
+          Vim Tricks
         </h1>
 
         <div class="post-meta">
@@ -180,16 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-12-03 15:21:11 / Modified: 15:41:51" itemprop="dateCreated datePublished" datetime="2020-12-03T15:21:11+08:00">2020-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
-                </span>
+              <time title="Created: 2021-02-16 21:56:26 / Modified: 22:47:36" itemprop="dateCreated datePublished" datetime="2021-02-16T21:56:26+08:00">2021-02-16</time>
             </span>
 
           
@@ -203,94 +194,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是读&lt;&lt;代码之殇&gt;&gt;的关于Bug提交的笔记，作为常识，应该是牢记于心的。Bug提交是一种确保软件质量的沟通手段，因此，信息的准确传达尤为重要。</p>
-<h2 id="Bug报告的定义"><a href="#Bug报告的定义" class="headerlink" title="Bug报告的定义"></a>Bug报告的定义</h2><p>所有Bug报告，应该有如下要求</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>标题</td>
-<td>要简略</td>
-</tr>
-<tr>
-<td>指派</td>
-<td>由谁来处理问题</td>
-</tr>
-<tr>
-<td>重现步骤</td>
-<td>问题再次出现的相关步骤。可采用图表、视频等。</td>
-</tr>
-<tr>
-<td>优先级别</td>
-<td>问题的紧迫程度与重要性，级别不应过多，准则应该简单，易区分，易记忆。一般可以定义 <code>0-4</code> 级，优先级依次降低。</td>
-</tr>
-<tr>
-<td>严重程度</td>
-<td>问题所产生的后果</td>
-</tr>
-<tr>
-<td>解决方案</td>
-<td>怎么解决问题</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-优先级"><a href="#Bug-优先级" class="headerlink" title="Bug 优先级"></a>Bug 优先级</h2><p>比如，可以定义如下优先级</p>
-<table>
-<thead>
-<tr>
-<th>级别</th>
-<th>描述</th>
-<th>修复时间点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Pri 0</td>
-<td>一个需引起关注的致命错误，不存在变通方法，是一个不可逾越的bug</td>
-<td>只有解决了问题，找到变通方法，才能安心。</td>
-</tr>
-<tr>
-<td>Pri 1</td>
-<td>一个需要引起严重关注的致命错误</td>
-<td>必须在当前冲刺阶段解决</td>
-</tr>
-<tr>
-<td>Pri 2</td>
-<td>一个严重的错误</td>
-<td>必须在产品发布前解决</td>
-</tr>
-<tr>
-<td>Pri 3</td>
-<td>一般性错误或者建议</td>
-<td>最好在产品发布前解决</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-严重程度"><a href="#Bug-严重程度" class="headerlink" title="Bug 严重程度"></a>Bug 严重程度</h2><p>严重程度一般指影响范围。注意，严重程度和优先级是相互独立的。</p>
-<p>比如，可以定义如下</p>
-<table>
-<thead>
-<tr>
-<th>级别</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>引起系统崩溃或者用户数据丢失</td>
-</tr>
-<tr>
-<td>2</td>
-<td>引起故障，阻断了后续操作</td>
-</tr>
-<tr>
-<td>3</td>
-<td>引起操作不便或界面显示不完整</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-解决方案"><a href="#Bug-解决方案" class="headerlink" title="Bug 解决方案"></a>Bug 解决方案</h2><p>对于解决Bug的说明。除了具体方案细节，一般也会用如下关键字进行归类，比如 已修复，无法重现，不修复，延期之类。</p>
-<p>当一个Bug被解决，将会自行指派给发现它的人，如果解决方案不令人满意，则有可能再次被激活。</p>
+        <h4 id="短暂退出插入模式"><a href="#短暂退出插入模式" class="headerlink" title="短暂退出插入模式"></a>短暂退出插入模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">插入模式时，使用如下快捷键，可以短暂退出插入模式进入普通模式</span><br><span class="line">&lt;C-o&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二合字符"><a href="#二合字符" class="headerlink" title="二合字符"></a>二合字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:digraph</span><br><span class="line">:h digraph-table</span><br><span class="line">:h digraphs-default</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换模式"><a href="#替换模式" class="headerlink" title="替换模式"></a>替换模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R	替换模式</span><br><span class="line">gR	虚拟替换模式</span><br><span class="line">r	单字符替换，操作完成后退出替换模式</span><br><span class="line">gR	虚拟单字符替换</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择模式"><a href="#选择模式" class="headerlink" title="选择模式"></a>选择模式</h3><p>一般文本编辑器高亮文本后，键盘输入会直接替换被高亮的文本。</p>
+<p>vim可以通过进入选择模式模拟这种行为，也可以通过“删除后插入”模拟。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v		进入Visual模式，选择文本</span><br><span class="line">&lt;C-g&gt;	进入Select模式，输入文本直接替换</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>或者通过v 之后使用“c”模拟。</p>
 
     </div>
 
@@ -325,13 +239,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/03/Mysql/mysql_8_new_collation/" rel="prev" title="Mysql 8 中的新的Collation (字符校对)">
-      <i class="fa fa-chevron-left"></i> Mysql 8 中的新的Collation (字符校对)
+    <a href="/2021/01/16/Rust/VS-Code/" rel="prev" title="VS Code Settings for Rust">
+      <i class="fa fa-chevron-left"></i> VS Code Settings for Rust
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/04/Design%20Pattern/Concurrent%20Pattern/guarded_suspension/" rel="next" title="Guarded Suspension 保护性暂挂模式">
-      Guarded Suspension 保护性暂挂模式 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -390,7 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug%E6%8A%A5%E5%91%8A%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number"></span> <span class="nav-text">Bug报告的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug-%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number"></span> <span class="nav-text">Bug 优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug-%E4%B8%A5%E9%87%8D%E7%A8%8B%E5%BA%A6"><span class="nav-number"></span> <span class="nav-text">Bug 严重程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number"></span> <span class="nav-text">Bug 解决方案</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%AD%E6%9A%82%E9%80%80%E5%87%BA%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">短暂退出插入模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%90%88%E5%AD%97%E7%AC%A6"><span class="nav-number"></span> <span class="nav-text">二合字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E6%A8%A1%E5%BC%8F"><span class="nav-number"></span> <span class="nav-text">替换模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%A8%A1%E5%BC%8F"><span class="nav-number"></span> <span class="nav-text">选择模式</span></a></div>
       </div>
       <!--/noindex-->
 

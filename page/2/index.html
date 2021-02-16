@@ -151,6 +151,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/" class="post-title-link" itemprop="url">Serial Thread Confinement 串行线程封闭</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-08 17:59:08 / Modified: 18:05:31" itemprop="dateCreated datePublished" datetime="2020-12-08T17:59:08+08:00">2020-12-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index"><span itemprop="name">Design Pattern</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/Concurrent-Pattern/" itemprop="url" rel="index"><span itemprop="name">Concurrent Pattern</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>将多个并发任务存入队列，使用单线程消费。此模式将带来如下好处：</p>
+<ol>
+<li>异步化调用与执行；</li>
+<li>由于任务串行化，可以避免使用锁。</li>
+</ol>
+<p>此模式是一个弱化了的线程池模式。类似UI 中的 Event Loop。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_specific_storage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1085,161 +1162,6 @@ Country: CN
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/03/Others/how_to_confirm_bug_effectively/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Q">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/03/Others/how_to_confirm_bug_effectively/" class="post-title-link" itemprop="url">如何有效提bug</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-03 15:21:11 / Modified: 15:41:51" itemprop="dateCreated datePublished" datetime="2020-12-03T15:21:11+08:00">2020-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是读&lt;&lt;代码之殇&gt;&gt;的关于Bug提交的笔记，作为常识，应该是牢记于心的。Bug提交是一种确保软件质量的沟通手段，因此，信息的准确传达尤为重要。</p>
-<h2 id="Bug报告的定义"><a href="#Bug报告的定义" class="headerlink" title="Bug报告的定义"></a>Bug报告的定义</h2><p>所有Bug报告，应该有如下要求</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>标题</td>
-<td>要简略</td>
-</tr>
-<tr>
-<td>指派</td>
-<td>由谁来处理问题</td>
-</tr>
-<tr>
-<td>重现步骤</td>
-<td>问题再次出现的相关步骤。可采用图表、视频等。</td>
-</tr>
-<tr>
-<td>优先级别</td>
-<td>问题的紧迫程度与重要性，级别不应过多，准则应该简单，易区分，易记忆。一般可以定义 <code>0-4</code> 级，优先级依次降低。</td>
-</tr>
-<tr>
-<td>严重程度</td>
-<td>问题所产生的后果</td>
-</tr>
-<tr>
-<td>解决方案</td>
-<td>怎么解决问题</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-优先级"><a href="#Bug-优先级" class="headerlink" title="Bug 优先级"></a>Bug 优先级</h2><p>比如，可以定义如下优先级</p>
-<table>
-<thead>
-<tr>
-<th>级别</th>
-<th>描述</th>
-<th>修复时间点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Pri 0</td>
-<td>一个需引起关注的致命错误，不存在变通方法，是一个不可逾越的bug</td>
-<td>只有解决了问题，找到变通方法，才能安心。</td>
-</tr>
-<tr>
-<td>Pri 1</td>
-<td>一个需要引起严重关注的致命错误</td>
-<td>必须在当前冲刺阶段解决</td>
-</tr>
-<tr>
-<td>Pri 2</td>
-<td>一个严重的错误</td>
-<td>必须在产品发布前解决</td>
-</tr>
-<tr>
-<td>Pri 3</td>
-<td>一般性错误或者建议</td>
-<td>最好在产品发布前解决</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-严重程度"><a href="#Bug-严重程度" class="headerlink" title="Bug 严重程度"></a>Bug 严重程度</h2><p>严重程度一般指影响范围。注意，严重程度和优先级是相互独立的。</p>
-<p>比如，可以定义如下</p>
-<table>
-<thead>
-<tr>
-<th>级别</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>引起系统崩溃或者用户数据丢失</td>
-</tr>
-<tr>
-<td>2</td>
-<td>引起故障，阻断了后续操作</td>
-</tr>
-<tr>
-<td>3</td>
-<td>引起操作不便或界面显示不完整</td>
-</tr>
-</tbody></table>
-<h2 id="Bug-解决方案"><a href="#Bug-解决方案" class="headerlink" title="Bug 解决方案"></a>Bug 解决方案</h2><p>对于解决Bug的说明。除了具体方案细节，一般也会用如下关键字进行归类，比如 已修复，无法重现，不修复，延期之类。</p>
-<p>当一个Bug被解决，将会自行指派给发现它的人，如果解决方案不令人满意，则有可能再次被激活。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1309,14 +1231,14 @@ Country: CN
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
