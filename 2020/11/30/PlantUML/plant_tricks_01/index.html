@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="绘制各种图形actoragentartifactboundarycardcirclecloudcollectionscomponentcontroldatabaseentityfilefolderframeinterfacelabelnodepackagequeuestackrectanglestorageusecase  1234567891011121314151617181920212223">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PlantUML 使用技巧 - 01">
+<meta property="og:url" content="https://q0519.gitee.io/2020/11/30/PlantUML/plant_tricks_01/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="绘制各种图形actoragentartifactboundarycardcirclecloudcollectionscomponentcontroldatabaseentityfilefolderframeinterfacelabelnodepackagequeuestackrectanglestorageusecase  1234567891011121314151617181920212223">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-30T08:13:00.016Z">
+<meta property="article:modified_time" content="2020-12-01T11:18:43.079Z">
+<meta property="article:author" content="Vincent Q">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://q0519.gitee.io/2020/11/30/PlantUML/plant_tricks_01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>PlantUML 使用技巧 - 01 | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/11/30/PlantUML/plant_tricks_01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PlantUML 使用技巧 - 01
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-30 16:13:00" itemprop="dateCreated datePublished" datetime="2020-11-30T16:13:00+08:00">2020-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-01 19:18:43" itemprop="dateModified" datetime="2020-12-01T19:18:43+08:00">2020-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PlantUML/" itemprop="url" rel="index"><span itemprop="name">PlantUML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="绘制各种图形"><a href="#绘制各种图形" class="headerlink" title="绘制各种图形"></a>绘制各种图形</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1090px" preserveAspectRatio="none" style="width:1132px;height:1090px;" version="1.1" viewBox="0 0 1132 1090" width="1132px" zoomAndPan="magnify"><defs><filter height="300%" id="f46waq032wola" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e209b37fc91f378abaa2ddf468318055]
+entity actor--><ellipse cx="101" cy="28" fill="#FEFECE" filter="url(#f46waq032wola)" rx="16" ry="16" style="stroke:#A80036;stroke-width:3.0;"/><path d="M101,44 L101,98 M75,60 L127,60 M101,98 L75,128 M101,98 L127,128 " fill="none" filter="url(#f46waq032wola)" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="76" x="63" y="164.9902">actor</text><!--MD5=[3908db504f15eb564d5f0e12bd7273c1]
+entity agent--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="72.5938" style="stroke:#A80036;stroke-width:3.0;" width="124" x="209" y="54"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="84" x="229" y="99.9902">agent</text><!--MD5=[ed13bbfe61d4f4be62c09eebe4db66d3]
+entity artifact--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="78.5938" style="stroke:#000000;stroke-width:3.0;" width="168" x="403" y="51"/><polygon fill="#FEFECE" points="537,61,537,89,561,89,561,73,549,61,537,61" style="stroke:#000000;stroke-width:3.0;"/><line style="stroke:#000000;stroke-width:3.0;" x1="549" x2="549" y1="61" y2="73"/><line style="stroke:#000000;stroke-width:3.0;" x1="561" x2="549" y1="73" y2="73"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="108" x="423" y="102.9902">artifact</text><!--MD5=[6cbf048fd2d5a055b0f2cbfd23391788]
+entity boundary--><path d="M668,50 L668,98 M668,74 L702,74 " fill="none" filter="url(#f46waq032wola)" style="stroke:#A80036;stroke-width:3.0;"/><ellipse cx="726" cy="74" fill="#FEFECE" filter="url(#f46waq032wola)" rx="24" ry="24" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="134" x="642" y="131.9902">boundary</text><!--MD5=[0568ea600d1c2ace8679ac75c80dfc89]
+entity card--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="44.5938" style="stroke:#000000;stroke-width:3.0;" width="102" x="846" y="68"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="62" x="866" y="99.9902">card</text><!--MD5=[da456bc05ddb284180092693c9c3b3b1]
+entity circle--><ellipse cx="101" cy="349" fill="#FEFECE" filter="url(#f46waq032wola)" rx="16" ry="16" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="62" y="408.9902">circle</text><!--MD5=[3a4d72efb1b53e1acbdd1189cccbc328]
+entity cloud--><path d="M243.1898,321.0051 C247.9118,308.8068 259.3289,306.409 267.4687,317.4316 C274.7517,301.642 283.232,299.6104 295.1607,313.0267 C303.7859,302.9853 315.2295,304.154 320.1836,317.0344 C329.3109,306.3344 339.9162,309.7832 345.1226,321.4134 C360.5556,325.8058 366.8918,339.7543 352.603,351.5292 C364.5325,362.1536 364.1669,375.0171 348.2101,381.5627 C343.0962,397.8588 332.8556,399.3863 320.4262,389.2532 C316.8029,403.3604 306.5931,403.5477 297.3423,394.9829 C287.1883,405.2446 273.2434,404.9742 268.7475,388.8509 C259.1456,400.9984 247.8983,394.5938 243.8625,383.0134 C226.8624,377.9599 225.5996,365.6654 236.0097,353.3544 C222.7283,341.5845 227.8943,326.4323 243.1898,321.0051 " fill="#FEFECE" filter="url(#f46waq032wola)" style="stroke:#000000;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="76" x="255" y="358.9902">cloud</text><!--MD5=[a5a7a1c563e7de0fee7f3171b646813b]
+entity collections--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="64.5938" style="stroke:#A80036;stroke-width:3.0;" width="188" x="439" y="321"/><rect fill="#FEFECE" height="64.5938" style="stroke:#A80036;stroke-width:3.0;" width="188" x="431" y="313"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="156" x="447" y="354.9902">collections</text><!--MD5=[5f175ec018c225c86e8e77149e6345d4]
+entity component--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="92.5938" style="stroke:#A80036;stroke-width:3.0;" width="248" x="697" y="303"/><rect fill="#FEFECE" height="20" style="stroke:#A80036;stroke-width:3.0;" width="30" x="905" y="313"/><rect fill="#FEFECE" height="4" style="stroke:#A80036;stroke-width:3.0;" width="8" x="901" y="317"/><rect fill="#FEFECE" height="4" style="stroke:#A80036;stroke-width:3.0;" width="8" x="901" y="325"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="168" x="727" y="368.9902">component</text><!--MD5=[0b4603c22bc0d9214baf3db11effa15f]
+entity control--><ellipse cx="1067" cy="333" fill="#FEFECE" filter="url(#f46waq032wola)" rx="24" ry="24" style="stroke:#A80036;stroke-width:3.0;"/><polygon fill="#A80036" points="1059,309,1071,299,1067,309,1071,319,1059,309" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="104" x="1015" y="390.9902">control</text><!--MD5=[f50ff5e4cd64f259303fc83dba1819fc]
+entity database--><path d="M15,558 C15,538 101,538 101,538 C101,538 187,538 187,558 L187,608.5938 C187,628.5938 101,628.5938 101,628.5938 C101,628.5938 15,628.5938 15,608.5938 L15,558 " fill="#FEFECE" filter="url(#f46waq032wola)" style="stroke:#000000;stroke-width:3.0;"/><path d="M15,558 C15,578 101,578 101,578 C101,578 187,578 187,558 " fill="none" style="stroke:#000000;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="132" x="35" y="611.9902">database</text><!--MD5=[fbcd1a1664252f7f7ddf883fed3c1e0a]
+entity entity--><ellipse cx="301" cy="567" fill="#FEFECE" filter="url(#f46waq032wola)" rx="24" ry="24" style="stroke:#A80036;stroke-width:3.0;"/><line style="stroke:#A80036;stroke-width:3.0;" x1="277" x2="325" y1="595" y2="595"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="88" x="257" y="624.9902">entity</text><!--MD5=[7edcefaa406c65155265f04249a95b70]
+entity file--><polygon fill="#FEFECE" filter="url(#f46waq032wola)" points="416,547,416,619.5938,502,619.5938,502,567,482,547,416,547" style="stroke:#000000;stroke-width:3.0;"/><path d="M482,547 L482,567 L502,567 " fill="#FEFECE" style="stroke:#000000;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="46" x="436" y="592.9902">file</text><!--MD5=[18b72bf5d1838316b3d85261d2b42cce]
+entity folder--><polygon fill="#FEFECE" filter="url(#f46waq032wola)" points="572,527,664,527,678,569,742,569,742,638.1875,572,638.1875,572,527" style="stroke:#000000;stroke-width:3.0;"/><line style="stroke:#000000;stroke-width:3.0;" x1="572" x2="678" y1="569" y2="569"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="86" x="592" y="608.9902">folder</text><!--MD5=[7a641773cfca2682e51daa01eb969ffa]
+entity frame--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="92.5938" style="stroke:#000000;stroke-width:3.0;" width="166" x="812" y="537"/><path d="M867.3333,537 L867.3333,547 L853.3333,561 L812,561 " fill="none" style="stroke:#000000;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="86" x="842" y="602.9902">frame</text><!--MD5=[ea4128e1b5db6200a10193b8015cde63]
+entity interface--><ellipse cx="101" cy="817" fill="#FEFECE" filter="url(#f46waq032wola)" rx="16" ry="16" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="132" x="35" y="876.9902">interface</text><!--MD5=[a4a9a576f4d148d24afc849b85929192]
+entity label--><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="70" x="274" y="826.9902">label</text><!--MD5=[0b70d51bdd028022f5101c089cfdd98e]
+entity node--><polygon fill="#FEFECE" filter="url(#f46waq032wola)" points="435,791,455,771,587,771,587,843.5938,567,863.5938,435,863.5938,435,791" style="stroke:#000000;stroke-width:3.0;"/><line style="stroke:#000000;stroke-width:3.0;" x1="567" x2="587" y1="791" y2="771"/><line style="stroke:#000000;stroke-width:3.0;" x1="435" x2="567" y1="791" y2="791"/><line style="stroke:#000000;stroke-width:3.0;" x1="567" x2="567" y1="791" y2="863.5938"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="72" x="465" y="836.9902">node</text><!--MD5=[18b4c220f17afa2fa1b7909f1259f27e]
+entity package--><polygon fill="#FEFECE" filter="url(#f46waq032wola)" points="658,778,828,778,842,822.5938,876,822.5938,876,856.5938,658,856.5938,658,778" style="stroke:#000000;stroke-width:3.0;"/><line style="stroke:#000000;stroke-width:3.0;" x1="658" x2="842" y1="822.5938" y2="822.5938"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacing" textLength="134" x="678" y="809.9902">package</text><!--MD5=[799e9543975076390d2a6ceafec8df6c]
+entity queue--><path d="M956,791 L1062,791 C1072,791 1072,817.2969 1072,817.2969 C1072,817.2969 1072,843.5938 1062,843.5938 L956,843.5938 C946,843.5938 946,817.2969 946,817.2969 C946,817.2969 946,791 956,791 " fill="#FEFECE" filter="url(#f46waq032wola)" style="stroke:#A80036;stroke-width:3.0;"/><path d="M1062,791 C1052,791 1052,817.2969 1052,817.2969 C1052,843.5938 1062,843.5938 1062,843.5938 " fill="none" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="86" x="956" y="826.9902">queue</text><!--MD5=[f71e1929eceb486be132a5333dc4c68d]
+entity stack--><rect fill="#FEFECE" height="72.5938" style="stroke:none;stroke-width:3.0;" width="118" x="42" y="995"/><path d="M12,995 L42,995 L42,1067.5938 L160,1067.5938 L160,995 L190,995 " fill="none" filter="url(#f46waq032wola)" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="78" x="62" y="1040.9902">stack</text><!--MD5=[7267aa9592867b0c03d3cbda6e92e719]
+entity rectangle--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="178" x="260" y="995"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="138" x="280" y="1040.9902">rectangle</text><!--MD5=[a5a6ae0ba01c8a4589ab26bd33e87aad]
+entity storage--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="72.5938" rx="70" ry="70" style="stroke:#000000;stroke-width:3.0;" width="150" x="508" y="995"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="110" x="528" y="1040.9902">storage</text><ellipse cx="832.7086" cy="1031.4168" fill="#FEFECE" filter="url(#f46waq032wola)" rx="103.7086" ry="29.4168" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="112" x="770.7086" y="1038.9119">usecase</text><!--MD5=[403d5c14816e3fd6c34baff245aae996]
+link actor to agent--><!--MD5=[64bb286cf7260b747f34aab12634a004]
+link agent to artifact--><!--MD5=[00e5dfb8e68433482ac634f71ca4cc03]
+link artifact to boundary--><!--MD5=[0a1997872cb7b5dc19307073964d47e6]
+link boundary to card--><!--MD5=[451eb81b98c54e026694029caccf1bf4]
+link actor to circle--><!--MD5=[a604b30785e17c085f23df1e9782fc11]
+link circle to cloud--><!--MD5=[0b440645a936dd341138124ef929e183]
+link cloud to collections--><!--MD5=[ee23a149a812653026017f1538146379]
+link collections to component--><!--MD5=[4533821a253da4c88be5a6a338acd4e9]
+link component to control--><!--MD5=[f1d61384cb55f8dc085df41d2fb2b0ee]
+link circle to database--><!--MD5=[db09ec649a2042184b714bedb9633c9d]
+link database to entity--><!--MD5=[59daddd05257271c9cd70517cc25aec2]
+link entity to file--><!--MD5=[34c4ea2ec1a1e6d0a3a34a5ce0777fef]
+link file to folder--><!--MD5=[0c6dffb2cca7298a41ee3788a177ce7f]
+link folder to frame--><!--MD5=[0a726b5d1aedba642457648019243028]
+link database to interface--><!--MD5=[a99392f2a3ab177ae6da4c0078bf6ec7]
+link interface to label--><!--MD5=[dc3a1fc3b97405dec83bef1da8d195ef]
+link label to node--><!--MD5=[25eee8668465b150de9b719034a4e11f]
+link node to package--><!--MD5=[ee2bb58ff61a23681c57f939cb95f1e2]
+link package to queue--><!--MD5=[98cb51ded5898223b9a8ecc493b93ea4]
+link interface to stack--><!--MD5=[c2210ea9fc6be98a62d8f4a379d6e092]
+link stack to rectangle--><!--MD5=[1f2528f3aff633fef29d8d20637760c3]
+link rectangle to storage--><!--MD5=[3653f2d8d01dce9d85eaa536b92b1c92]
+link storage to usecase--><!--MD5=[46f2cfc9f5372dd1cc27e2b2f4634828]
+@startuml
+scale 2
+
+actor actor
+agent agent
+artifact artifact
+boundary boundary
+card card
+circle circle
+cloud cloud
+collections collections
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+interface interface
+label label
+node node
+package package
+queue queue
+stack stack
+rectangle rectangle
+storage storage
+usecase usecase
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">actor actor</span><br><span class="line">agent agent</span><br><span class="line">artifact artifact</span><br><span class="line">boundary boundary</span><br><span class="line">card card</span><br><span class="line">circle circle</span><br><span class="line">cloud cloud</span><br><span class="line">collections collections</span><br><span class="line">component component</span><br><span class="line">control control</span><br><span class="line">database database</span><br><span class="line">entity entity</span><br><span class="line">file file</span><br><span class="line">folder folder</span><br><span class="line">frame frame</span><br><span class="line">interface interface</span><br><span class="line">label label</span><br><span class="line">node node</span><br><span class="line">package package</span><br><span class="line">queue queue</span><br><span class="line">stack stack</span><br><span class="line">rectangle rectangle</span><br><span class="line">storage storage</span><br><span class="line">usecase usecase</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
+<p>并且相关图形是可以嵌套的。参考 <a target="_blank" rel="noopener" href="https://plantuml.com/deployment-diagram">deployment-diagram</a></p>
+<p>如果需要使用包含空格的图形，可以使用如下方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rectangle <span class="string">&quot;test with space&quot;</span> <span class="keyword">as</span> t1 </span><br></pre></td></tr></table></figure>
+
+<p>设置颜色</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:69px;height:55px;" version="1.1" viewBox="0 0 69 55" width="69px" zoomAndPan="magnify"><defs><linearGradient id="g1vs3fm8wim42m0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF0000"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient><filter height="300%" id="f1vs3fm8wim42m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d3dac679b1e8583df0e4104897d7ce0a]
+entity test--><rect fill="url(#g1vs3fm8wim42m0)" filter="url(#f1vs3fm8wim42m)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="50" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="17" y="29.9951">test</text><!--MD5=[b29cadc37e12a2d17f8cc18970aedca4]
+@startuml
+rectangle test #red/white
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rectangle test #red/white</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://plantuml.com/color">预定义颜色参考</a><br>也可以使用类似css #rgb的方式定义颜色<br>颜色梯度渐变可以通过如下方式设置分隔两个颜色</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//e.g #grey/white </span></span><br><span class="line">|,</span><br><span class="line">/,</span><br><span class="line">\,</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="绘制箭头"><a href="#绘制箭头" class="headerlink" title="绘制箭头"></a>绘制箭头</h2><h3 id="绘制简单箭头"><a href="#绘制简单箭头" class="headerlink" title="绘制简单箭头"></a>绘制简单箭头</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">    rectangle a #red</span><br><span class="line">    rectangle b</span><br><span class="line">    a --&gt; b</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="151px" preserveAspectRatio="none" style="width:49px;height:151px;" version="1.1" viewBox="0 0 49 151" width="49px" zoomAndPan="magnify"><defs><filter height="300%" id="f1msohn9akt37l" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+entity a--><rect fill="#FF0000" filter="url(#f1msohn9akt37l)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="8" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="18" y="29.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
+entity b--><rect fill="#FEFECE" filter="url(#f1msohn9akt37l)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="7" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="17" y="125.9951">b</text><!--MD5=[a3deb68e4aebbeb113ddd128f6b25b58]
+link a to b--><path d="M22,43.241 C22,58.4791 22,80.8069 22,97.4576 " fill="none" id="a-to-b" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="22,102.8683,26,93.8683,22,97.8683,18,93.8683,22,102.8683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[504a72c7fbf249db28d0095733a6c3a1]
+@startuml
+rectangle a #red
+    rectangle b
+    a - -> b
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<p>###增加如下u/d/l/r改变箭头方向</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:165px;height:247px;" version="1.1" viewBox="0 0 165 247" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f1lfc9uak1dene" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+entity a--><rect fill="#FF0000" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="125.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
+entity b--><rect fill="#FEFECE" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="70.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="80.5" y="29.9951">b</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
+entity c--><rect fill="#FEFECE" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="199"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="221.9951">c</text><!--MD5=[011db1d27274c86691871bc51b12beb8]
+entity d--><rect fill="#FEFECE" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="29" x="7" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9" x="17" y="125.9951">d</text><!--MD5=[e32773a0da76c445e84e5885468a4484]
+entity e--><ellipse cx="143.5" cy="121" fill="#FEFECE" filter="url(#f1lfc9uak1dene)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9" x="139" y="150.9951">e</text><!--MD5=[497aeb9f3d6b29fcbc28ff6cc7305c4a]
+reverse link b to a--><path d="M85.5,48.662 C85.5,65.34 85.5,87.664 85.5,102.868 " fill="none" id="b-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="85.5,43.241,81.5,52.241,85.5,48.241,89.5,52.241,85.5,43.241" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d6047f197d3927fefc7f7c2751c9df28]
+link a to c--><path d="M85.5,139.241 C85.5,154.4791 85.5,176.8069 85.5,193.4576 " fill="none" id="a-to-c" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="85.5,198.8683,89.5,189.8683,85.5,193.8683,81.5,189.8683,85.5,198.8683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[aa79fa00221adb75c4ee5817792366f7]
+reverse link d to a--><path d="M41.2237,121 C51.213,121 61.2022,121 71.1914,121 " fill="none" id="d-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="36,121,45,125,41,121,45,117,36,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e9912996abd31fb2266758a7f042fde9]
+link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d69e91dcfafc3406095559194df93d3f]
+@startuml
+rectangle a #red
+    rectangle b
+    rectangle c
+    rectangle d
+
+    a -u-> b
+    a -d-> c
+    a -l-> d
+    a -r-> e
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-u-&gt;</span><br><span class="line">-d-&gt;</span><br><span class="line">-l-&gt;</span><br><span class="line">-r-&gt;</span><br></pre></td></tr></table></figure>
+
+<p>###控制箭头形状</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">    rectangle a #red</span><br><span class="line">    rectangle b</span><br><span class="line">    rectangle c</span><br><span class="line">    rectangle d</span><br><span class="line"></span><br><span class="line">    a -[#pink,dashed,thickness=<span class="number">3</span>]u-&gt; b</span><br><span class="line">    a -[#black,dotted]d----&gt; c</span><br><span class="line">    a -l-&gt; d</span><br><span class="line">    a -r-&gt; e</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="430px" preserveAspectRatio="none" style="width:165px;height:430px;" version="1.1" viewBox="0 0 165 430" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f7bvwaq8p9xtz" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+entity a--><rect fill="#FF0000" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="125.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
+entity b--><rect fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="70.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="80.5" y="29.9951">b</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
+entity c--><rect fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="382"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="404.9951">c</text><!--MD5=[011db1d27274c86691871bc51b12beb8]
+entity d--><rect fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="29" x="7" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9" x="17" y="125.9951">d</text><!--MD5=[e32773a0da76c445e84e5885468a4484]
+entity e--><ellipse cx="143.5" cy="121" fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="9" x="139" y="150.9951">e</text><!--MD5=[497aeb9f3d6b29fcbc28ff6cc7305c4a]
+reverse link b to a--><path d="M85.5,48.662 C85.5,65.34 85.5,87.664 85.5,102.868 " fill="none" id="b-backto-a" style="stroke:#FFC0CB;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFC0CB" points="85.5,43.241,81.5,52.241,85.5,48.241,89.5,52.241,85.5,43.241" style="stroke:#FFC0CB;stroke-width:3.0;"/><!--MD5=[d6047f197d3927fefc7f7c2751c9df28]
+link a to c--><path d="M85.5,139.328 C85.5,187.421 85.5,322.557 85.5,376.4235 " fill="none" id="a-to-c" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#000000" points="85.5,381.679,89.5,372.679,85.5,376.679,81.5,372.679,85.5,381.679" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[aa79fa00221adb75c4ee5817792366f7]
+reverse link d to a--><path d="M41.2237,121 C51.213,121 61.2022,121 71.1914,121 " fill="none" id="d-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="36,121,45,125,41,121,45,117,36,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e9912996abd31fb2266758a7f042fde9]
+link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e73eb015dfcd93dbea9edf31b9c1ce33]
+@startuml
+rectangle a #red
+    rectangle b
+    rectangle c
+    rectangle d
+
+    a -[#pink,dashed,thickness=3]u-> b
+    a -[#black,dotted]d- - - -> c
+    a -l-> d
+    a -r-> e
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<h3 id="控制箭头线长度"><a href="#控制箭头线长度" class="headerlink" title="控制箭头线长度"></a>控制箭头线长度</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a ----&gt; b</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/29/Flutter/flutter_intro_01/" rel="prev" title="Flutter 介绍 01">
+      <i class="fa fa-chevron-left"></i> Flutter 介绍 01
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/30/Dart/dart_intro_01/" rel="next" title="Dart 编程语言说明 - 01">
+      Dart 编程语言说明 - 01 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%90%84%E7%A7%8D%E5%9B%BE%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">绘制各种图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E7%AE%AD%E5%A4%B4"><span class="nav-number">2.</span> <span class="nav-text">绘制箭头</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E7%AE%80%E5%8D%95%E7%AE%AD%E5%A4%B4"><span class="nav-number">2.1.</span> <span class="nav-text">绘制简单箭头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E7%AE%AD%E5%A4%B4%E7%BA%BF%E9%95%BF%E5%BA%A6"><span class="nav-number">2.2.</span> <span class="nav-text">控制箭头线长度</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Q</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Q</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

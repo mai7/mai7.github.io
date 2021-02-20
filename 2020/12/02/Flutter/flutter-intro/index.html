@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"q0519.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Flutter 配置最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。 FlutterAndroidIOSWebDesktopDart    Flutter 运行Android和iOS模拟器i123flutter emulators --launch avd_name # Androidopen -a Simulator #运行ios模拟器    Flu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 介绍">
+<meta property="og:url" content="https://q0519.gitee.io/2020/12/02/Flutter/flutter-intro/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Flutter 配置最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。 FlutterAndroidIOSWebDesktopDart    Flutter 运行Android和iOS模拟器i123flutter emulators --launch avd_name # Androidopen -a Simulator #运行ios模拟器    Flu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-02T11:05:30.864Z">
+<meta property="article:modified_time" content="2020-12-11T10:20:26.738Z">
+<meta property="article:author" content="Vincent Q">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://q0519.gitee.io/2020/12/02/Flutter/flutter-intro/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Flutter 介绍 | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Flutter/flutter-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flutter 介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-02 19:05:30" itemprop="dateCreated datePublished" datetime="2020-12-02T19:05:30+08:00">2020-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-11 18:20:26" itemprop="dateModified" datetime="2020-12-11T18:20:26+08:00">2020-12-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="494px" preserveAspectRatio="none" style="width:664px;height:494px;" version="1.1" viewBox="0 0 664 494" width="664px" zoomAndPan="magnify"><defs><filter height="300%" id="f1le66no3r8i98" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#ADD8E6" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="138" x="224" y="208.8906"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="98" x="244" y="254.8809">Flutter</text><rect fill="#FFA500" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="152" x="462" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="112" x="482" y="85.9902">Android</text><path d="M362,245.1875 L382,245.1875 C412,245.1875 412,76.2969 442,76.2969 L462,76.2969 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FFFFFF" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="88" x="462" y="152.5938"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="48" x="482" y="198.584">IOS</text><path d="M362,245.1875 L382,245.1875 C412,245.1875 412,188.8906 442,188.8906 L462,188.8906 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="106" x="462" y="265.1875"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="66" x="482" y="311.1777">Web</text><path d="M362,245.1875 L382,245.1875 C412,245.1875 412,301.4844 442,301.4844 L462,301.4844 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="164" x="462" y="377.7813"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="124" x="482" y="423.7715">Desktop</text><path d="M362,245.1875 L382,245.1875 C412,245.1875 412,414.0781 442,414.0781 L462,414.0781 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1le66no3r8i98)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="104" x="20" y="208.8906"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="64" x="40" y="254.8809">Dart</text><path d="M224,245.1875 L204,245.1875 C174,245.1875 174,245.1875 144,245.1875 L124,245.1875 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[42589d12c03c78754d6b68764379db64]
+@startmindmap
+scale 2
+*[#lightblue] Flutter
+**[#orange] Android
+**[#white] IOS
+** Web
+** Desktop
+- - Dart
+@endmindmap
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+
+
+<h2 id="Flutter-运行Android和iOS模拟器i"><a href="#Flutter-运行Android和iOS模拟器i" class="headerlink" title="Flutter 运行Android和iOS模拟器i"></a>Flutter 运行Android和iOS模拟器i</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flutter emulators --launch avd_name # Android</span><br><span class="line"></span><br><span class="line">open -a Simulator #运行ios模拟器</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><ol>
+<li>“Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Style，Animation，Lists，Text，Button…这些都可以用Widget 表示，Widget嵌套是Flutter的应用构建方式。举例来说，并没有一个统一的叫App的作为应用入口，所有的Widget理论上都可以作为应用的入口。Flutter当然也包含其他非Widget的对象。</li>
+<li>组合优于继承。实践中，很少通过继承方式扩展一个Widget。一般都通过组合Widget的方式构建特定的Widget对象。这有点类似React的方式。</li>
+</ol>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="380px" preserveAspectRatio="none" style="width:1544px;height:380px;" version="1.1" viewBox="0 0 1544 380" width="1544px" zoomAndPan="magnify"><defs><filter height="300%" id="fx7u9i5jbpy35" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fx7u9i5jbpy35)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="250" x="20" y="152.5938"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="210" x="40" y="198.584">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fx7u9i5jbpy35)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="632" x="370" y="40"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="592" x="390" y="85.9902">stateless 不保存状态,用于展示UI，静态文本等</text><path d="M270,188.8906 L290,188.8906 C320,188.8906 320,76.2969 350,76.2969 L370,76.2969 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#fx7u9i5jbpy35)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="272" x="370" y="208.8906"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="232" x="390" y="254.8809">stateful 保存状态</text><rect fill="#FEFECE" filter="url(#fx7u9i5jbpy35)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="260" x="742" y="152.5938"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="220" x="762" y="198.584">StatefulWidget</text><path d="M642,245.1875 L662,245.1875 C692,245.1875 692,188.8906 722,188.8906 L742,188.8906 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#fx7u9i5jbpy35)" height="72.5938" rx="25" ry="25" style="stroke:#A80036;stroke-width:3.0;" width="764" x="742" y="265.1875"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="724" x="762" y="311.1777">State (setState() 通知Flutter，相关区域需要重新绘制)</text><path d="M642,245.1875 L662,245.1875 C692,245.1875 692,301.4844 722,301.4844 L742,301.4844 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><path d="M270,188.8906 L290,188.8906 C320,188.8906 320,245.1875 350,245.1875 L370,245.1875 " fill="none" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[058b8ee8c6f722a781c3475abb6a8692]
+@startmindmap
+scale 2
+* Flutter Widget
+** stateless 不保存状态,用于展示UI，静态文本等
+** stateful 保存状态
+*** StatefulWidget
+*** State (setState() 通知Flutter，相关区域需要重新绘制)
+@endmindmap
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="54px" preserveAspectRatio="none" style="width:316px;height:54px;" version="1.1" viewBox="0 0 316 54" width="316px" zoomAndPan="magnify"><defs><filter height="300%" id="fq1z4jt37h14w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="16" cy="24" fill="#000000" filter="url(#fq1z4jt37h14w)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="33.9688" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="90" x="46" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="70" x="56" y="28.1387">Constructor</text><rect fill="#FEFECE" filter="url(#fq1z4jt37h14w)" height="33.9688" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="146" x="156" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="126" x="166" y="28.1387">Widget.createState()</text><!--MD5=[381ab33bbd5470d3b1be6ae8d7a46217]
+link start to Constructor--><path d="M26.2539,24 C31.083,24 35.9121,24 40.7412,24 " fill="none" id="start-to-Constructor" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="45.9812,24,36.9812,20,40.9812,24,36.9812,28,45.9812,24" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6674eb3a2d62253f68e92fb0b63a4e22]
+link Constructor to Widget.createState()--><path d="M136.012,24 C140.902,24 145.793,24 150.683,24 " fill="none" id="Constructor-to-Widget.createState()" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="155.99,24,146.99,20,150.99,24,146.99,28,155.99,24" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d2dd38572a9d371802e4a54358a113f5]
+@startuml
+(*) -> "Constructor"
+-right-> "Widget.createState()"
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="302px" preserveAspectRatio="none" style="width:1664px;height:302px;" version="1.1" viewBox="0 0 1664 302" width="1664px" zoomAndPan="magnify"><defs><filter height="300%" id="fx2xbyd0wsv2j" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter><linearGradient id="gx2xbyd0wsv2j0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#808080"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
+entity Constructor--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="212" x="14" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="172" x="34" y="59.9902">Constructor</text><!--MD5=[99fd7391e5dd70fd5b5f804fc10d8688]
+entity mounted--><rect fill="url(#gx2xbyd0wsv2j0)" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="170" x="297" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="130" x="317" y="59.9902">mounted</text><!--MD5=[d5188574bc62afd6d53a507efb2aef9e]
+entity initState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="168" x="538" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="128" x="558" y="59.9902">initState</text><!--MD5=[a43635f50927eeb5f0235179d32a7eb9]
+entity dirty_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="192" x="776" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="152" x="796" y="59.9902">dirty state</text><!--MD5=[11fa01443fe50a6a26e5f9d4ef816fb0]
+entity build--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="110" x="1039" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="70" x="1059" y="59.9902">build</text><!--MD5=[cc0be402c6b2f424ca27f83de5745c9b]
+entity clean_state--><rect fill="#808080" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="200" x="1220" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="160" x="1240" y="59.9902">clean state</text><!--MD5=[4d5ba4c05f68dda5f45c29356b73c3a1]
+entity dispose--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="150" x="1491" y="14"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="110" x="1511" y="59.9902">dispose</text><!--MD5=[157059bb4d2eb32e0d2f25a59202362f]
+entity didChangeDependencies--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="398" x="423" y="206"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="358" x="443" y="251.9902">didChangeDependencies</text><!--MD5=[15b2de61c16501c8f1271adafb2dfff2]
+entity setState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="166" x="1235" y="206"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="126" x="1255" y="251.9902">setState</text><!--MD5=[5e56992db2efbb626fb5f153fa937d6a]
+entity didUpdateState--><rect fill="#FEFECE" filter="url(#fx2xbyd0wsv2j)" height="72.5938" style="stroke:#000000;stroke-width:3.0;" width="268" x="894" y="206"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="228" x="914" y="251.9902">didUpdateState</text><!--MD5=[e585e9cb8873e4014d365c865d3386db]
+link Constructor to mounted--><path d="M226.438,50 C246.446,50 266.454,50 286.464,50 " fill="none" id="Constructor-to-mounted" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="296.926,50,278.926,42,286.926,50,278.926,58,296.926,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[f950f694e6d8b8120548cd6f66b280a2]
+link mounted to initState--><path d="M467.312,50 C487.208,50 507.104,50 527,50 " fill="none" id="mounted-to-initState" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="537.406,50,519.406,42,527.406,50,519.406,58,537.406,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[d18ebba6c96924fd5ede79c52385023d]
+link initState to dirty_state--><path d="M706.96,50 C726.542,50 746.122,50 765.702,50 " fill="none" id="initState-to-dirty_state" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="775.942,50,757.942,42,765.942,50,757.942,58,775.942,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[7139aff6e2195f3182cb3c782c5d5a72]
+link initState to didChangeDependencies--><path d="M622,86.482 C622,116.9582 622,161.6138 622,194.9152 " fill="none" id="initState-to-didChangeDependencies" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="622,205.7366,630,187.7366,622,195.7366,614,187.7366,622,205.7366" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[d66950752d79791e74ec7e580ed3d1d0]
+reverse link dirty_state to didChangeDependencies--><path d="M818.578,92.1738 C773.728,125.9004 710.336,173.571 667.782,205.5726 " fill="none" id="dirty_state-backto-didChangeDependencies" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="826.726,86.0454,807.5321,90.4718,818.7343,92.0564,817.1497,103.2586,826.726,86.0454" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[a0ac4b26cd6c1cbe6d8788c9d6c1abbe]
+link dirty_state to build--><path d="M968.258,50 C988.334,50 1008.412,50 1028.488,50 " fill="none" id="dirty_state-to-build" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="1038.988,50,1020.988,42,1028.988,50,1020.988,58,1038.988,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[0851ea37a16542d04a1783cbfa900294]
+link build to clean_state--><path d="M1149.618,50 C1169.454,50 1189.29,50 1209.128,50 " fill="none" id="build-to-clean_state" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="1219.5,50,1201.5,42,1209.5,50,1201.5,58,1219.5,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[89dffda2443baa7b1c0df28d39255a57]
+link clean_state to dispose--><path d="M1420.898,50 C1440.688,50 1460.478,50 1480.266,50 " fill="none" id="clean_state-to-dispose" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="1490.616,50,1472.616,42,1480.616,50,1472.616,58,1490.616,50" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[2a4d9e63796b00889577e35d0be97ec4]
+link clean_state to setState--><path d="M1319.634,86.482 C1319.308,116.9582 1318.834,161.6138 1318.48,194.9152 " fill="none" id="clean_state-to-setState" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="1318.364,205.7366,1326.5554,187.8229,1318.4706,195.7372,1310.5563,187.6523,1318.364,205.7366" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[0558b8a16bb33b8d8e1a0aef01db4f84]
+reverse link dirty_state to setState--><path d="M962.4,90.1056 C1042.898,124.0382 1159.598,173.23 1237.082,205.8908 " fill="none" id="dirty_state-backto-setState" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="952.768,86.0454,966.2453,100.4107,961.9823,89.9309,972.4621,85.6678,952.768,86.0454" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[afe4cd7666f1e0fbf8907ba1e29c0883]
+link clean_state to didUpdateState--><path d="M1267.122,86.0454 C1217.406,118.054 1142.966,165.9806 1090.372,199.8428 " fill="none" id="clean_state-to-didUpdateState" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="1081.472,205.5726,1100.937,202.5537,1089.8797,200.1587,1092.2747,189.1014,1081.472,205.5726" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[6f88237c58600627f141d76b2c215f65]
+reverse link dirty_state to didUpdateState--><path d="M907.462,94.7372 C935.346,128.3406 973.678,174.5352 999.568,205.7366 " fill="none" id="dirty_state-backto-didUpdateState" style="stroke:#A80036;stroke-width:2.0;"/><polygon fill="#A80036" points="900.612,86.482,905.9514,105.4422,906.9984,94.1771,918.2635,95.224,900.612,86.482" style="stroke:#A80036;stroke-width:2.0;"/><!--MD5=[9c6afafcf1349be67568efa58fd8cc3a]
+@startuml
+scale 2
+skinparam classFontColor automatic
+
+rectangle Constructor 
+rectangle mounted #gray/white
+rectangle initState
+rectangle "dirty state" as dirty_state #gray
+rectangle build
+rectangle "clean state" as clean_state #gray
+rectangle dispose
+
+rectangle didChangeDependencies
+
+rectangle setState
+rectangle didUpdateState
+
+Constructor -r-> mounted
+mounted -r-> initState
+initState -r-> dirty_state
+initState -d-> didChangeDependencies
+didChangeDependencies -u-> dirty_state
+dirty_state -r-> build
+build -r-> clean_state
+clean_state -r-> dispose
+clean_state -d-> setState
+setState -u-> dirty_state
+
+clean_state -d-> didUpdateState
+didUpdateState -u-> dirty_state
+@enduml
+
+PlantUML version 1.2021.2beta9(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/02/Docker/docker_101/" rel="prev" title="Docker 学习笔记">
+      <i class="fa fa-chevron-left"></i> Docker 学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/03/Mysql/mysql_8_new_collation/" rel="next" title="Mysql 8 中的新的Collation (字符校对)">
+      Mysql 8 中的新的Collation (字符校对) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter-%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Flutter 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter-%E8%BF%90%E8%A1%8CAndroid%E5%92%8CiOS%E6%A8%A1%E6%8B%9F%E5%99%A8i"><span class="nav-number">2.</span> <span class="nav-text">Flutter 运行Android和iOS模拟器i</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter"><span class="nav-number">3.</span> <span class="nav-text">Flutter</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Q</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Q</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

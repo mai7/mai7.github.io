@@ -1,8 +1,0 @@
-@startmindmap
-scale 1
-* Flutter Widget
-** stateless
-** stateful 
-*** StatefulWidget
-*** State (setState() to info Flutter redraw)
-@endmindmap

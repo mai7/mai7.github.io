@@ -1,8 +1,0 @@
-@startuml
-
-rectangle Constructor
-rectangle "Widget.createState()" as wCreate
-
-Constructor -r-> wCreate 
-
-@enduml

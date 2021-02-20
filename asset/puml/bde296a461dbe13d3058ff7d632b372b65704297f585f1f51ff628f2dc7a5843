@@ -1,9 +1,0 @@
-@startmindmap
-scale 1
-*[#white] Flutter
-**[#orange] Android
-**[#lightblue] IOS
-**[#lightgreen] Web
-**[#silver] Desktop
--- Dart
-@endmindmap

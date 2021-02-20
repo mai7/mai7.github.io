@@ -1,4 +1,0 @@
-@startuml
-(*) -> "Constructor"
--right-> "Widget.createState()"
-@enduml

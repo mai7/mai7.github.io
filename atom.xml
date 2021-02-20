@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog</title>
+  
+  
+  <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
+  
+  <link href="https://q0519.gitee.io/"/>
+  <updated>2021-02-20T15:53:39.698Z</updated>
+  <id>https://q0519.gitee.io/</id>
+  
+  <author>
+    <name>Vincent Q</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Consul 注册中心</title>
+    <link href="https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Consul/"/>
+    <id>https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Consul/</id>
+    <published>2021-02-20T15:48:33.826Z</published>
+    <updated>2021-02-20T15:53:39.698Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Consul-vs-Eureka"><a href="#Consul-vs-Eureka" class="headerlink" title="Consul vs Eureka"></a>Consul vs Eureka</h3><p><a href="https://www.consul.io/docs/intro/vs/eureka">https://www.consul.io/docs/intro/vs/eureka</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Consul-vs-Eureka&quot;&gt;&lt;a href=&quot;#Consul-vs-Eureka&quot; class=&quot;headerlink&quot; title=&quot;Consul vs Eureka&quot;&gt;&lt;/a&gt;Consul vs Eureka&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https</summary>
+      
+    
+    
+    
+    <category term="Microservice" scheme="https://q0519.gitee.io/categories/Microservice/"/>
+    
+    <category term="Service Discovery Tools" scheme="https://q0519.gitee.io/categories/Microservice/Service-Discovery-Tools/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>概念和设计模式</title>
+    <link href="https://q0519.gitee.io/2021/02/20/Microservice/Concepts%20and%20Patterns/"/>
+    <id>https://q0519.gitee.io/2021/02/20/Microservice/Concepts%20and%20Patterns/</id>
+    <published>2021-02-20T15:07:16.248Z</published>
+    <updated>2021-02-20T15:53:39.698Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="微服务介绍"><a href="#微服务介绍" class="headerlink" title="微服务介绍"></a>微服务介绍</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;微服务介绍&quot;&gt;&lt;a href=&quot;#微服务介绍&quot; class=&quot;headerlink&quot; title=&quot;微服务介绍&quot;&gt;&lt;/a&gt;微服务介绍&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    <category term="Microservice" scheme="https://q0519.gitee.io/categories/Microservice/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>服务发现与注册</title>
+    <link href="https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Introduction/"/>
+    <id>https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Introduction/</id>
+    <published>2021-02-20T15:04:45.489Z</published>
+    <updated>2021-02-20T16:15:16.295Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="服务发现与注册"><a href="#服务发现与注册" class="headerlink" title="服务发现与注册"></a>服务发现与注册</h3><p>服务发现(Service discovery) 是一种在网络上自动识别设备和服务的处理过程。SDP (Service Discovery Protocol) 是一种用来完成识别网络资源的标准协议。传统上，服务发现帮助减少用户配置工作，比如识别蓝牙打印机或服务器。</p><p>近来，这个概念被扩展到了对网络或被称为“服务”的分布式容器资源的发现和访问。</p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="402px" preserveAspectRatio="none" style="width:580px;height:402px;" version="1.1" viewBox="0 0 580 402" width="580px" zoomAndPan="magnify"><defs/><g><!--MD5=[e54b8a9fdcafe506fd0074856c4505ab]entity serviceProvider--><rect fill="#1168BD" height="52.5938" style="stroke:#3C7FC0;stroke-width:1.5;" width="169" x="191.6245" y="7"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="247.6245" y="28.1387">«system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="149" x="201.6245" y="45.8203">Service Provider</text><!--MD5=[e48a72e44ae24fac5a2c9f2e883a9d0a]entity serviceRegistry--><rect fill="#1168BD" height="52.5938" style="stroke:#3C7FC0;stroke-width:1.5;" width="168" x="28.125" y="135"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="57" x="83.625" y="156.1387">«system»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="148" x="38.125" y="173.8203">Service Registry</text><!--MD5=[92848cbaf65985a669855153c5362c37]entity customer--><rect fill="#08427B" height="133.1875" style="stroke:#073B6F;stroke-width:1.5;" width="217" x="91.625" y="263"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55" x="172.625" y="284.1387">«person»</text><image height="48" width="48" x="176.125" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAACbklEQVR4Xu1Wq04FMRS8cj+BT+AXsDgMHwAfQILGXUWQgMQQggRDgsBgSLiWgEIREhRIEAjsMum5dLtzetreXgKE7GTUbh/TOY921CyP/xRH+tPvchCU4yAox0FQjt8gaHF9b2XreGnjYGF1R/+dlfWCsP3uyeTt/aMNcPfwDHF6cDkrBcEPkhLi6OJGTylkjSDEKKFGUK2pRhDiwvvHUBe7iKDN/fOnl1esCBuQJfQX2/DOBqBbz726fWzdymfX93Ba786CYHV6XT0ggbDu1rZP6S9kaU09QUhVmiMIfZIjFgILyiwo438O2sWeIOv0iKAfU5hAAp9G2h4P6l49QYgrD3eAt9kxUfiIIC/53xcoaj1B48NLHu4QGptYmhAeI1EKoQAWZEUahmfHaFCFSuUSdLviKtNH0ZVvGRkC9lByIDSkCfVBKzdaUOM8wJbQDim+TIjZTLImIuJYGbTaZkRQIS2fkHC6u5STBcEeLIfzeSYeFfiFE8MtiID/iXMLaeWo7k4QVreaHmJvhaCQiD4v6oBUw5HCkZ2gaBUIMC199CzTORdqmgqyEqJ19vioYSZclLeHXL1hTBECNAhvMyYiiCW9sQ260VSQdSH46tVFWw7fOBLH9hGYCrI2k9SBGv4xIxAy2chKU997U4J848q+D0sgiWI9KFhQNGRiY8LnmeCvtsRenaBoxiXMq4PYoFtA+Lzpyh5mwgxPcbj8Ki2BXKXISNoo7L3cqYnzp3OI6G1KzAiycrAO/1EQyKvOAf200swLsl7+FYhe78S8oMa1IlQmGkk1EawSNU2hoJ/kICjHQVCOg6AcB0E5fgLPSUakWeua4wAAAABJRU5ErkJggg==" y="286.9688"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="90" x="155.125" y="349.8203">Customer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="202.125" y="366.5889"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="105.625" y="382.8857">People that need products</text><!--MD5=[aa4f524a7f896524c75a4accc90956ab]link serviceProvider to serviceRegistry--><path d="M191.2615,42.178 C160.2625,49.575 128.1625,63.612 109.125,90 C101.599,100.432 100.7514,114.166 102.3698,126.739 " fill="none" id="serviceProvider-to-serviceRegistry" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="103.7441,134.788,105.3541,126.3971,99.4398,127.4074,103.7441,134.788" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="139" x="110.125" y="102.1387">1 - register service</text><!--MD5=[987c4087bbe3e2017568149f8d66a08a]link customer to serviceRegistry--><path d="M138.0575,262.777 C131.4775,253.302 125.5755,243.266 121.1245,233 C116.1805,221.594 113.7335,208.247 112.5849,196.252 " fill="none" id="customer-to-serviceRegistry" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="111.982,188.205,109.589,196.4071,115.5722,195.9581,111.982,188.205" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="127" x="122.1245" y="230.1387">2 - lookup service</text><!--MD5=[4ecc8e88fd9c07dc63860ca71f4f31ed]link serviceRegistry to customer--><path d="M40.0022,188.064 C19.7874,199.528 6,214.646 17.125,233 C32.7274,258.741 57.7916,277.872 84.4291,291.959 " fill="none" id="serviceRegistry-to-customer" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="91.6022,295.615,85.8375,289.3088,83.1124,294.6542,91.6022,295.615" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="90" x="18.125" y="230.1387">3 - response</text><!--MD5=[f8c92e83e9689518284d6dc0d6e47449]link customer to serviceProvider--><path d="M308.7845,291.208 C355.8145,269.033 406.1805,235.712 433.1245,188 C444.7085,167.489 444.4325,155.664 433.1245,135 C415.6505,103.066 383.2215,79.792 352.3535,63.733 " fill="none" id="customer-to-serviceProvider" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="344.9685,60.009,350.7602,66.2904,353.4624,60.9333,344.9685,60.009" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="130" x="442.1245" y="166.1387">4 - access service</text><!--MD5=[dbfeade058f72ebdd4602722573992fc]link serviceProvider to customer--><path d="M276.5345,60.252 C276.4275,98.78 273.4195,173.282 254.1245,233 C251.7095,240.476 248.6705,248.023 245.2715,255.423 " fill="none" id="serviceProvider-to-customer" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="241.7625,262.766,247.9194,256.8421,242.5061,254.2544,241.7625,262.766" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="147" x="273.1245" y="166.1387">5 - service response</text><!--MD5=[003e1b603c93270010ca92cb63d73cc5]@startuml!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5!include DEVICONS/angular.puml!include DEVICONS/java.puml!include DEVICONS/msql_server.puml!include FONTAWESOME/users.pumlSystem(serviceProvider, "Service Provider", "")System(serviceRegistry, "Service Registry", "")Person(customer, "Customer", "People that need products", "users")Rel(serviceProvider, serviceRegistry, "1 - register service")Rel(customer, serviceRegistry, "2 - lookup service")Rel(serviceRegistry, customer, "3 - response")Rel(customer, serviceProvider, "4 - access service")Rel(serviceProvider, customer, "5 - service response")@enduml@startumlskinparam defaultTextAlignment centerskinparam wrapWidth 200skinparam maxMessageSize 150skinparam LegendBorderColor transparentskinparam LegendBackgroundColor transparentskinparam LegendFontColor #FFFFFFskinparam rectangle {    StereotypeFontSize 12    shadowing false}skinparam database {    StereotypeFontSize 12    shadowing false}skinparam queue {    StereotypeFontSize 12    shadowing false}skinparam Arrow {    Color #666666    FontColor #666666    FontSize 12}skinparam rectangle<<boundary>> {    Shadowing false    StereotypeFontSize 0    FontColor #444444    BorderColor #444444    BorderStyle dashed}skinparam rectangle<<person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #08427B    BorderColor #073B6F}skinparam database<<person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #08427B    BorderColor #073B6F}skinparam queue<<person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #08427B    BorderColor #073B6F}skinparam rectangle<<external_person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #686868    BorderColor #8A8A8A}skinparam database<<external_person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #686868    BorderColor #8A8A8A}skinparam queue<<external_person>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #686868    BorderColor #8A8A8A}skinparam rectangle<<system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #1168BD    BorderColor #3C7FC0}skinparam database<<system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #1168BD    BorderColor #3C7FC0}skinparam queue<<system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #1168BD    BorderColor #3C7FC0}skinparam rectangle<<external_system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #999999    BorderColor #8A8A8A}skinparam database<<external_system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #999999    BorderColor #8A8A8A}skinparam queue<<external_system>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #999999    BorderColor #8A8A8A}sprite $person [48x48/16] {0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000049BCCA72000000000000000000000000000000000000006EFFFFFFFFB300000000000000000000000000000000001CFFFFFFFFFFFF7000000000000000000000000000000001EFFFFFFFFFFFFFF80000000000000000000000000000000CFFFFFFFFFFFFFFFF6000000000000000000000000000007FFFFFFFFFFFFFFFFFF10000000000000000000000000001FFFFFFFFFFFFFFFFFFF90000000000000000000000000006FFFFFFFFFFFFFFFFFFFF000000000000000000000000000BFFFFFFFFFFFFFFFFFFFF400000000000000000000000000EFFFFFFFFFFFFFFFFFFFF700000000000000000000000000FFFFFFFFFFFFFFFFFFFFF800000000000000000000000000FFFFFFFFFFFFFFFFFFFFF800000000000000000000000000DFFFFFFFFFFFFFFFFFFFF600000000000000000000000000AFFFFFFFFFFFFFFFFFFFF4000000000000000000000000006FFFFFFFFFFFFFFFFFFFE0000000000000000000000000000EFFFFFFFFFFFFFFFFFF800000000000000000000000000007FFFFFFFFFFFFFFFFFF100000000000000000000000000000BFFFFFFFFFFFFFFFF50000000000000000000000000000001DFFFFFFFFFFFFFF7000000000000000000000000000000000BFFFFFFFFFFFF5000000000000000000000000000000000005DFFFFFFFFA10000000000000000000000000000000000000037ABB96100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000025788300000000005886410000000000000000000000007DFFFFFFD9643347BFFFFFFFB4000000000000000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD20000000000000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000000000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF20000000000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF60000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA0000000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA0000000000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE1000000000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000000000014555555555555555555555555555555300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}sprite $person2 [48x48/16] {0000000000000000000049BCCA72000000000000000000000000000000000000006EFFFFFFFFB300000000000000000000000000000000001CFFFFFFFFFFFF7000000000000000000000000000000001EFFFFFFFFFFFFFF80000000000000000000000000000000CFFFFFFFFFFFFFFFF6000000000000000000000000000007FFFFFFFFFFFFFFFFFF10000000000000000000000000001FFFFFFFFFFFFFFFFFFF90000000000000000000000000006FFFFFFFFFFFFFFFFFFFF000000000000000000000000000BFFFFFFFFFFFFFFFFFFFF400000000000000000000000000EFFFFFFFFFFFFFFFFFFFF700000000000000000000000000FFFFFFFFFFFFFFFFFFFFF800000000000000000000000000FFFFFFFFFFFFFFFFFFFFF800000000000000000000000000DFFFFFFFFFFFFFFFFFFFF600000000000000000000000000AFFFFFFFFFFFFFFFFFFFF4000000000000000000000000006FFFFFFFFFFFFFFFFFFFE0000000000000000000000000000EFFFFFFFFFFFFFFFFFF800000000000000000000000000007FFFFFFFFFFFFFFFFFF100000000000000000000000000000BFFFFFFFFFFFFFFFF50000000000000000000000000000001DFFFFFFFFFFFFFF7000000000000000000000000000000000BFFFFFFFFFFFF5000000000000000000000000000000000005DFFFFFFFFA10000000000000000000000000000000000000037ABB961000000000000000000000000000000025788883000000000058888641000000000000000000007DFFFFFFFFD9643347BFFFFFFFFFB400000000000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB100000000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF500000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD00000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF60000009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF20000003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD00000000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF5000000003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE1000000000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD200000000000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB100000000000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000000000000002578888888888888888888864100000000000}skinparam rectangle<<container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #438DD5    BorderColor #3C7FC0}skinparam database<<container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #438DD5    BorderColor #3C7FC0}skinparam queue<<container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #438DD5    BorderColor #3C7FC0}skinparam rectangle<<external_container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #B3B3B3    BorderColor #A6A6A6}skinparam database<<external_container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #B3B3B3    BorderColor #A6A6A6}skinparam queue<<external_container>> {    StereotypeFontColor #FFFFFF    FontColor #FFFFFF    BackgroundColor #B3B3B3    BorderColor #A6A6A6}sprite $angular [48x48/16] {000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016500000000000000000000000000000000000000000004AFFFFB5000000000000000000000000000000000000039FFFFFFFFFFB5000000000000000000000000000000039EFFFFFFEFFFFFFFE94000000000000000000000000028DFFFFFFFFF7AFFFFFFFFFEA4000000000000000000016CFFFFFFFFFFFF12FFFFFFFFFFFFE93000000000000000BFFFFFFFFFFFFFF800BFFFFFFFFFFFFFFD00000000000000DFFFFFFFFFFFFFF2003FFFFFFFFFFFFFFD00000000000000BFFFFFFFFFFFFFA0000CFFFFFFFFFFFFFB000000000000009FFFFFFFFFFFFF300004FFFFFFFFFFFFF9000000000000007FFFFFFFFFFFFC000000DFFFFFFFFFFFF7000000000000005FFFFFFFFFFFF40043006FFFFFFFFFFFF5000000000000003FFFFFFFFFFFD000BA000EFFFFFFFFFFF3000000000000001FFFFFFFFFFF6002FF2007FFFFFFFFFFF1000000000000000FFFFFFFFFFE0008FF9000EFFFFFFFFFF0000000000000000EFFFFFFFFF8000EFFF2008FFFFFFFFFD0000000000000000CFFFFFFFFF1006FFFF9001FFFFFFFFFB0000000000000000AFFFFFFFF9000DFFFFF1009FFFFFFFF900000000000000008FFFFFFFF20005555552002FFFFFFFF800000000000000006FFFFFFFB00000000000000AFFFFFFF600000000000000004FFFFFFF4000000000000002FFFFFFF400000000000000002FFFFFFD0005888888888000BFFFFFF200000000000000000FFFFFF5000EFFFFFFFFF4004FFFFFF000000000000000000EFFFFE0006FFFFFFFFFFB000CFFFFE000000000000000000CFFFF7000CFFFFFFFFFFF2005FFFFC000000000000000000AFFFF1002FFFFFFFFFFFF9000DFFFA0000000000000000008FFFB444AFFFFFFFFFFFFF3338FFF80000000000000000006FFFFFFFFFFFFFFFFFFFFFFFFFFFF60000000000000000003EFFFFFFFFFFFFFFFFFFFFFFFFFFE2000000000000000000018FFFFFFFFFFFFFFFFFFFFFFFF80000000000000000000000019FFFFFFFFFFFFFFFFFFFF91000000000000000000000000003CFFFFFFFFFFFFFFFFB20000000000000000000000000000004DFFFFFFFFFFFFC300000000000000000000000000000000005EFFFFFFFFE5000000000000000000000000000000000000007FFFFFE70000000000000000000000000000000000000000019FF91000000000000000000000000000000000000000000002200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}skinparam folderBackgroundColor<<DEV ANGULAR>> Whitesprite $java [48x48/16] {0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001200000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000001B00000000000000000000000000000000000000000000005A0000000000000000000000000000000000000000000000C70000000000000000000000000000000000000000000006F1000000000000000000000000000000000000000000005F7000000000000000000000000000000000000000000006FB000000000000000000000000000000000000000000009FB00016500000000000000000000000000000000000001CFA0018C200000000000000000000000000000000000002DF9005E9000000000000000000000000000000000000001DF8008F7000000000000000000000000000000000000000BFB005FA0000000000000000000000000000000000000001FF200CF30000000000000000000000000000000000000001FD000FF40000000000000000000000000000000000000000DE000EFB00000000000000000000000000000000000000005F2008FF60000000000000000000000000000000000000000AA001EFE00000000000000000000000000000000000000000B4004FF400000000000000000000000000000000000000000A100BF2000000000000000000000000000000000000000000400A90000001100000000000000000000000000016730000001800000046CB1000000000000000000000005BD30000000010000120000DC00000000000000000000001DFEA7765567889BCB7000008F1000000000000000000000001468899988753200000000BE0000000000000000000000000001000000000000000004F500000000000000000000000000C800000000024200004E5000000000000000000000000000CFFDCBBBCEFFFC20188100000000000000000000000000000268AAAAA86400003000000000000000000000000000000000000000000000000000000000000000000000000000000009A1000000241000000000000000000000000000000000000CFFFEDDEFFFF600000000000000000000000000000003520049CEEFFCA720000000000000000000000000000019B500000000000000000000024000000000000000000002FF82000000000000000000037800000000000000000000018DFFDB9766555566789ACCA61016000000000000000000000001357899AABAA9875310026AA100000000000000000000000003542211111233579BCB72000000000000000000000000000002457778888765310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}skinparam folderBackgroundColor<<DEV JAVA>> Whitesprite $msql_server [48x48/16] {000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000454300000000000000000000000000000000000000000176100600000000000000000000000000000000000000007C77530800000000000000000000000000000000000000099080246B7000000000000000000000000000000000000003B75B1283B000000000000000000000000000000000000000475BAE9688000000000000000000000000000000000000000466004ABACB9520000000000000000000000000000000000049147060005CDD940000000000000000000000000000000009B600801963304AE810000000000000000000000000000002FD9497A10800001BF8000000000000000000000000000000915CFD201902896467C20000000000000000000000000000802BB8FAAAB8200A002B20000000000000000000000000007394602EFA0000940001A100000000000000000000000000A80928BE5D70056000001800000000000000000000000000E82DB48500A63714898752000000000000000000000000036BF60480001CDCA6200000000000000000000000000000084DC228038CB720000000000000000000000000000000003B941798CA9800000000000000000000000000000000000196506EE94039000000000000000000000000000000000008769C60A0353B00000000000000000000000000000000009DCD8900A0007B0000000000000000000000000000000009F91B165090174B000000000000000000000000000000009C9059008788602B000000000000000000000000000000062590D1004FD100490000000000000000000000000000005003C7839C8C2750580000000000000000000000000000080000EFC830760014A50000000000000000000000000000831689ED1000D00055B20000000000000000000000000000E6510754D206728600D00000000000000000000000000001F10027003C6EB60002A00000000000000000000000000000CA0080005BFE6000075000000000000000000000000000002F86148843B037653B00000000000000000000000000000002DC62000A100015780000000000000000000000000000000007D71063037740710000000000000000000000000000000000049AB8630000800000000000000000000000000000000000000025887656200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}skinparam folderBackgroundColor<<DEV MSQL_SERVER>> Whitesprite $users [48x48/16] {000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024310000000000000000000000000000000000000000018EFFFFC4000000000000000000000000000000000000003EFFFFFFFF90000000000000000000000000000000000002EFFFFFFFFFF900000000000000000000000000000000000CFFFFFFFFFFFF4000000000000000000000006DFE8000004FFFFFFFFFFFFFC000004BFEA2000000000009FFFFFC00009FFFFFFFFFFFFFF10005FFFFFE20000000003FFFFFFF8000BFFFFFFFFFFFFFF3001FFFFFFFC0000000009FFFFFFFD000CFFFFFFFFFFFFFF4005FFFFFFFF100000000AFFFFFFFE000AFFFFFFFFFFFFFF2006FFFFFFFF2000000007FFFFFFFC0006FFFFFFFFFFFFFE0004FFFFFFFF0000000001FFFFFFF50001FFFFFFFFFFFFF80000DFFFFFF900000000004FFFFF8000007FFFFFFFFFFFE100002DFFFFB000000000000179830000000AFFFFFFFFFF300000006994000000000000000000000000007FFFFFFFC200000000000000000000000012333310000000016ACB940000000002333320000000001BFFFFFFFD3000000000000000000008FFFFFFFE60000000DFFFFFFFFE400000000000000000000AFFFFFFFFF6000007FFFFFFFFD1006BEFE8310025BFFD92006FFFFFFFFF00000CFFFFFFFE102DFFFFFFFFFFFFFFFFFF8007FFFFFFFF40000DFFFFFFF302FFFFFFFFFFFFFFFFFFFFFA00BFFFFFFF50000DFFFFFFB00EFFFFFFFFFFFFFFFFFFFFFF603FFFFFFF50000CFFFFFF407FFFFFFFFFFFFFFFFFFFFFFFE00CFFFFFF400006FFFFFF00DFFFFFFFFFFFFFFFFFFFFFFFF508FFFFFD00000037777601FFFFFFFFFFFFFFFFFFFFFFFFF90277776100000000000002FFFFFFFFFFFFFFFFFFFFFFFFFB0000000000000000000003FFFFFFFFFFFFFFFFFFFFFFFFFB0000000000000000000003FFFFFFFFFFFFFFFFFFFFFFFFFB0000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFF800000000000000000000009FFFFFFFFFFFFFFFFFFFFFFFF2000000000000000000000007DEEEEEEEEEEEEEEEEEEEEB2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}skinparam folderBackgroundColor<<FA5 USERS>> Whiterectangle "==Service Provider" <<system>> as serviceProviderrectangle "==Service Registry" <<system>> as serviceRegistryrectangle "<$users>\n==Customer\n\n People that need products" <<person>> as customerserviceProvider - ->> serviceRegistry : **1 - register service**customer - ->> serviceRegistry : **2 - lookup service**serviceRegistry - ->> customer : **3 - response**customer - ->> serviceProvider : **4 - access service**serviceProvider - ->> customer : **5 - service response**@endumlPlantUML version 1.2021.2beta9(Unknown compile time)(GPL source distribution)Java Runtime: Java(TM) SE Runtime EnvironmentJVM: Java HotSpot(TM) 64-Bit Server VMDefault Encoding: UTF-8Language: enCountry: US--></g></svg>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;服务发现与注册&quot;&gt;&lt;a href=&quot;#服务发现与注册&quot; class=&quot;headerlink&quot; title=&quot;服务发现与注册&quot;&gt;&lt;/a&gt;服务发现与注册&lt;/h3&gt;&lt;p&gt;服务发现(Service discovery) 是一种在网络上自动识别设备和服务的处理过程。SDP </summary>
+      
+    
+    
+    
+    <category term="Microservice" scheme="https://q0519.gitee.io/categories/Microservice/"/>
+    
+    <category term="Service Discovery Tools" scheme="https://q0519.gitee.io/categories/Microservice/Service-Discovery-Tools/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Eureka介绍</title>
+    <link href="https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Eureka/"/>
+    <id>https://q0519.gitee.io/2021/02/20/Microservice/Service%20Discovery%20Tools/Eureka/</id>
+    <published>2021-02-20T15:02:29.925Z</published>
+    <updated>2021-02-20T15:53:39.698Z</updated>
+    
+    
+    
+    
+    <category term="Microservice" scheme="https://q0519.gitee.io/categories/Microservice/"/>
+    
+    <category term="Service Discovery Tools" scheme="https://q0519.gitee.io/categories/Microservice/Service-Discovery-Tools/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Learning path for the GO project</title>
+    <link href="https://q0519.gitee.io/2021/02/18/Golang/LearningGo/"/>
+    <id>https://q0519.gitee.io/2021/02/18/Golang/LearningGo/</id>
+    <published>2021-02-17T19:31:57.510Z</published>
+    <updated>2021-02-20T15:53:39.697Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Go-Project-Layout"><a href="#Go-Project-Layout" class="headerlink" title="Go Project Layout"></a>Go Project Layout</h3><p><a href="https://github.com/golang-standards/project-layout">https://github.com/golang-standards/project-layout</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Go-Project-Layout&quot;&gt;&lt;a href=&quot;#Go-Project-Layout&quot; class=&quot;headerlink&quot; title=&quot;Go Project Layout&quot;&gt;&lt;/a&gt;Go Project Layout&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;h</summary>
+      
+    
+    
+    
+    <category term="Golang" scheme="https://q0519.gitee.io/categories/Golang/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vim Tricks</title>
+    <link href="https://q0519.gitee.io/2021/02/16/Others/vim/"/>
+    <id>https://q0519.gitee.io/2021/02/16/Others/vim/</id>
+    <published>2021-02-16T13:56:26.586Z</published>
+    <updated>2021-02-16T14:49:31.475Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="短暂退出插入模式"><a href="#短暂退出插入模式" class="headerlink" title="短暂退出插入模式"></a>短暂退出插入模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">插入模式时，使用如下快捷键，可以短暂退出插入模式进入普通模式</span><br><span class="line">&lt;C-o&gt;</span><br></pre></td></tr></table></figure><h3 id="二合字符"><a href="#二合字符" class="headerlink" title="二合字符"></a>二合字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:digraph</span><br><span class="line">:h digraph-table</span><br><span class="line">:h digraphs-default</span><br></pre></td></tr></table></figure><h3 id="替换模式"><a href="#替换模式" class="headerlink" title="替换模式"></a>替换模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">R替换模式</span><br><span class="line">gR虚拟替换模式</span><br><span class="line">r单字符替换，操作完成后退出替换模式</span><br><span class="line">gR虚拟单字符替换</span><br></pre></td></tr></table></figure><h3 id="选择模式"><a href="#选择模式" class="headerlink" title="选择模式"></a>选择模式</h3><p>一般文本编辑器高亮文本后，键盘输入会直接替换被高亮的文本。</p><p>vim可以通过进入选择模式模拟这种行为，也可以通过“删除后插入”模拟。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v进入Visual模式，选择文本</span><br><span class="line">&lt;C-g&gt;进入Select模式，输入文本直接替换</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>或者通过v 之后使用“c”模拟。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;短暂退出插入模式&quot;&gt;&lt;a href=&quot;#短暂退出插入模式&quot; class=&quot;headerlink&quot; title=&quot;短暂退出插入模式&quot;&gt;&lt;/a&gt;短暂退出插入模式&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl</summary>
+      
+    
+    
+    
+    <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VS Code Settings for Rust</title>
+    <link href="https://q0519.gitee.io/2021/01/16/Rust/VS-Code/"/>
+    <id>https://q0519.gitee.io/2021/01/16/Rust/VS-Code/</id>
+    <published>2021-01-16T03:29:56.566Z</published>
+    <updated>2021-01-16T03:59:53.577Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="VS-Code配置"><a href="#VS-Code配置" class="headerlink" title="VS Code配置"></a>VS Code配置</h3><h4 id="VS-Code-支持Rust-插件安装"><a href="#VS-Code-支持Rust-插件安装" class="headerlink" title="VS Code 支持Rust 插件安装"></a>VS Code 支持Rust 插件安装</h4><p>Rust， 语言支持插件</p><p>crates， 用来检查Rust项目依赖的版本情况</p><p>Better TOML, 支持Cargo配置文件编辑</p><p>C/C++ for Visual Studio Code,  Windows环境Debug, <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools</a></p><p>CodeLLDB, Linux环境Debug, <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb</a></p><h4 id="Debug-设置"><a href="#Debug-设置" class="headerlink" title="Debug 设置"></a>Debug 设置</h4><ol><li><p>VS Code <em>File -&gt; Preferences -&gt; Settings</em> ，找到Debug，配置可以在任意位置下断点</p></li><li><p>选择“Debug-&gt; Add Configuration”</p></li><li><p>如果是Windows环境，选择 <code>C++ (Windows)</code><br>如果是Mac环境，选择 <code>LLDB: Custom Launch</code></p><p>如上步骤将创建 <code>launch.json</code>。需要手动配置”program”项目的可执行程序路径。</p></li></ol><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        <span class="comment">// --- For Windows</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(Windows) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppvsdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>:  <span class="string">&quot;$&#123;workspaceFolder&#125;/target/debug/hello_console.exe&quot;</span>, <span class="comment">//配置程序路径</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// --- For Mac</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(OSX) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;lldb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;/target/debug/foo&quot;</span>,<span class="comment">//Mac配置程序路径</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后，使用F5, 开始Debug吧！</p><p>参考</p><blockquote><p><a href="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/">https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;VS-Code配置&quot;&gt;&lt;a href=&quot;#VS-Code配置&quot; class=&quot;headerlink&quot; title=&quot;VS Code配置&quot;&gt;&lt;/a&gt;VS Code配置&lt;/h3&gt;&lt;h4 id=&quot;VS-Code-支持Rust-插件安装&quot;&gt;&lt;a href=&quot;#VS-Cod</summary>
+      
+    
+    
+    
+    <category term="Rust" scheme="https://q0519.gitee.io/categories/Rust/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我的设计工具箱</title>
+    <link href="https://q0519.gitee.io/2020/12/09/Others/my_tools/"/>
+    <id>https://q0519.gitee.io/2020/12/09/Others/my_tools/</id>
+    <published>2020-12-09T08:16:53.043Z</published>
+    <updated>2020-12-10T07:11:26.583Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如下是我目前在使用的一些工具。</p><h3 id="DB-Design"><a href="#DB-Design" class="headerlink" title="DB Design"></a>DB Design</h3><p><a href="https://dbdiagram.io/">Dbdiagram.io</a></p><p><img src="/2020/12/09/Others/my_tools/dbdiagram_screenshot.JPG" alt="dbdiagram"></p><p>H5应用，通过DBML绘制可视化，并且可以生成数据库的对应脚本。</p><p>Plantuml</p><p>全能的绘制软件，可以通过Entity描述生成数据库关系图。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;如下是我目前在使用的一些工具。&lt;/p&gt;
+&lt;h3 id=&quot;DB-Design&quot;&gt;&lt;a href=&quot;#DB-Design&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Parsing expression grammar （TODO)</title>
+    <link href="https://q0519.gitee.io/2020/12/09/Parser/parsing_expression_grammar/"/>
+    <id>https://q0519.gitee.io/2020/12/09/Parser/parsing_expression_grammar/</id>
+    <published>2020-12-09T08:04:22.087Z</published>
+    <updated>2020-12-10T06:27:47.185Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是我在分析DBML(Database Markup Language)时，发现它参考的一个名为peg.js的库所使用的一种文本分析方法。后期将会花时间理解一下其原理。DBML标记语言是<a href="%5Bhttps://dbdiagram.io/">DBDiagram</a> 团队所创建的数据库设计应用底层依赖的建模语言。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/holistics/dbml/">DBML</a></p><p><a href="https://pegjs.org/">Pegjs</a></p><p><a href="https://pest.rs/book/grammars/peg.html#parsing-expression-grammar">Parsing expression grammar</a></p><p><a href="https://craftinginterpreters.com/parsing-expressions.html">Parsing Expressions</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文是我在分析DBML(Database Markup Language)时，发现它参考的一个名为peg.js的库所使用的一种文本分析方法。</summary>
+      
+    
+    
+    
+    <category term="Parser" scheme="https://q0519.gitee.io/categories/Parser/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>软件工程设计步骤</title>
+    <link href="https://q0519.gitee.io/2020/12/09/Others/design_software/"/>
+    <id>https://q0519.gitee.io/2020/12/09/Others/design_software/</id>
+    <published>2020-12-09T07:40:53.647Z</published>
+    <updated>2020-12-10T06:27:47.185Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如下是《代码之殇》阅读中关于软件设计的阅读笔记整理。</p><h3 id="软件设计的维度"><a href="#软件设计的维度" class="headerlink" title="软件设计的维度"></a>软件设计的维度</h3><table><thead><tr><th></th><th>外部</th><th>内部</th></tr></thead><tbody><tr><td>静态</td><td>项目管理规范书<br>应用程序编程接口定义</td><td>开发规范书<br>测试驱动开发</td></tr><tr><td>动态</td><td>用例<br>应用范例和角色扮演</td><td>顺序图<br>状态图、流程图、威胁和故障建模</td></tr></tbody></table><h3 id="高层设计步骤"><a href="#高层设计步骤" class="headerlink" title="高层设计步骤"></a>高层设计步骤</h3><ul><li>应用范例和角色扮演 <ul><li>在一个较高层次上描述客户是如何和我们的软件交互的</li></ul></li><li>项目管理规范书<ul><li>描述一些外部的困扰，包括需求、对话框、菜单、屏幕、数据集合和其他功能</li></ul></li><li>开发规范书 （设计文档或架构文档）<ul><li>类的层次和关系</li><li>组件栈和关系</li><li>其他需要在较高层次描述实现结构的东西</li></ul></li><li>状态图、流程图、威胁和故障建模<ul><li>描述并控制系统中组件和对象之间的复杂交互</li></ul></li></ul><p>每个步骤都应有一个有限而明确的范围。</p><p>不是所有步骤在设计时都是必须的。</p><p>外部象限具有很宽的受众，内部象限则针对技术人员。</p><p>善用UML</p><p>威胁和故障建模通过重用“组件关系图”，会比较容易。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;如下是《代码之殇》阅读中关于软件设计的阅读笔记整理。&lt;/p&gt;
+&lt;h3 id=&quot;软件设计的维度&quot;&gt;&lt;a href=&quot;#软件设计的维度&quot; cla</summary>
+      
+    
+    
+    
+    <category term="Others" scheme="https://q0519.gitee.io/categories/Others/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mindmap</title>
+    <link href="https://q0519.gitee.io/2020/12/08/PlantUML/mindmap/"/>
+    <id>https://q0519.gitee.io/2020/12/08/PlantUML/mindmap/</id>
+    <published>2020-12-08T14:32:21.897Z</published>
+    <updated>2020-12-10T06:27:47.185Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是阅读绘制Mindmap官方文档后的一些笔记。</p><p><font color=red>Mindmap</font>目前还处于beta阶段，语法可能随时更改。</p><h3 id="如何绘制一个Mindmap"><a href="#如何绘制一个Mindmap" class="headerlink" title="如何绘制一个Mindmap"></a>如何绘制一个Mindmap</h3><p>绘制方法和orgmap</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@startmindmap</span><br><span class="line"></span><br><span class="line">@endmindmap</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文是阅读绘制Mindmap官方文档后的一些笔记。&lt;/p&gt;
+&lt;p&gt;&lt;font color=red&gt;Mindmap&lt;/font&gt;目前还处于be</summary>
+      
+    
+    
+    
+    <category term="PlantUML" scheme="https://q0519.gitee.io/categories/PlantUML/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter Constraints 约束</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Flutter/flutter_constraints/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Flutter/flutter_constraints/</id>
+    <published>2020-12-08T14:28:10.178Z</published>
+    <updated>2020-12-10T06:27:47.185Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文是阅读<a href="https://flutter.dev/docs/development/ui/layout/constraints">Flutter Constraints</a> 的一些笔记。</p><h3 id="图例"><a href="#图例" class="headerlink" title="图例"></a>图例</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="402px" preserveAspectRatio="none" style="width:819px;height:402px;" version="1.1" viewBox="0 0 819 402" width="819px" zoomAndPan="magnify"><defs><filter height="300%" id="fgqhneqorvb7m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="156" x="10" y="181.8535"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="20" y="204.8486">Flutter Constraints</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="91" x="216" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="226" y="42.9951">Container</text><path d="M166,200.002 L176,200.002 C191,200.002 191,38.1484 206,38.1484 L216,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="143" x="216" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="226" y="99.292">UncontrainedBox</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="348" x="409" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="328" x="419" y="99.292">Display warning If Large than its available size</text><path d="M359,94.4453 L369,94.4453 C384,94.4453 384,94.4453 399,94.4453 L409,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M166,200.002 L176,200.002 C191,200.002 191,94.4453 206,94.4453 L216,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="111" x="216" y="132.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="226" y="155.5889">OverflowBox</text><path d="M166,200.002 L176,200.002 C191,200.002 191,150.7422 206,150.7422 L216,150.7422 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="127" x="216" y="188.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="226" y="211.8857">ContrainedBox</text><path d="M166,200.002 L176,200.002 C191,200.002 191,207.0391 206,207.0391 L216,207.0391 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="91" x="216" y="245.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="226" y="268.1826">FittedBox</text><path d="M166,200.002 L176,200.002 C191,200.002 191,263.3359 206,263.3359 L216,263.3359 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="106" x="216" y="301.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="226" y="324.4795">[Flex boxes]</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="287" x="372" y="287.4102"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="267" x="382" y="310.4053">Row -- Display Size Overflow Warning</text><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="91" x="709" y="259.2617"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="719" y="282.2568">Expanded</text><path d="M659,305.5586 L669,305.5586 C684,305.5586 684,277.4102 699,277.4102 L709,277.4102 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="709" y="315.5586"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="719" y="338.5537">Flexible</text><path d="M659,305.5586 L669,305.5586 C684,305.5586 684,333.707 699,333.707 L709,333.707 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M322,319.6328 L332,319.6328 C347,319.6328 347,305.5586 362,305.5586 L372,305.5586 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgqhneqorvb7m)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="74" x="372" y="343.707"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="382" y="366.7021">Column</text><path d="M322,319.6328 L332,319.6328 C347,319.6328 347,361.8555 362,361.8555 L372,361.8555 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M166,200.002 L176,200.002 C191,200.002 191,319.6328 206,319.6328 L216,319.6328 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a98bd502fd9e27b1ec2411828e0a0830]@startmindmap* Flutter Constraints** Container** UncontrainedBox*** Display warning If Large than its available size** OverflowBox** ContrainedBox** FittedBox** [Flex boxes]*** Row - - Display Size Overflow Warning**** Expanded**** Flexible*** Column@endmindmapPlantUML version 1.2021.2beta9(Unknown compile time)(GPL source distribution)Java Runtime: Java(TM) SE Runtime EnvironmentJVM: Java HotSpot(TM) 64-Bit Server VMDefault Encoding: UTF-8Language: enCountry: US--></g></svg>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文是阅读&lt;a href=&quot;https://flutter.dev/docs/development/ui/layout/constrain</summary>
+      
+    
+    
+    
+    <category term="Flutter" scheme="https://q0519.gitee.io/categories/Flutter/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Half-sync / Half-sync 半同步/半异步 模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/half_sync_half_async/</id>
+    <published>2020-12-08T10:12:44.662Z</published>
+    <updated>2020-12-08T10:29:15.678Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。</p><p>注意： 和Lead-followers模式的区别</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将耗时较长的任务放入异步执行队列，而耗时较短的任务同步执行。比如，接受网络请求，将其入队列，异步处理。&lt;/p&gt;
+&lt;p&gt;注意： 和Lead-f</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pipeline 流水线模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/pipeline/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/pipeline/</id>
+    <published>2020-12-08T10:07:56.050Z</published>
+    <updated>2020-12-08T10:18:45.323Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>对有耦合关系的任务进行排布，并行处理多个任务链。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;对有耦合关系的任务进行排布，并行处理多个任务链。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Master-slave 模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/master_slave/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/master_slave/</id>
+    <published>2020-12-08T10:05:42.487Z</published>
+    <updated>2020-12-08T10:18:45.321Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>将较大的任务分解为小任务，并通过线程池执行；能够自动处理任务分解与合并。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;将较大的任务分解为小任务，并通过线程池执行；能够自动处理任务分解与合并。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Serial Thread Confinement 串行线程封闭</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/serial_thread_confinement/</id>
+    <published>2020-12-08T09:59:08.069Z</published>
+    <updated>2020-12-08T10:05:31.271Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>将多个并发任务存入队列，使用单线程消费。此模式将带来如下好处：</p><ol><li>异步化调用与执行；</li><li>由于任务串行化，可以避免使用锁。</li></ol><p>此模式是一个弱化了的线程池模式。类似UI 中的 Event Loop。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;将多个并发任务存入队列，使用单线程消费。此模式将带来如下好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;异步化调用与执行；&lt;/li&gt;
+&lt;li&gt;由于任务串行</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Thread Specific Storage 线程存储</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_specific_storage/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_specific_storage/</id>
+    <published>2020-12-08T09:32:12.732Z</published>
+    <updated>2020-12-08T10:05:31.289Z</updated>
+    
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Thread Pool 模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/</id>
+    <published>2020-12-08T09:23:28.025Z</published>
+    <updated>2020-12-08T10:05:31.272Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>线程池通过对任务及执行线程的管理，复用资源。</p><p>主要包括：1. 任务队列； 2. 工作线程调度</p><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol><li><p>线程泄露</p><p>a) 由于线程执行错误导致线程池中线程意外终止，耗尽线程池。ThreadPool中已经对此情况进行了处理。( 延申： 怎么处理的)</p><p>b) 由于一些阻塞的任务，比如读取外部数据等，没有恰当的超时机制，导致线程池中工作线程均在等待，无法执行任务。</p><p>c) 死锁，活锁等</p></li><li><p>饱和策略</p></li><li><p>队列不受限导致溢出</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;线程池通过对任务及执行线程的管理，复用资源。&lt;/p&gt;
+&lt;p&gt;主要包括：1. 任务队列； 2. 工作线程调度&lt;/p&gt;
+&lt;h3 id=&quot;常见问题</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Activate Object 主动对象模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/active_object/</id>
+    <published>2020-12-08T09:07:08.973Z</published>
+    <updated>2020-12-08T10:05:31.271Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。</p><h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="614px" preserveAspectRatio="none" style="width:555px;height:614px;" version="1.1" viewBox="0 0 555 614" width="555px" zoomAndPan="magnify"><defs><filter height="300%" id="fupn5p5fqxih7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]class Client--><rect codeLine="1" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="48" id="Client" style="stroke:#A80036;stroke-width:1.5;" width="65" x="444.5" y="7"/><ellipse cx="459.5" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M461.8438,18.6719 C460.9063,18.2344 460.3125,18.0938 459.4375,18.0938 C456.8125,18.0938 454.8125,20.1719 454.8125,22.8906 L454.8125,24.0156 C454.8125,26.5938 456.9219,28.4844 459.8125,28.4844 C461.0313,28.4844 462.1875,28.1875 462.9375,27.6406 C463.5156,27.2344 463.8438,26.7813 463.8438,26.3906 C463.8438,25.9375 463.4531,25.5469 462.9844,25.5469 C462.7656,25.5469 462.5625,25.625 462.375,25.8125 C461.9219,26.2969 461.9219,26.2969 461.7344,26.3906 C461.3125,26.6563 460.625,26.7813 459.8594,26.7813 C457.8125,26.7813 456.5156,25.6875 456.5156,23.9844 L456.5156,22.8906 C456.5156,21.1094 457.7656,19.7969 459.5,19.7969 C460.0781,19.7969 460.6875,19.9531 461.1563,20.2031 C461.6406,20.4844 461.8125,20.7031 461.9063,21.1094 C461.9688,21.5156 462,21.6406 462.1406,21.7656 C462.2813,21.9063 462.5156,22.0156 462.7344,22.0156 C463,22.0156 463.2656,21.875 463.4375,21.6563 C463.5469,21.5 463.5781,21.3125 463.5781,20.8906 L463.5781,19.4688 C463.5781,19.0313 463.5625,18.9063 463.4688,18.75 C463.3125,18.4844 463.0313,18.3438 462.7344,18.3438 C462.4375,18.3438 462.2344,18.4375 462.0156,18.75 L461.8438,18.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="473.5" y="27.1543">Client</text><line style="stroke:#A80036;stroke-width:1.5;" x1="445.5" x2="508.5" y1="39" y2="39"/><line style="stroke:#A80036;stroke-width:1.5;" x1="445.5" x2="508.5" y1="47" y2="47"/><!--MD5=[f7109e258b7e3e4bb390e34b115b99ce]class Proxy--><rect codeLine="3" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="60.8047" id="Proxy" style="stroke:#A80036;stroke-width:1.5;" width="203" x="259.5" y="116"/><ellipse cx="340.25" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M342.5938,127.6719 C341.6563,127.2344 341.0625,127.0938 340.1875,127.0938 C337.5625,127.0938 335.5625,129.1719 335.5625,131.8906 L335.5625,133.0156 C335.5625,135.5938 337.6719,137.4844 340.5625,137.4844 C341.7813,137.4844 342.9375,137.1875 343.6875,136.6406 C344.2656,136.2344 344.5938,135.7813 344.5938,135.3906 C344.5938,134.9375 344.2031,134.5469 343.7344,134.5469 C343.5156,134.5469 343.3125,134.625 343.125,134.8125 C342.6719,135.2969 342.6719,135.2969 342.4844,135.3906 C342.0625,135.6563 341.375,135.7813 340.6094,135.7813 C338.5625,135.7813 337.2656,134.6875 337.2656,132.9844 L337.2656,131.8906 C337.2656,130.1094 338.5156,128.7969 340.25,128.7969 C340.8281,128.7969 341.4375,128.9531 341.9063,129.2031 C342.3906,129.4844 342.5625,129.7031 342.6563,130.1094 C342.7188,130.5156 342.75,130.6406 342.8906,130.7656 C343.0313,130.9063 343.2656,131.0156 343.4844,131.0156 C343.75,131.0156 344.0156,130.875 344.1875,130.6563 C344.2969,130.5 344.3281,130.3125 344.3281,129.8906 L344.3281,128.4688 C344.3281,128.0313 344.3125,127.9063 344.2188,127.75 C344.0625,127.4844 343.7813,127.3438 343.4844,127.3438 C343.1875,127.3438 342.9844,127.4375 342.7656,127.75 L342.5938,127.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="360.75" y="136.1543">Proxy</text><line style="stroke:#A80036;stroke-width:1.5;" x1="260.5" x2="461.5" y1="148" y2="148"/><line style="stroke:#A80036;stroke-width:1.5;" x1="260.5" x2="461.5" y1="156" y2="156"/><ellipse cx="270.5" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="177" x="279.5" y="170.2104">asyncService( Object ) : Future</text><!--MD5=[8523c9eb2e1b5151dfc9c2a797373c5f]class Scheduler--><rect codeLine="7" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="73.6094" id="Scheduler" style="stroke:#A80036;stroke-width:1.5;" width="256" x="9" y="254"/><ellipse cx="102.25" cy="270" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M104.5938,265.6719 C103.6563,265.2344 103.0625,265.0938 102.1875,265.0938 C99.5625,265.0938 97.5625,267.1719 97.5625,269.8906 L97.5625,271.0156 C97.5625,273.5938 99.6719,275.4844 102.5625,275.4844 C103.7813,275.4844 104.9375,275.1875 105.6875,274.6406 C106.2656,274.2344 106.5938,273.7813 106.5938,273.3906 C106.5938,272.9375 106.2031,272.5469 105.7344,272.5469 C105.5156,272.5469 105.3125,272.625 105.125,272.8125 C104.6719,273.2969 104.6719,273.2969 104.4844,273.3906 C104.0625,273.6563 103.375,273.7813 102.6094,273.7813 C100.5625,273.7813 99.2656,272.6875 99.2656,270.9844 L99.2656,269.8906 C99.2656,268.1094 100.5156,266.7969 102.25,266.7969 C102.8281,266.7969 103.4375,266.9531 103.9063,267.2031 C104.3906,267.4844 104.5625,267.7031 104.6563,268.1094 C104.7188,268.5156 104.75,268.6406 104.8906,268.7656 C105.0313,268.9063 105.2656,269.0156 105.4844,269.0156 C105.75,269.0156 106.0156,268.875 106.1875,268.6563 C106.2969,268.5 106.3281,268.3125 106.3281,267.8906 L106.3281,266.4688 C106.3281,266.0313 106.3125,265.9063 106.2188,265.75 C106.0625,265.4844 105.7813,265.3438 105.4844,265.3438 C105.1875,265.3438 104.9844,265.4375 104.7656,265.75 L104.5938,265.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="61" x="122.75" y="274.1543">Scheduler</text><line style="stroke:#A80036;stroke-width:1.5;" x1="10" x2="264" y1="286" y2="286"/><line style="stroke:#A80036;stroke-width:1.5;" x1="10" x2="264" y1="294" y2="294"/><ellipse cx="20" cy="305" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="29" y="308.2104">dispatch()</text><ellipse cx="20" cy="317.8047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="230" x="29" y="321.0151">enqueue( methodReq : MethodRequest)</text><!--MD5=[7ac0d861308d3e6f548cc9575b4620cb]class ActivationQueue--><rect codeLine="12" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="73.6094" id="ActivationQueue" style="stroke:#A80036;stroke-width:1.5;" width="260" x="7" y="389"/><ellipse cx="83.75" cy="405" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M86.0938,400.6719 C85.1563,400.2344 84.5625,400.0938 83.6875,400.0938 C81.0625,400.0938 79.0625,402.1719 79.0625,404.8906 L79.0625,406.0156 C79.0625,408.5938 81.1719,410.4844 84.0625,410.4844 C85.2813,410.4844 86.4375,410.1875 87.1875,409.6406 C87.7656,409.2344 88.0938,408.7813 88.0938,408.3906 C88.0938,407.9375 87.7031,407.5469 87.2344,407.5469 C87.0156,407.5469 86.8125,407.625 86.625,407.8125 C86.1719,408.2969 86.1719,408.2969 85.9844,408.3906 C85.5625,408.6563 84.875,408.7813 84.1094,408.7813 C82.0625,408.7813 80.7656,407.6875 80.7656,405.9844 L80.7656,404.8906 C80.7656,403.1094 82.0156,401.7969 83.75,401.7969 C84.3281,401.7969 84.9375,401.9531 85.4063,402.2031 C85.8906,402.4844 86.0625,402.7031 86.1563,403.1094 C86.2188,403.5156 86.25,403.6406 86.3906,403.7656 C86.5313,403.9063 86.7656,404.0156 86.9844,404.0156 C87.25,404.0156 87.5156,403.875 87.6875,403.6563 C87.7969,403.5 87.8281,403.3125 87.8281,402.8906 L87.8281,401.4688 C87.8281,401.0313 87.8125,400.9063 87.7188,400.75 C87.5625,400.4844 87.2813,400.3438 86.9844,400.3438 C86.6875,400.3438 86.4844,400.4375 86.2656,400.75 L86.0938,400.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="98" x="104.25" y="409.1543">ActivationQueue</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="266" y1="421" y2="421"/><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="266" y1="429" y2="429"/><ellipse cx="18" cy="440" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="234" x="27" y="443.2104">enqueue( methodReq : MethodRequest )</text><ellipse cx="18" cy="452.8047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="164" x="27" y="456.0151">dequeue () : MethodRequest</text><!--MD5=[6f55398781c5f964533f8511f7366b70]class MethodRequest--><rect codeLine="17" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="60.8047" id="MethodRequest" style="stroke:#A80036;stroke-width:1.5;" width="126" x="300" y="260.5"/><ellipse cx="315" cy="276.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M317.3438,272.1719 C316.4063,271.7344 315.8125,271.5938 314.9375,271.5938 C312.3125,271.5938 310.3125,273.6719 310.3125,276.3906 L310.3125,277.5156 C310.3125,280.0938 312.4219,281.9844 315.3125,281.9844 C316.5313,281.9844 317.6875,281.6875 318.4375,281.1406 C319.0156,280.7344 319.3438,280.2813 319.3438,279.8906 C319.3438,279.4375 318.9531,279.0469 318.4844,279.0469 C318.2656,279.0469 318.0625,279.125 317.875,279.3125 C317.4219,279.7969 317.4219,279.7969 317.2344,279.8906 C316.8125,280.1563 316.125,280.2813 315.3594,280.2813 C313.3125,280.2813 312.0156,279.1875 312.0156,277.4844 L312.0156,276.3906 C312.0156,274.6094 313.2656,273.2969 315,273.2969 C315.5781,273.2969 316.1875,273.4531 316.6563,273.7031 C317.1406,273.9844 317.3125,274.2031 317.4063,274.6094 C317.4688,275.0156 317.5,275.1406 317.6406,275.2656 C317.7813,275.4063 318.0156,275.5156 318.2344,275.5156 C318.5,275.5156 318.7656,275.375 318.9375,275.1563 C319.0469,275 319.0781,274.8125 319.0781,274.3906 L319.0781,272.9688 C319.0781,272.5313 319.0625,272.4063 318.9688,272.25 C318.8125,271.9844 318.5313,271.8438 318.2344,271.8438 C317.9375,271.8438 317.7344,271.9375 317.5156,272.25 L317.3438,272.1719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="94" x="329" y="280.6543">MethodRequest</text><line style="stroke:#A80036;stroke-width:1.5;" x1="301" x2="425" y1="292.5" y2="292.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="301" x2="425" y1="300.5" y2="300.5"/><ellipse cx="311" cy="311.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="320" y="314.7104">call()</text><!--MD5=[a1b8371b5b3d6eab25cd19c8ab04f757]class Servant--><rect codeLine="21" fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="60.8047" id="Servant" style="stroke:#A80036;stroke-width:1.5;" width="110" x="82" y="540"/><ellipse cx="111.4" cy="556" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M113.7438,551.6719 C112.8063,551.2344 112.2125,551.0938 111.3375,551.0938 C108.7125,551.0938 106.7125,553.1719 106.7125,555.8906 L106.7125,557.0156 C106.7125,559.5938 108.8219,561.4844 111.7125,561.4844 C112.9313,561.4844 114.0875,561.1875 114.8375,560.6406 C115.4156,560.2344 115.7438,559.7813 115.7438,559.3906 C115.7438,558.9375 115.3531,558.5469 114.8844,558.5469 C114.6656,558.5469 114.4625,558.625 114.275,558.8125 C113.8219,559.2969 113.8219,559.2969 113.6344,559.3906 C113.2125,559.6563 112.525,559.7813 111.7594,559.7813 C109.7125,559.7813 108.4156,558.6875 108.4156,556.9844 L108.4156,555.8906 C108.4156,554.1094 109.6656,552.7969 111.4,552.7969 C111.9781,552.7969 112.5875,552.9531 113.0563,553.2031 C113.5406,553.4844 113.7125,553.7031 113.8063,554.1094 C113.8688,554.5156 113.9,554.6406 114.0406,554.7656 C114.1813,554.9063 114.4156,555.0156 114.6344,555.0156 C114.9,555.0156 115.1656,554.875 115.3375,554.6563 C115.4469,554.5 115.4781,554.3125 115.4781,553.8906 L115.4781,552.4688 C115.4781,552.0313 115.4625,551.9063 115.3688,551.75 C115.2125,551.4844 114.9313,551.3438 114.6344,551.3438 C114.3375,551.3438 114.1344,551.4375 113.9156,551.75 L113.7438,551.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="128.6" y="560.1543">Servant</text><line style="stroke:#A80036;stroke-width:1.5;" x1="83" x2="191" y1="572" y2="572"/><line style="stroke:#A80036;stroke-width:1.5;" x1="83" x2="191" y1="580" y2="580"/><ellipse cx="93" cy="591" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="102" y="594.2104">doSomething()</text><!--MD5=[9473c99003db6b535952ab3e34a44ff8]class Future--><rect fill="#FEFECE" filter="url(#fupn5p5fqxih7)" height="48" id="Future" style="stroke:#A80036;stroke-width:1.5;" width="70" x="471" y="267"/><ellipse cx="486" cy="283" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M488.3438,278.6719 C487.4063,278.2344 486.8125,278.0938 485.9375,278.0938 C483.3125,278.0938 481.3125,280.1719 481.3125,282.8906 L481.3125,284.0156 C481.3125,286.5938 483.4219,288.4844 486.3125,288.4844 C487.5313,288.4844 488.6875,288.1875 489.4375,287.6406 C490.0156,287.2344 490.3438,286.7813 490.3438,286.3906 C490.3438,285.9375 489.9531,285.5469 489.4844,285.5469 C489.2656,285.5469 489.0625,285.625 488.875,285.8125 C488.4219,286.2969 488.4219,286.2969 488.2344,286.3906 C487.8125,286.6563 487.125,286.7813 486.3594,286.7813 C484.3125,286.7813 483.0156,285.6875 483.0156,283.9844 L483.0156,282.8906 C483.0156,281.1094 484.2656,279.7969 486,279.7969 C486.5781,279.7969 487.1875,279.9531 487.6563,280.2031 C488.1406,280.4844 488.3125,280.7031 488.4063,281.1094 C488.4688,281.5156 488.5,281.6406 488.6406,281.7656 C488.7813,281.9063 489.0156,282.0156 489.2344,282.0156 C489.5,282.0156 489.7656,281.875 489.9375,281.6563 C490.0469,281.5 490.0781,281.3125 490.0781,280.8906 L490.0781,279.4688 C490.0781,279.0313 490.0625,278.9063 489.9688,278.75 C489.8125,278.4844 489.5313,278.3438 489.2344,278.3438 C488.9375,278.3438 488.7344,278.4375 488.5156,278.75 L488.3438,278.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="500" y="287.1543">Future</text><line style="stroke:#A80036;stroke-width:1.5;" x1="472" x2="540" y1="299" y2="299"/><line style="stroke:#A80036;stroke-width:1.5;" x1="472" x2="540" y1="307" y2="307"/><!--MD5=[6c8bde876792f198e3004b5674ea61b5]link Client to Proxy--><path codeLine="25" d="M453.246,55.242 C436.468,71.659 413.733,93.904 395.032,112.201 " fill="none" id="Client-to-Proxy" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="391.349,115.805,400.5794,112.37,394.9229,112.3083,394.9846,106.6517,391.349,115.805" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8eb0a365200d5a3cbac713a6dc9efe98]link Client to Future--><path codeLine="26" d="M479.625,55.351 C484.963,102.84 497.065,210.51 502.831,261.807 " fill="none" id="Client-to-Future" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="503.402,266.888,506.3718,257.4976,502.8436,261.9193,498.4219,258.391,503.402,266.888" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[922722391205c23119148be12abecf78]link Proxy to Future--><path codeLine="27" d="M391.044,177.026 C416.819,202.356 453.647,238.55 478.62,263.092 " fill="none" id="Proxy-to-Future" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="482.216,266.626,478.6008,257.4647,478.6499,263.1213,472.9933,263.1704,482.216,266.626" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="439" y="220.0669">create</text><!--MD5=[bbbd6c54c6929ecb5e279c12f072525f]link Proxy to MethodRequest--><path codeLine="28" d="M361.414,177.026 C361.731,199.611 362.17,230.833 362.505,254.732 " fill="none" id="Proxy-to-MethodRequest" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="362.579,260.021,366.45,250.9648,362.5076,255.0215,358.4508,251.0791,362.579,260.021" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="364" y="220.0669">create</text><!--MD5=[71c2a629c9b23f564c0da2367af1119f]link Proxy to Scheduler--><path codeLine="29" d="M314.587,177.026 C280.846,198.491 234.844,227.755 198.115,251.121 " fill="none" id="Proxy-to-Scheduler" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="193.683,253.941,203.4235,252.4842,197.9014,251.2568,199.1288,245.7347,193.683,253.941" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8ffed7f29b046ae57345b2e0df64c519]link Scheduler to ActivationQueue--><path codeLine="30" d="M137,328.343 C137,345.35 137,365.696 137,383.324 " fill="none" id="Scheduler-to-ActivationQueue" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="137,388.701,141,379.701,137,383.701,133,379.701,137,388.701" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[351c70a05f6f16a5b9d23fe86c34cfb9]link ActivationQueue to Servant--><path codeLine="31" d="M137,463.327 C137,485.313 137,513.1928 137,534.8657 " fill="none" id="ActivationQueue-to-Servant" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="137,539.9523,141,530.9523,137,534.9523,133,530.9523,137,539.9523" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="138" y="506.0669">call</text><!--MD5=[1505e1dd31b6a6adb4060cc5fc7ad004]@startumlclass Clientclass Proxy {+asyncService( Object ) : Future}class Scheduler {+dispatch()+enqueue( methodReq : MethodRequest)}class ActivationQueue {+enqueue( methodReq : MethodRequest )+dequeue () : MethodRequest}class MethodRequest {+call()}class Servant {+doSomething()}Client ..> Proxy Client ..> FutureProxy ..> Future :createProxy ..> MethodRequest :createProxy - -> SchedulerScheduler - -> ActivationQueueActivationQueue ..> Servant :call@endumlPlantUML version 1.2021.2beta9(Unknown compile time)(GPL source distribution)Java Runtime: Java(TM) SE Runtime EnvironmentJVM: Java HotSpot(TM) 64-Bit Server VMDefault Encoding: UTF-8Language: enCountry: US--></g></svg>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;主动对象将方法调用与方法执行进行解构，与该方法有关的上下文信息均会封装成一个对象，由另外的线程或调度管理来控制执行。&lt;/p&gt;
+&lt;h3 id=</summary>
+      
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Product-consumer 模式</title>
+    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/product_consumer/"/>
+    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/product_consumer/</id>
+    <published>2020-12-08T08:07:54.047Z</published>
+    <updated>2020-12-08T10:32:35.754Z</updated>
+    
+    
+    
+    
+    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
+    
+    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
+    
+    
+  </entry>
+  
+</feed>

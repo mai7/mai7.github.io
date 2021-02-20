@@ -1,5 +1,0 @@
-@startuml
-    rectangle a #red
-    rectangle b
-    a --> b
-@enduml
