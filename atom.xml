@@ -6,7 +6,7 @@
   <link href="https://q0519.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://q0519.gitee.io/"/>
-  <updated>2021-07-06T11:45:39.632Z</updated>
+  <updated>2021-07-06T15:04:42.883Z</updated>
   <id>https://q0519.gitee.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>火焰图和性能测试</title>
+    <link href="https://q0519.gitee.io/2021/07/06/Python/flame%20profiling/"/>
+    <id>https://q0519.gitee.io/2021/07/06/Python/flame%20profiling/</id>
+    <published>2021-07-06T15:02:49.118Z</published>
+    <updated>2021-07-06T15:04:42.883Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="测试性能"><a href="#测试性能" class="headerlink" title="测试性能"></a>测试性能</h3><blockquote><p> python -m cProfile -o [output.prof] [file.py]</p></blockquote><p>生成火焰图</p><blockquote><p>pip install flameprof</p><p>python -m flameprof [output.prof] &gt; [output.svg]</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;测试性能&quot;&gt;&lt;a href=&quot;#测试性能&quot; class=&quot;headerlink&quot; title=&quot;测试性能&quot;&gt;&lt;/a&gt;测试性能&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt; python -m cProfile -o [output.prof] [file.py]&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Docker 网络</title>
     <link href="https://q0519.gitee.io/2021/07/06/Docker/docker%20network/"/>
     <id>https://q0519.gitee.io/2021/07/06/Docker/docker%20network/</id>
     <published>2021-07-06T11:30:00.054Z</published>
-    <updated>2021-07-06T11:45:39.632Z</updated>
+    <updated>2021-07-06T11:47:13.319Z</updated>
     
     <content type="html"><![CDATA[<h3 id="列举当前网桥"><a href="#列举当前网桥" class="headerlink" title="列举当前网桥"></a>列举当前网桥</h3><blockquote><p> docker network ls</p></blockquote><h3 id="创建网桥"><a href="#创建网桥" class="headerlink" title="创建网桥"></a>创建网桥</h3><blockquote><p>docker network create -d bridge #bridge_name#</p></blockquote><h3 id="连接到网桥"><a href="#连接到网桥" class="headerlink" title="连接到网桥"></a>连接到网桥</h3><blockquote><p>docker run -d –network #bridge_name# jetty</p></blockquote><h3 id="诊断网络"><a href="#诊断网络" class="headerlink" title="诊断网络"></a>诊断网络</h3><blockquote><p>docker inspect #network_name#</p></blockquote>]]></content>
     
@@ -36,6 +57,8 @@
     
     
     
+    <category term="Docker" scheme="https://q0519.gitee.io/categories/Docker/"/>
+    
     
   </entry>
   
@@ -44,7 +67,7 @@
     <link href="https://q0519.gitee.io/2021/06/15/Microservice/RESTful/RestMaturityModel/"/>
     <id>https://q0519.gitee.io/2021/06/15/Microservice/RESTful/RestMaturityModel/</id>
     <published>2021-06-15T07:28:30.180Z</published>
-    <updated>2021-06-15T07:31:00.562Z</updated>
+    <updated>2021-07-06T11:47:13.319Z</updated>
     
     <content type="html"><![CDATA[<p>#</p>]]></content>
     
@@ -56,6 +79,10 @@
       
     
     
+    
+    <category term="Microservice" scheme="https://q0519.gitee.io/categories/Microservice/"/>
+    
+    <category term="RESTful" scheme="https://q0519.gitee.io/categories/Microservice/RESTful/"/>
     
     
   </entry>
@@ -435,32 +462,6 @@
     <published>2020-12-08T09:32:12.732Z</published>
     <updated>2020-12-08T10:05:31.289Z</updated>
     
-    
-    
-    
-    <category term="Design Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/"/>
-    
-    <category term="Concurrent Pattern" scheme="https://q0519.gitee.io/categories/Design-Pattern/Concurrent-Pattern/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Thread Pool 模式</title>
-    <link href="https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/"/>
-    <id>https://q0519.gitee.io/2020/12/08/Design%20Pattern/Concurrent%20Pattern/thread_pool/</id>
-    <published>2020-12-08T09:23:28.025Z</published>
-    <updated>2020-12-08T10:05:31.272Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>线程池通过对任务及执行线程的管理，复用资源。</p><p>主要包括：1. 任务队列； 2. 工作线程调度</p><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol><li><p>线程泄露</p><p>a) 由于线程执行错误导致线程池中线程意外终止，耗尽线程池。ThreadPool中已经对此情况进行了处理。( 延申： 怎么处理的)</p><p>b) 由于一些阻塞的任务，比如读取外部数据等，没有恰当的超时机制，导致线程池中工作线程均在等待，无法执行任务。</p><p>c) 死锁，活锁等</p></li><li><p>饱和策略</p></li><li><p>队列不受限导致溢出</p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;线程池通过对任务及执行线程的管理，复用资源。&lt;/p&gt;
-&lt;p&gt;主要包括：1. 任务队列； 2. 工作线程调度&lt;/p&gt;
-&lt;h3 id=&quot;常见问题</summary>
-      
     
     
     
