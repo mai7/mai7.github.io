@@ -151,6 +151,211 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/02/Docker/docker_101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/02/Docker/docker_101/" class="post-title-link" itemprop="url">Docker 学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-02 17:50:58" itemprop="dateCreated datePublished" datetime="2020-12-02T17:50:58+08:00">2020-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-06 19:29:54" itemprop="dateModified" datetime="2021-07-06T19:29:54+08:00">2021-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<pre><code>Docker 学习笔记</code></pre>
+<hr>
+<h3 id="使用动机"><a href="#使用动机" class="headerlink" title="使用动机"></a>使用动机</h3><p>Docker 容器是一种轻量级的应用部署、运行单元，历经几代发展，今天发现Windows 10 家庭版不再需要依赖Visualbox，只要安装好WSL即可使用，启动和运行均非常便捷，因此想把学习使用的经历记录下来，以便后续回顾。</p>
+<p>目标是在本地建立开发所需要的各种依赖，使用最省的资源，提升开发效率。</p>
+<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><h4 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h4><p>docker search <strong>–no-trunc</strong> xxx</p>
+<p>no-trunc 的选项可以不截断结果中的文字。比如Description过长，默认会被截断。</p>
+<h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>docker pull <em>image-name</em></p>
+<h4 id="列举本地镜像"><a href="#列举本地镜像" class="headerlink" title="列举本地镜像"></a>列举本地镜像</h4><p>docker image ls</p>
+<h4 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --itd --name *name_of_a_new_container*  -p6379:6379 *image_name* </span><br><span class="line"><span class="meta">#</span><span class="bash">-d表示后台运行</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p本地映射端口:远程端口</span></span><br></pre></td></tr></table></figure>
+
+<p>-p端口映射相应说明可以<a target="_blank" rel="noopener" href="https://blog.csdn.net/chengxuyuanyonghu/article/details/76630617">参考这个网站</a></p>
+<p>如果遇到运行时报名字冲突，证明已经创建过相应名字的容器了。此时需要通过start启动容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start -a image_name #-a指attach到stdin/stderr，可以在命令行中看到连接后的容器输出</span><br></pre></td></tr></table></figure>
+
+<p>停止docker镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop image_name</span><br></pre></td></tr></table></figure>
+
+<p>docker rm <em>image_name</em> 删除掉容器，再重建。</p>
+<h4 id="查询当前运行的镜像"><a href="#查询当前运行的镜像" class="headerlink" title="查询当前运行的镜像"></a>查询当前运行的镜像</h4><p>docker ps  显示运行的镜像</p>
+<p>显示所有已经创建的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h4 id="运行一个redis容器"><a href="#运行一个redis容器" class="headerlink" title="运行一个redis容器"></a>运行一个redis容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">docker pull redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker run -d --name redis-test -p 6379:6379 redis</span></span><br><span class="line"><span class="meta">$</span><span class="bash">docker <span class="built_in">exec</span> -it redis-test /bin/bash</span></span><br><span class="line"><span class="meta">$</span><span class="bash">root@878972df&gt;redis-cli</span></span><br><span class="line"><span class="meta">#</span><span class="bash">:D</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过如下命令看本机端口是不是被打开（状态为LISTENING,windows环境)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -na | find &quot;6379&quot;</span><br></pre></td></tr></table></figure>
+
+<p>可以尝试通过redis客户端或者telnet操作下redis</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 6379 #quit命令退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行一个Mysql-容器"><a href="#运行一个Mysql-容器" class="headerlink" title="运行一个Mysql 容器"></a>运行一个Mysql 容器</h4><p>mysql容器运行方法与redis大同小异，如果启动失败，比如通过 docker ps -a看到异常终止，则可通过如下命令查看日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs container_name</span><br></pre></td></tr></table></figure>
+
+<p>比如，我运行mysql失败，产生了如下日志：</p>
+<blockquote>
+<p>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Switching to dedicated user ‘mysql’<br>2020-12-02 16:14:17+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.22-1debian10 started.<br>2020-12-02 16:14:17+00:00 [ERROR] [Entrypoint]: Database is uninitialized and password option is not specified<br>        You need to specify one of MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD</p>
+</blockquote>
+<p>显然，需要提供更多参数以便运行mysql，如日志所述，可以运行如下命令设置一个root密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name=mysql_server -e MYSQL_ROOT_PASSWORD=12345 -p3306:3306 -p33060:33060 -d mysql</span><br></pre></td></tr></table></figure>
+
+<p>之后，即可通过如下命令登录容器。</p>
+<p>3306是经典的mysql端口，其他可用端口可以参考如下链接<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/mysql-port-reference/en/mysql-ports-reference-tables.html">Mysql Ports Reference</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker -it mysql_server /bin/bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="meta">root@wejfio22&gt;</span><span class="bash"> mysql -uroot -p <span class="comment">#打开一个mysql shell</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="今日遗留问题"><a href="#今日遗留问题" class="headerlink" title="今日遗留问题"></a>今日遗留问题</h3><ul>
+<li><input disabled="" type="checkbox"> 如何改变容器中的配置，比如更改redis的默认运行port？</li>
+<li><input disabled="" type="checkbox"> 数据在容器停止时似乎没有丢失，如果是容器意外退出呢？</li>
+<li><input disabled="" type="checkbox"> 已经创建的容器，如果需要改变本地映射端口，应该怎么做？</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/GNU%20Tools/autotools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Q">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/GNU%20Tools/autotools/" class="post-title-link" itemprop="url">Autotools 阅读实践笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-01 18:41:35 / Modified: 19:18:23" itemprop="dateCreated datePublished" datetime="2020-12-01T18:41:35+08:00">2020-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GNU-Tools/" itemprop="url" rel="index"><span itemprop="name">GNU Tools</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>以下是我在windows环境下，使用Msys2 64 / Mingw64 进行C语言编程的一些笔记。</p>
+<p>熟悉C语言，以及熟悉linux编译工具链的原因，是因为大量的语言，比如Dart等，都可以通过C语言进行功能扩展，我希望能够掌握得更深入一些。</p>
+<h3 id="II-改变默认安装路径"><a href="#II-改变默认安装路径" class="headerlink" title="II. 改变默认安装路径"></a>II. 改变默认安装路径</h3><p>一般安装步骤如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./make install</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一般安装路径都是 /usr/<span class="built_in">local</span>/bin, 但可以通过设置prefix为其他路径来调整。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译后的文件安装到$HOME/bin目录</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$HOME</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 将编译好的文件安装到当前目录的子目录下</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./configure --prefix=<span class="variable">$PWD</span>/mytest</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一般来说，prefix指向的路径应该是全路径而非相对路径，因为编译时会跳转到不同目录，依赖相对路径将导致不稳定的文件生成。</p>
+<h3 id="II-安装Clang"><a href="#II-安装Clang" class="headerlink" title="II.安装Clang"></a>II.安装Clang</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mingw64/mingw-w64-x86_64-clang</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> clang -Wall hello.c -o hello</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://q0519.gitee.io/2020/12/01/Others/glossary_in_cs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,7 +643,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="绘制各种图形"><a href="#绘制各种图形" class="headerlink" title="绘制各种图形"></a>绘制各种图形</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1090px" preserveAspectRatio="none" style="width:1132px;height:1090px;" version="1.1" viewBox="0 0 1132 1090" width="1132px" zoomAndPan="magnify"><defs><filter height="300%" id="f46waq032wola" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e209b37fc91f378abaa2ddf468318055]
+          <h2 id="绘制各种图形"><a href="#绘制各种图形" class="headerlink" title="绘制各种图形"></a>绘制各种图形</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1090px" preserveAspectRatio="none" style="width:1132px;height:1090px;background:#FFFFFF;" version="1.1" viewBox="0 0 1132 1090" width="1132px" zoomAndPan="magnify"><defs><filter height="300%" id="f46waq032wola" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e209b37fc91f378abaa2ddf468318055]
 entity actor--><ellipse cx="101" cy="28" fill="#FEFECE" filter="url(#f46waq032wola)" rx="16" ry="16" style="stroke:#A80036;stroke-width:3.0;"/><path d="M101,44 L101,98 M75,60 L127,60 M101,98 L75,128 M101,98 L127,128 " fill="none" filter="url(#f46waq032wola)" style="stroke:#A80036;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="76" x="63" y="164.9902">actor</text><!--MD5=[3908db504f15eb564d5f0e12bd7273c1]
 entity agent--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="72.5938" style="stroke:#A80036;stroke-width:3.0;" width="124" x="209" y="54"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="84" x="229" y="99.9902">agent</text><!--MD5=[ed13bbfe61d4f4be62c09eebe4db66d3]
 entity artifact--><rect fill="#FEFECE" filter="url(#f46waq032wola)" height="78.5938" style="stroke:#000000;stroke-width:3.0;" width="168" x="403" y="51"/><polygon fill="#FEFECE" points="537,61,537,89,561,89,561,73,549,61,537,61" style="stroke:#000000;stroke-width:3.0;"/><line style="stroke:#000000;stroke-width:3.0;" x1="549" x2="549" y1="61" y2="73"/><line style="stroke:#000000;stroke-width:3.0;" x1="561" x2="549" y1="73" y2="73"/><text fill="#000000" font-family="sans-serif" font-size="28" lengthAdjust="spacing" textLength="108" x="423" y="102.9902">artifact</text><!--MD5=[6cbf048fd2d5a055b0f2cbfd23391788]
@@ -484,7 +689,7 @@ link package to queue--><!--MD5=[98cb51ded5898223b9a8ecc493b93ea4]
 link interface to stack--><!--MD5=[c2210ea9fc6be98a62d8f4a379d6e092]
 link stack to rectangle--><!--MD5=[1f2528f3aff633fef29d8d20637760c3]
 link rectangle to storage--><!--MD5=[3653f2d8d01dce9d85eaa536b92b1c92]
-link storage to usecase--><!--MD5=[46f2cfc9f5372dd1cc27e2b2f4634828]
+link storage to usecase--><!--MD5=[4cba18127baba45cf1ed9f16db52204f]
 @startuml
 scale 2
 
@@ -514,7 +719,7 @@ storage storage
 usecase usecase
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -529,13 +734,13 @@ Country: US
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rectangle <span class="string">&quot;test with space&quot;</span> <span class="keyword">as</span> t1 </span><br></pre></td></tr></table></figure>
 
 <p>设置颜色</p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:69px;height:55px;" version="1.1" viewBox="0 0 69 55" width="69px" zoomAndPan="magnify"><defs><linearGradient id="g1vs3fm8wim42m0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF0000"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient><filter height="300%" id="f1vs3fm8wim42m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d3dac679b1e8583df0e4104897d7ce0a]
-entity test--><rect fill="url(#g1vs3fm8wim42m0)" filter="url(#f1vs3fm8wim42m)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="50" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="17" y="29.9951">test</text><!--MD5=[b29cadc37e12a2d17f8cc18970aedca4]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:69px;height:55px;background:#FFFFFF;" version="1.1" viewBox="0 0 69 55" width="69px" zoomAndPan="magnify"><defs><linearGradient id="g1vs3fm8wim42m0" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF0000"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient><filter height="300%" id="f1vs3fm8wim42m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d3dac679b1e8583df0e4104897d7ce0a]
+entity test--><rect fill="url(#g1vs3fm8wim42m0)" filter="url(#f1vs3fm8wim42m)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="50" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="17" y="29.9951">test</text><!--MD5=[99c4823daeee7b7b6e40f3a35b9af5d3]
 @startuml
 rectangle test #red/white
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -552,17 +757,17 @@ Country: US
 
 <h2 id="绘制箭头"><a href="#绘制箭头" class="headerlink" title="绘制箭头"></a>绘制箭头</h2><h3 id="绘制简单箭头"><a href="#绘制简单箭头" class="headerlink" title="绘制简单箭头"></a>绘制简单箭头</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">    rectangle a #red</span><br><span class="line">    rectangle b</span><br><span class="line">    a --&gt; b</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
 
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="151px" preserveAspectRatio="none" style="width:49px;height:151px;" version="1.1" viewBox="0 0 49 151" width="49px" zoomAndPan="magnify"><defs><filter height="300%" id="f1msohn9akt37l" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="151px" preserveAspectRatio="none" style="width:49px;height:151px;background:#FFFFFF;" version="1.1" viewBox="0 0 49 151" width="49px" zoomAndPan="magnify"><defs><filter height="300%" id="f1msohn9akt37l" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
 entity a--><rect fill="#FF0000" filter="url(#f1msohn9akt37l)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="8" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="18" y="29.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
 entity b--><rect fill="#FEFECE" filter="url(#f1msohn9akt37l)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="7" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="17" y="125.9951">b</text><!--MD5=[a3deb68e4aebbeb113ddd128f6b25b58]
-link a to b--><path d="M22,43.241 C22,58.4791 22,80.8069 22,97.4576 " fill="none" id="a-to-b" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="22,102.8683,26,93.8683,22,97.8683,18,93.8683,22,102.8683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[504a72c7fbf249db28d0095733a6c3a1]
+link a to b--><path d="M22,43.241 C22,58.4791 22,80.8069 22,97.4576 " fill="none" id="a-to-b" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="22,102.8683,26,93.8683,22,97.8683,18,93.8683,22,102.8683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[774a25a0798f3572d0628a9e8936ac43]
 @startuml
 rectangle a #red
     rectangle b
     a - -> b
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -572,7 +777,7 @@ Country: US
 --></g></svg>
 
 <p>###增加如下u/d/l/r改变箭头方向</p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:165px;height:247px;" version="1.1" viewBox="0 0 165 247" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f1lfc9uak1dene" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:165px;height:247px;background:#FFFFFF;" version="1.1" viewBox="0 0 165 247" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f1lfc9uak1dene" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
 entity a--><rect fill="#FF0000" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="125.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
 entity b--><rect fill="#FEFECE" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="70.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="80.5" y="29.9951">b</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
 entity c--><rect fill="#FEFECE" filter="url(#f1lfc9uak1dene)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="199"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="221.9951">c</text><!--MD5=[011db1d27274c86691871bc51b12beb8]
@@ -581,7 +786,7 @@ entity e--><ellipse cx="143.5" cy="121" fill="#FEFECE" filter="url(#f1lfc9uak1de
 reverse link b to a--><path d="M85.5,48.662 C85.5,65.34 85.5,87.664 85.5,102.868 " fill="none" id="b-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="85.5,43.241,81.5,52.241,85.5,48.241,89.5,52.241,85.5,43.241" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d6047f197d3927fefc7f7c2751c9df28]
 link a to c--><path d="M85.5,139.241 C85.5,154.4791 85.5,176.8069 85.5,193.4576 " fill="none" id="a-to-c" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="85.5,198.8683,89.5,189.8683,85.5,193.8683,81.5,189.8683,85.5,198.8683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[aa79fa00221adb75c4ee5817792366f7]
 reverse link d to a--><path d="M41.2237,121 C51.213,121 61.2022,121 71.1914,121 " fill="none" id="d-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="36,121,45,125,41,121,45,117,36,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e9912996abd31fb2266758a7f042fde9]
-link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d69e91dcfafc3406095559194df93d3f]
+link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8c3770d0411c3d02a118427fe57b0b99]
 @startuml
 rectangle a #red
     rectangle b
@@ -594,7 +799,7 @@ rectangle a #red
     a -r-> e
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -608,7 +813,7 @@ Country: US
 <p>###控制箭头形状</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">    rectangle a #red</span><br><span class="line">    rectangle b</span><br><span class="line">    rectangle c</span><br><span class="line">    rectangle d</span><br><span class="line"></span><br><span class="line">    a -[#pink,dashed,thickness=<span class="number">3</span>]u-&gt; b</span><br><span class="line">    a -[#black,dotted]d----&gt; c</span><br><span class="line">    a -l-&gt; d</span><br><span class="line">    a -r-&gt; e</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
 
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="430px" preserveAspectRatio="none" style="width:165px;height:430px;" version="1.1" viewBox="0 0 165 430" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f7bvwaq8p9xtz" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="430px" preserveAspectRatio="none" style="width:165px;height:430px;background:#FFFFFF;" version="1.1" viewBox="0 0 165 430" width="165px" zoomAndPan="magnify"><defs><filter height="300%" id="f7bvwaq8p9xtz" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f83ae91a690dfc657e1c5fbbd818f13d]
 entity a--><rect fill="#FF0000" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="125.9951">a</text><!--MD5=[5d12e840fb55afd9ed7b3559a638e8f7]
 entity b--><rect fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="30" x="70.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="10" x="80.5" y="29.9951">b</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
 entity c--><rect fill="#FEFECE" filter="url(#f7bvwaq8p9xtz)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="28" x="71.5" y="382"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="81.5" y="404.9951">c</text><!--MD5=[011db1d27274c86691871bc51b12beb8]
@@ -617,7 +822,7 @@ entity e--><ellipse cx="143.5" cy="121" fill="#FEFECE" filter="url(#f7bvwaq8p9xt
 reverse link b to a--><path d="M85.5,48.662 C85.5,65.34 85.5,87.664 85.5,102.868 " fill="none" id="b-backto-a" style="stroke:#FFC0CB;stroke-width:3.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#FFC0CB" points="85.5,43.241,81.5,52.241,85.5,48.241,89.5,52.241,85.5,43.241" style="stroke:#FFC0CB;stroke-width:3.0;"/><!--MD5=[d6047f197d3927fefc7f7c2751c9df28]
 link a to c--><path d="M85.5,139.328 C85.5,187.421 85.5,322.557 85.5,376.4235 " fill="none" id="a-to-c" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#000000" points="85.5,381.679,89.5,372.679,85.5,376.679,81.5,372.679,85.5,381.679" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[aa79fa00221adb75c4ee5817792366f7]
 reverse link d to a--><path d="M41.2237,121 C51.213,121 61.2022,121 71.1914,121 " fill="none" id="d-backto-a" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="36,121,45,125,41,121,45,117,36,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e9912996abd31fb2266758a7f042fde9]
-link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e73eb015dfcd93dbea9edf31b9c1ce33]
+link a to e--><path d="M99.5469,121 C109.391,121 119.236,121 129.081,121 " fill="none" id="a-to-e" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="134.229,121,125.229,117,129.229,121,125.229,125,134.229,121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0f71f8bbe1eb089977bb5d9fa8dc3657]
 @startuml
 rectangle a #red
     rectangle b
@@ -630,7 +835,7 @@ rectangle a #red
     a -r-> e
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -716,7 +921,7 @@ Country: US
       
           <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本系列是我在熟悉Flutter编程语言时记录的一些笔记，希望通过这些记录，掌握Flutter在移动端的一般开发方法，目标是做出一些自己满意的产品。</p>
 <h2 id="Flutter-配置"><a href="#Flutter-配置" class="headerlink" title="Flutter 配置"></a>Flutter 配置</h2><p>最近尝试进行移动端开发，了解了Flutter框架以及Dart语言，希望能够对其进行深入的探索。</p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:332px;height:247px;" version="1.1" viewBox="0 0 332 247" width="332px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wbedaoqvqwn7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="69" x="112" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="122" y="127.4404">Flutter</text><rect fill="#FFA500" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="231" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="241" y="42.9951">Android</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,38.1484 221,38.1484 L231,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#ADD8E6" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="44" x="231" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="24" x="241" y="99.292">IOS</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,94.4453 221,94.4453 L231,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#90EE90" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="53" x="231" y="132.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="241" y="155.5889">Web</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,150.7422 221,150.7422 L231,150.7422 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#C0C0C0" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="82" x="231" y="188.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="241" y="211.8857">Desktop</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,207.0391 221,207.0391 L231,207.0391 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="52" x="10" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="20" y="127.4404">Dart</text><path d="M112,122.5938 L102,122.5938 C87,122.5938 87,122.5938 72,122.5938 L62,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3fbcce3d07bce60913929400ff7a9f78]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="247px" preserveAspectRatio="none" style="width:332px;height:247px;background:#FFFFFF;" version="1.1" viewBox="0 0 332 247" width="332px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wbedaoqvqwn7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="69" x="112" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="122" y="127.4404">Flutter</text><rect fill="#FFA500" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="76" x="231" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="241" y="42.9951">Android</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,38.1484 221,38.1484 L231,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#ADD8E6" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="44" x="231" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="24" x="241" y="99.292">IOS</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,94.4453 221,94.4453 L231,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#90EE90" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="53" x="231" y="132.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="241" y="155.5889">Web</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,150.7422 221,150.7422 L231,150.7422 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#C0C0C0" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="82" x="231" y="188.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="241" y="211.8857">Desktop</text><path d="M181,122.5938 L191,122.5938 C206,122.5938 206,207.0391 221,207.0391 L231,207.0391 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1wbedaoqvqwn7)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="52" x="10" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="20" y="127.4404">Dart</text><path d="M112,122.5938 L102,122.5938 C87,122.5938 87,122.5938 72,122.5938 L62,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b3d435c91c3483e688c999a7d2a19222]
 @startmindmap
 scale 1
 *[#white] Flutter
@@ -727,7 +932,7 @@ scale 1
 - - Dart
 @endmindmap
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -740,7 +945,7 @@ Country: US
 <li>“Everything is a widget” 是指所有代码片段都可以用Widget表示，并非指Flutter只有Widget。有点类似函数第一性，Widget是Flutter的页面构成单位，Style，Animation，Lists，Text，Button…这些都可以用Widget 表示，Widget嵌套是Flutter的应用构建方式。举例来说，并没有一个统一的叫App的作为应用入口，所有的Widget理论上都可以作为应用的入口。Flutter当然也包含其他非Widget的对象。</li>
 <li>组合优于继承。实践中，很少通过继承方式扩展一个Widget。一般都通过组合Widget的方式构建特定的Widget对象。这有点类似React的方式。</li>
 </ol>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="162px" preserveAspectRatio="none" style="width:639px;height:162px;" version="1.1" viewBox="0 0 639 162" width="639px" zoomAndPan="magnify"><defs><filter height="300%" id="fgl30cg6hx7br" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="125" x="10" y="62.2227"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="20" y="85.2178">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="85" x="185" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="195" y="42.9951">stateless</text><path d="M135,80.3711 L145,80.3711 C160,80.3711 160,38.1484 175,38.1484 L185,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="80" x="185" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="195" y="99.292">stateful</text><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="130" x="315" y="48.1484"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="325" y="71.1436">StatefulWidget</text><path d="M265,94.4453 L275,94.4453 C290,94.4453 290,66.2969 305,66.2969 L315,66.2969 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="305" x="315" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="285" x="325" y="127.4404">State (setState() to info Flutter redraw)</text><path d="M265,94.4453 L275,94.4453 C290,94.4453 290,122.5938 305,122.5938 L315,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M135,80.3711 L145,80.3711 C160,80.3711 160,94.4453 175,94.4453 L185,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1ecd99347fe6ec1f09472848e13c75e4]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="162px" preserveAspectRatio="none" style="width:639px;height:162px;background:#FFFFFF;" version="1.1" viewBox="0 0 639 162" width="639px" zoomAndPan="magnify"><defs><filter height="300%" id="fgl30cg6hx7br" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="125" x="10" y="62.2227"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="20" y="85.2178">Flutter Widget</text><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="85" x="185" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="195" y="42.9951">stateless</text><path d="M135,80.3711 L145,80.3711 C160,80.3711 160,38.1484 175,38.1484 L185,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="80" x="185" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="195" y="99.292">stateful</text><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="130" x="315" y="48.1484"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="325" y="71.1436">StatefulWidget</text><path d="M265,94.4453 L275,94.4453 C290,94.4453 290,66.2969 305,66.2969 L315,66.2969 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgl30cg6hx7br)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="305" x="315" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="285" x="325" y="127.4404">State (setState() to info Flutter redraw)</text><path d="M265,94.4453 L275,94.4453 C290,94.4453 290,122.5938 305,122.5938 L315,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M135,80.3711 L145,80.3711 C160,80.3711 160,94.4453 175,94.4453 L185,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[28fb1e5f3f10a05a1204b44134ac2545]
 @startmindmap
 scale 1
 * Flutter Widget
@@ -750,7 +955,7 @@ scale 1
 *** State (setState() to info Flutter redraw)
 @endmindmap
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -759,10 +964,10 @@ Language: en
 Country: US
 --></g></svg>
 
-<h2 id="StateFul对象"><a href="#StateFul对象" class="headerlink" title="StateFul对象"></a>StateFul对象</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:334px;height:55px;" version="1.1" viewBox="0 0 334 55" width="334px" zoomAndPan="magnify"><defs><filter height="300%" id="fke25rg21a14k" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
+<h2 id="StateFul对象"><a href="#StateFul对象" class="headerlink" title="StateFul对象"></a>StateFul对象</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="55px" preserveAspectRatio="none" style="width:334px;height:55px;background:#FFFFFF;" version="1.1" viewBox="0 0 334 55" width="334px" zoomAndPan="magnify"><defs><filter height="300%" id="fke25rg21a14k" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
 entity Constructor--><rect fill="#FEFECE" filter="url(#fke25rg21a14k)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="106" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="17" y="29.9951">Constructor</text><!--MD5=[cccba53149f5b099d0c995634edd2485]
 entity wCreate--><rect fill="#FEFECE" filter="url(#fke25rg21a14k)" height="36.2969" style="stroke:#000000;stroke-width:1.5;" width="174" x="148" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="158" y="29.9951">Widget.createState()</text><!--MD5=[363b16ece5387538213ac5e6c4d9ce24]
-link Constructor to wCreate--><path d="M113.32,25 C123.034,25 132.749,25 142.463,25 " fill="none" id="Constructor-to-wCreate" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147.543,25,138.543,21,142.543,25,138.543,29,147.543,25" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[433ff61af700b223748e2bca73ff8f76]
+link Constructor to wCreate--><path d="M113.32,25 C123.034,25 132.749,25 142.463,25 " fill="none" id="Constructor-to-wCreate" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147.543,25,138.543,21,142.543,25,138.543,29,147.543,25" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4476eb7d96091582fa4d97ad92359bf1]
 @startuml
 rectangle Constructor
 rectangle "Widget.createState()" as wCreate
@@ -770,7 +975,7 @@ rectangle "Widget.createState()" as wCreate
 Constructor -r-> wCreate
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -779,7 +984,7 @@ Language: en
 Country: US
 --></g></svg>
 <br>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="90.6px" preserveAspectRatio="none" style="width:499px;height:90px;" version="1.1" viewBox="0 0 499 90" width="499.2px" zoomAndPan="magnify"><defs><filter height="300%" id="fv4bjv3lra928" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.2"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="2.4" dy="2.4" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter><linearGradient id="gv4bjv3lra9280" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#808080"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="90.6px" preserveAspectRatio="none" style="width:499px;height:90px;background:#FFFFFF;" version="1.1" viewBox="0 0 499 90" width="499.2px" zoomAndPan="magnify"><defs><filter height="300%" id="fv4bjv3lra928" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.2"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="2.4" dy="2.4" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter><linearGradient id="gv4bjv3lra9280" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#808080"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><g><!--MD5=[b05d86652fa01754f67ac75a854ae8b5]
 entity Constructor--><rect fill="#FEFECE" filter="url(#fv4bjv3lra928)" height="21.7781" style="stroke:#000000;stroke-width:0.8999999999999999;" width="63.6" x="4.2" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="51.6" x="10.2" y="17.9971">Constructor</text><!--MD5=[99fd7391e5dd70fd5b5f804fc10d8688]
 entity mounted--><rect fill="url(#gv4bjv3lra9280)" filter="url(#fv4bjv3lra928)" height="21.7781" style="stroke:#000000;stroke-width:0.8999999999999999;" width="51" x="89.1" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="39" x="95.1" y="17.9971">mounted</text><!--MD5=[d5188574bc62afd6d53a507efb2aef9e]
 entity initState--><rect fill="#FEFECE" filter="url(#fv4bjv3lra928)" height="21.7781" style="stroke:#000000;stroke-width:0.8999999999999999;" width="50.4" x="161.4" y="4.2"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="38.4" x="167.4" y="17.9971">initState</text><!--MD5=[a43635f50927eeb5f0235179d32a7eb9]
@@ -801,7 +1006,7 @@ link clean_state to dispose--><path d="M426.2694,15 C432.2064,15 438.1434,15 444
 link clean_state to setState--><path d="M395.8902,25.9446 C395.7924,35.0875 395.6502,48.4841 395.544,58.4746 " fill="none" id="clean_state-to-setState" style="stroke:#A80036;stroke-width:0.6;"/><polygon fill="#A80036" points="395.5092,61.721,397.9666,56.3469,395.5412,58.7212,393.1669,56.2957,395.5092,61.721" style="stroke:#A80036;stroke-width:0.6;"/><!--MD5=[0558b8a16bb33b8d8e1a0aef01db4f84]
 reverse link dirty_state to setState--><path d="M288.72,27.0317 C312.8694,37.2115 347.8794,51.969 371.1246,61.7672 " fill="none" id="dirty_state-backto-setState" style="stroke:#A80036;stroke-width:0.6;"/><polygon fill="#A80036" points="285.8304,25.8136,289.8736,30.1232,288.5947,26.9793,291.7386,25.7003,285.8304,25.8136" style="stroke:#A80036;stroke-width:0.6;"/><!--MD5=[afe4cd7666f1e0fbf8907ba1e29c0883]
 link clean_state to didUpdateState--><path d="M380.1366,25.8136 C365.2218,35.4162 342.8898,49.7942 327.1116,59.9528 " fill="none" id="clean_state-to-didUpdateState" style="stroke:#A80036;stroke-width:0.6;"/><polygon fill="#A80036" points="324.4416,61.6718,330.2811,60.7661,326.9639,60.0476,327.6824,56.7304,324.4416,61.6718" style="stroke:#A80036;stroke-width:0.6;"/><!--MD5=[6f88237c58600627f141d76b2c215f65]
-reverse link dirty_state to didUpdateState--><path d="M272.2386,28.4212 C280.6038,38.5022 292.1034,52.3606 299.8704,61.721 " fill="none" id="dirty_state-backto-didUpdateState" style="stroke:#A80036;stroke-width:0.6;"/><polygon fill="#A80036" points="270.1836,25.9446,271.7854,31.6327,272.0995,28.2531,275.4791,28.5672,270.1836,25.9446" style="stroke:#A80036;stroke-width:0.6;"/><!--MD5=[89899913011ffa7579734fe378258883]
+reverse link dirty_state to didUpdateState--><path d="M272.2386,28.4212 C280.6038,38.5022 292.1034,52.3606 299.8704,61.721 " fill="none" id="dirty_state-backto-didUpdateState" style="stroke:#A80036;stroke-width:0.6;"/><polygon fill="#A80036" points="270.1836,25.9446,271.7854,31.6327,272.0995,28.2531,275.4791,28.5672,270.1836,25.9446" style="stroke:#A80036;stroke-width:0.6;"/><!--MD5=[483f5b711b611701fec85339bee7c113]
 @startuml
 scale 0.6
 rectangle Constructor 
@@ -832,7 +1037,7 @@ clean_state -d-> didUpdateState
 didUpdateState -u-> dirty_state
 @enduml
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -843,7 +1048,7 @@ Country: US
 
 
 
-<h2 id="Application-Style"><a href="#Application-Style" class="headerlink" title="Application Style"></a>Application Style</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="136px" preserveAspectRatio="none" style="width:460px;height:136px;" version="1.1" viewBox="0 0 460 136" width="460px" zoomAndPan="magnify"><defs><filter height="300%" id="fetwldjqhooje" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="92" x="169.5" y="10"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72" x="179.5" y="31.1387">Flutter Style</text><line style="stroke:#A80036;stroke-width:1.5;" x1="215.5" x2="215.5" y1="43.9688" y2="63.9688"/><line style="stroke:#A80036;stroke-width:1.5;" x1="99.5" x2="99.5" y1="63.9688" y2="83.9688"/><rect fill="#ADD8E6" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="179" x="10" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="159" x="20" y="105.1074">Material Design ( Google )</text><line style="stroke:#A80036;stroke-width:1.5;" x1="325" x2="325" y1="63.9688" y2="83.9688"/><rect fill="#FFA500" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="232" x="209" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="212" x="219" y="105.1074">Cupertion (IOS Style, less widgets)</text><line style="stroke:#A80036;stroke-width:1.5;" x1="99.5" x2="325" y1="63.9688" y2="63.9688"/><!--MD5=[6ab3f3c6276b274fd446e7d4cbf4235f]
+<h2 id="Application-Style"><a href="#Application-Style" class="headerlink" title="Application Style"></a>Application Style</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="136px" preserveAspectRatio="none" style="width:460px;height:136px;background:#FFFFFF;" version="1.1" viewBox="0 0 460 136" width="460px" zoomAndPan="magnify"><defs><filter height="300%" id="fetwldjqhooje" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="92" x="169.5" y="10"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72" x="179.5" y="31.1387">Flutter Style</text><line style="stroke:#A80036;stroke-width:1.5;" x1="215.5" x2="215.5" y1="43.9688" y2="63.9688"/><line style="stroke:#A80036;stroke-width:1.5;" x1="99.5" x2="99.5" y1="63.9688" y2="83.9688"/><rect fill="#ADD8E6" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="179" x="10" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="159" x="20" y="105.1074">Material Design ( Google )</text><line style="stroke:#A80036;stroke-width:1.5;" x1="325" x2="325" y1="63.9688" y2="83.9688"/><rect fill="#FFA500" filter="url(#fetwldjqhooje)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="232" x="209" y="83.9688"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="212" x="219" y="105.1074">Cupertion (IOS Style, less widgets)</text><line style="stroke:#A80036;stroke-width:1.5;" x1="99.5" x2="325" y1="63.9688" y2="63.9688"/><!--MD5=[162a45e74e17eaf000cc5a2e9e7a9717]
 @startwbs
 <style>
 wbsDiagram {
@@ -865,7 +1070,7 @@ wbsDiagram {
 ** Cupertion (IOS Style, less widgets) <<orange>>
 @endwbs
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -878,7 +1083,7 @@ Country: US
 
 
 
-<h2 id="Widget类型"><a href="#Widget类型" class="headerlink" title="Widget类型"></a>Widget类型</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="725px" preserveAspectRatio="none" style="width:525px;height:725px;" version="1.1" viewBox="0 0 525 725" width="525px" zoomAndPan="magnify"><defs><filter height="300%" id="f1dwhfsqrtofu8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="10" y="343.707"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="20" y="366.7021">Flutter Widgets</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="68" x="192" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="202" y="127.4404">Layout</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="310" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="320" y="42.9951">Row</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,38.1484 300,38.1484 L310,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="74" x="310" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="320" y="99.292">Column</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,94.4453 300,94.4453 L310,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="79" x="310" y="132.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="320" y="155.5889">Scaffold</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,150.7422 300,150.7422 L310,150.7422 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="61" x="310" y="188.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="320" y="211.8857">Stack</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,207.0391 300,207.0391 L310,207.0391 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,122.5938 182,122.5938 L192,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="101" x="192" y="245.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="202" y="268.1826">Animations</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="110" x="343" y="245.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="353" y="268.1826">FadeInPhote</text><path d="M293,263.3359 L303,263.3359 C318,263.3359 318,263.3359 333,263.3359 L343,263.3359 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,263.3359 182,263.3359 L192,263.3359 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="95" x="192" y="357.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="202" y="380.7764">Structures</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="70" x="337" y="301.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="347" y="324.4795">Button</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,319.6328 327,319.6328 L337,319.6328 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="60" x="337" y="357.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="347" y="380.7764">Toast</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,375.9297 327,375.9297 L337,375.9297 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="109" x="337" y="414.0781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="347" y="437.0732">MenuDrawer</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,432.2266 327,432.2266 L337,432.2266 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,375.9297 182,375.9297 L192,375.9297 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="57" x="192" y="526.6719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="202" y="549.667">Style</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="90" x="299" y="470.375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="309" y="493.3701">TextStyle</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,488.5234 289,488.5234 L299,488.5234 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="58" x="299" y="526.6719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="309" y="549.667">Color</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,544.8203 289,544.8203 L299,544.8203 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="77" x="299" y="582.9688"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="309" y="605.9639">Padding</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,601.1172 289,601.1172 L299,601.1172 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,544.8203 182,544.8203 L192,544.8203 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="187" x="192" y="639.2656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="202" y="662.2607">Position and Alignment</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="70" x="429" y="611.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="439" y="634.1123">Center</text><path d="M379,657.4141 L389,657.4141 C404,657.4141 404,629.2656 419,629.2656 L429,629.2656 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="77" x="429" y="667.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="439" y="690.4092">Padding</text><path d="M379,657.4141 L389,657.4141 C404,657.4141 404,685.5625 419,685.5625 L429,685.5625 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,657.4141 182,657.4141 L192,657.4141 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[58c6293d269b613c407aa841c6c09ef8]
+<h2 id="Widget类型"><a href="#Widget类型" class="headerlink" title="Widget类型"></a>Widget类型</h2><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="725px" preserveAspectRatio="none" style="width:525px;height:725px;background:#FFFFFF;" version="1.1" viewBox="0 0 525 725" width="525px" zoomAndPan="magnify"><defs><filter height="300%" id="f1dwhfsqrtofu8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="132" x="10" y="343.707"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="20" y="366.7021">Flutter Widgets</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="68" x="192" y="104.4453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="202" y="127.4404">Layout</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="310" y="20"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="320" y="42.9951">Row</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,38.1484 300,38.1484 L310,38.1484 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="74" x="310" y="76.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="320" y="99.292">Column</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,94.4453 300,94.4453 L310,94.4453 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="79" x="310" y="132.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="320" y="155.5889">Scaffold</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,150.7422 300,150.7422 L310,150.7422 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="61" x="310" y="188.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="320" y="211.8857">Stack</text><path d="M260,122.5938 L270,122.5938 C285,122.5938 285,207.0391 300,207.0391 L310,207.0391 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,122.5938 182,122.5938 L192,122.5938 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="101" x="192" y="245.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="202" y="268.1826">Animations</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="110" x="343" y="245.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="353" y="268.1826">FadeInPhote</text><path d="M293,263.3359 L303,263.3359 C318,263.3359 318,263.3359 333,263.3359 L343,263.3359 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,263.3359 182,263.3359 L192,263.3359 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="95" x="192" y="357.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="202" y="380.7764">Structures</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="70" x="337" y="301.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="347" y="324.4795">Button</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,319.6328 327,319.6328 L337,319.6328 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="60" x="337" y="357.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="347" y="380.7764">Toast</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,375.9297 327,375.9297 L337,375.9297 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="109" x="337" y="414.0781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="347" y="437.0732">MenuDrawer</text><path d="M287,375.9297 L297,375.9297 C312,375.9297 312,432.2266 327,432.2266 L337,432.2266 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,375.9297 182,375.9297 L192,375.9297 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="57" x="192" y="526.6719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="202" y="549.667">Style</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="90" x="299" y="470.375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="309" y="493.3701">TextStyle</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,488.5234 289,488.5234 L299,488.5234 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="58" x="299" y="526.6719"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="309" y="549.667">Color</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,544.8203 289,544.8203 L299,544.8203 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="77" x="299" y="582.9688"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="309" y="605.9639">Padding</text><path d="M249,544.8203 L259,544.8203 C274,544.8203 274,601.1172 289,601.1172 L299,601.1172 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,544.8203 182,544.8203 L192,544.8203 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="187" x="192" y="639.2656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="202" y="662.2607">Position and Alignment</text><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="70" x="429" y="611.1172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="439" y="634.1123">Center</text><path d="M379,657.4141 L389,657.4141 C404,657.4141 404,629.2656 419,629.2656 L429,629.2656 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#f1dwhfsqrtofu8)" height="36.2969" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="77" x="429" y="667.4141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="439" y="690.4092">Padding</text><path d="M379,657.4141 L389,657.4141 C404,657.4141 404,685.5625 419,685.5625 L429,685.5625 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><path d="M142,361.8555 L152,361.8555 C167,361.8555 167,657.4141 182,657.4141 L192,657.4141 " fill="none" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1f418892584cb1884903940140210843]
 @startmindmap
 
 + Flutter Widgets
@@ -908,7 +1113,7 @@ Country: US
 
 @endmindmap
 
-PlantUML version 1.2021.2beta9(Unknown compile time)
+PlantUML version 1.2021.9beta2(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
@@ -1149,7 +1354,7 @@ Country: US
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
